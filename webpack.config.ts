@@ -11,6 +11,7 @@ const config: webpack.Configuration = {
     clean: true,
   },
   plugins: [
+    new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
     }),
