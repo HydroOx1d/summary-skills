@@ -19,7 +19,7 @@ const webpackConfig = (options: BuildOptions): webpack.Configuration => {
     },
     plugins: webpackPlugins(paths),
     module: {
-      rules: webpackLoaders(),
+      rules: webpackLoaders(options),
     },
     resolve: webpackResloves(),
     devServer: isDev ? webpackDevServer(options) : undefined,

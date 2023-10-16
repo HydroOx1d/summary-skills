@@ -1,8 +1,8 @@
-import "./App.scss"
+import styles from "./App.module.scss"
 
 export const App = () => {
   return (
-    <div className="App">
+    <div className={styles.App}>
       Hello webpack project
     </div>
   )
