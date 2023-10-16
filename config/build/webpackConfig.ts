@@ -1,4 +1,5 @@
 import { BuildOptions } from "./types/config";
+import { webpackDevServer } from "./webpackDevServer";
 import { webpackLoaders } from "./webpackLoaders";
 import { webpackPlugins } from "./webpackPlugins";
 import { webpackResloves } from "./webpackResloves";
@@ -6,7 +7,7 @@ import webpack from 'webpack';
 
 const webpackConfig = (options: BuildOptions): webpack.Configuration => {
 
-  const {mode, paths} = options;
+  const {mode, paths, isDev} = options;
 
   return {
     mode: mode,
@@ -21,6 +22,8 @@ const webpackConfig = (options: BuildOptions): webpack.Configuration => {
       rules: webpackLoaders(),
     },
     resolve: webpackResloves(),
+    devServer: isDev ? webpackDevServer(options) : undefined,
+    devtool: isDev ? "inline-source-map" : undefined,
   };
 }
 
