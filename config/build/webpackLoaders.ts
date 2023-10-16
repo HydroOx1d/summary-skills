@@ -1,6 +1,18 @@
 import webpack from 'webpack';
 
 const webpackLoaders = (): webpack.RuleSetRule[] => {
+  const cssLoader = {
+    test: /\.s[ac]ss$/i,
+    use: [
+      
+      "style-loader",
+      
+      "css-loader",
+      
+      "sass-loader",
+    ],
+  };
+  
   const tsLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
@@ -8,7 +20,8 @@ const webpackLoaders = (): webpack.RuleSetRule[] => {
   };
 
   return [
-    tsLoader
+    tsLoader,
+    cssLoader
   ];
 }
 
