@@ -4,7 +4,8 @@ import { BuildOptions } from "./types/config"
 const webpackDevServer = (options: BuildOptions): WebpackDevConfig => {
   return {
     port: options.port,
-    open: true
+    open: true,
+    historyApiFallback: true
   }
 }
 
