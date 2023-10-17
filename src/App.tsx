@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { ThemeContext } from "./theme/ThemeContext";
 import { useTheme } from "./theme/useTheme";
+import { classNames } from "./helpers/classNames";
 
 export const App = () => {
   const {theme, toggleTheme} = useTheme();
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames("app", {}, [theme] )}>
       <header>
         <Link to={"/"}>Главная</Link>
         <Link to={"/about"}>О нас</Link>
