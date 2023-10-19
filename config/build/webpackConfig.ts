@@ -21,7 +21,7 @@ const webpackConfig = (options: BuildOptions): webpack.Configuration => {
     module: {
       rules: webpackLoaders(options),
     },
-    resolve: webpackResloves(),
+    resolve: webpackResloves(options),
     devServer: isDev ? webpackDevServer(options) : undefined,
     devtool: isDev ? "inline-source-map" : undefined,
   };
