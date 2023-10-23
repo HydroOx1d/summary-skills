@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { classNames } from "shared/lib/classNames";
-import { Route, Routes } from "react-router-dom";
 import { useTheme } from "app/providers/ThemeProvider";
-import { HomePage } from "pages/home";
-import { AboutPage } from "pages/about";
+import { AppRouter } from "app/providers/router";
 
 export const App = () => {
   const {theme, toggleTheme} = useTheme();
@@ -16,12 +14,7 @@ export const App = () => {
         <Link to={"/about"}>О нас</Link>
         <button onClick={toggleTheme}>Theme</button>
       </header>
-      <React.Suspense fallback={<h1>Loading...</h1>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </React.Suspense>
+      <AppRouter/>
     </div>
   );
 };
