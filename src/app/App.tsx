@@ -1,20 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { classNames } from "shared/lib/classNames";
 import { useTheme } from "app/providers/ThemeProvider";
 import { AppRouter } from "app/providers/router";
+import { Navbar } from "widgets/Navbar";
 
 export const App = () => {
   const {theme, toggleTheme} = useTheme();
 
   return (
-    <div className={classNames("app", {}, [theme] )}>
-      <header>
-        <Link to={"/"}>Главная</Link>
-        <Link to={"/about"}>О нас</Link>
+    <div className={classNames("app", {}, [theme])}>
+      <header className="header">
+        <Navbar />
         <button onClick={toggleTheme}>Theme</button>
       </header>
-      <AppRouter/>
+      <main className="main">
+        <AppRouter />
+      </main>
     </div>
   );
 };

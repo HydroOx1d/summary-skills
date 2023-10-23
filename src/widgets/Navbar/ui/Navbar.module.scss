@@ -1,0 +1,16 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: var(--nav-height);
+  padding: 20px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  & > *:not(:last-child) {
+    margin-right: 10px;
+  }
+}
