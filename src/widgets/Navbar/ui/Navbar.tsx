@@ -5,12 +5,12 @@ import cls from './Navbar.module.scss';
 
 const Navbar = () => {
   return (
-    <div className={classNames(cls.Navbar)}>
+    <nav className={classNames(cls.Navbar)}>
       <div className={cls.links}>
         <Link to={"/"}>Главная</Link>
         <Link to={"/about"}>О нас</Link>
       </div>
-    </div>
+    </nav>
   );
 }
 

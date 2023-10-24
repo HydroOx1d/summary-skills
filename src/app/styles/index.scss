@@ -14,3 +14,11 @@ body {
   min-height: 100vh;
   overflow: auto;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: var(--header-height);
+}
