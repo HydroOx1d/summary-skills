@@ -22,9 +22,9 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
     <div className={classNames(cls.ThemeSwticher, {}, [className])}>
       <Button theme={ButtonTheme.CLEAR} onClick={toggleTheme}>
         {theme === Theme.LIGHT ? (
-          <SunIcon width={"24px"} height={"24px"} />
+          <SunIcon className={cls.icon} width={"24px"} height={"24px"} />
         ) : (
-          <MoonIcon width={"24px"} height={"24px"} />
+          <MoonIcon className={cls.icon} width={"24px"} height={"24px"} />
         )}
       </Button>
     </div>
