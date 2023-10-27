@@ -5,7 +5,8 @@ const webpackDevServer = (options: BuildOptions): WebpackDevConfig => {
   return {
     port: options.port,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   }
 }
 
