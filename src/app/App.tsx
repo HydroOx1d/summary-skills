@@ -9,14 +9,16 @@ export const App = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={classNames("app", {}, [theme])}>
-      <Navbar />
-      <main className="main">
-        <Sidebar />
-        <div className="page-content">
-          <AppRouter />
-        </div>
-      </main>
-    </div>
+    <React.Suspense fallback={<h1>Loading...</h1>}>
+      <div className={classNames("app", {}, [theme])}>
+        <Navbar />
+        <main className="main">
+          <Sidebar />
+          <div className="page-content">
+            <AppRouter />
+          </div>
+        </main>
+      </div>
+    </React.Suspense>
   );
 };

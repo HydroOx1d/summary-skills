@@ -5,6 +5,8 @@
   transition: width 150ms linear;
 
   position: relative;
+
+  container: sidebar / inline-size;
 }
 
 .collapsed {
@@ -17,4 +19,19 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  & > *:not(:last-child) {
+    margin: 0 10px 0 0;
+  }
+}
+
+@container sidebar (width <= 80px) {
+  .switchers {
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin: 0 0 10px 0;
+    }
+  }
 }

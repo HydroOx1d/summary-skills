@@ -11,7 +11,7 @@ interface ThemeSwitcherProps {
 }
 
 
-const ThemeSwitcher = (props: ThemeSwitcherProps) => {
+export const ThemeSwitcher = (props: ThemeSwitcherProps) => {
   const {
     className
   } = props
@@ -30,5 +30,3 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
     </div>
   );
 }
-
-export default ThemeSwitcher

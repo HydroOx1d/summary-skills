@@ -17,7 +17,7 @@ const webpackConfig = (options: BuildOptions): webpack.Configuration => {
       path: paths.build,
       clean: true,
     },
-    plugins: webpackPlugins(paths),
+    plugins: webpackPlugins(options),
     module: {
       rules: webpackLoaders(options),
     },
