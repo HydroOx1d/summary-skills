@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+
   & > *:not(:last-child) {
     margin-right: 10px;
   }

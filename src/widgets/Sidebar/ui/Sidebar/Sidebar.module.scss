@@ -3,9 +3,7 @@
   height: calc(100vh - var(--navbar-height));
   background-color: var(--bg-inverted-color);
   transition: width 150ms linear;
-
   position: relative;
-
   container: sidebar / inline-size;
 }
 
@@ -31,7 +29,7 @@
     flex-direction: column;
 
     & > *:not(:last-child) {
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
     }
   }
 }
