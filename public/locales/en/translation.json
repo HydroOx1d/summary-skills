@@ -2,5 +2,7 @@
   "language": "English",
   "mainLink": "Main",
   "aboutLink": "About us",
-  "notFound": "Page is not found"
+  "notFound": "Page is not found",
+  "pageError": "Something went wrong! Please, try to refresh the page",
+  "pageRefresh": "Refresh"
 }

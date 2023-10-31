@@ -8,6 +8,13 @@ import { Sidebar } from "widgets/Sidebar";
 export const App = () => {
 	const { theme } = useTheme();
 
+	React.useEffect(() => {
+		if (Math.random() < 0.5) {
+			throw new Error();
+		}
+	}, []);
+
+
 	return (
 		<React.Suspense fallback="">
 			<div className={classNames("app", {}, [theme])}>

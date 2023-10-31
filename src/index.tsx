@@ -1,8 +1,9 @@
 import { createRoot } from "react-dom/client";
-import { App } from "./app/App";
 import { BrowserRouter } from "react-router-dom";
-import "./app/styles/index.scss";
 import { ThemeProvider } from "app/providers/ThemeProvider";
+import { ErrorBoundary } from "app/providers/ErrorBoundary";
+import { App } from "./app/App";
+import "./app/styles/index.scss";
 
 import "shared/config/langConfig/langConfig";
 
@@ -11,8 +12,10 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
 	<BrowserRouter>
-		<ThemeProvider>
-			<App />
-		</ThemeProvider>
+		<ErrorBoundary>
+			<ThemeProvider>
+				<App />
+			</ThemeProvider>
+		</ErrorBoundary>
 	</BrowserRouter>
 );
