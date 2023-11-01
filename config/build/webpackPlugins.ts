@@ -1,6 +1,7 @@
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { BuildOptions } from "./types/config";
 
@@ -18,7 +19,8 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 		new MiniCssExtractPlugin({
 			filename: "css/[name].[contenthash:8].css",
 			chunkFilename: "css/[name].[contenthash8].css"
-		})
+		}),
+		new BundleAnalyzerPlugin()
 	];
 };
 
