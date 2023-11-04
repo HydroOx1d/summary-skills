@@ -4,6 +4,7 @@
  */
 
 import type {Config} from "jest";
+import path from "path";
 
 const config: Config = {
 	// All imported modules in your tests should be mocked automatically
@@ -22,6 +23,7 @@ const config: Config = {
 	testEnvironment: "jest-environment-jsdom",
 	coveragePathIgnorePatterns: ["/node_modules/"],
 	moduleDirectories: ["node_modules"],
+	modulePaths: ["<rootDir>/src/"],
 	moduleFileExtensions: [
 		"js",
 		"mjs",
@@ -33,7 +35,11 @@ const config: Config = {
 		"node",
 	],
 	testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
-
+	transform: {
+		".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
+		"^.+\\.svg$": "<rootDir>/config/jest/svgTransformer.ts",
+	},
+	setupFilesAfterEnv: ["<rootDir>/config/jest/setupTests.ts"],
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 

@@ -8,7 +8,7 @@ interface LangSwitcher {
   className?: string
 }
 
-export const LangSwitcher: React.FC<LangSwitcher> = (props) => {
+const LangSwitcher: React.FC<LangSwitcher> = (props) => {
 	const {
 		className
 	} = props;
@@ -29,3 +29,5 @@ export const LangSwitcher: React.FC<LangSwitcher> = (props) => {
 		</Button>
 	);
 };
+
+export default LangSwitcher;

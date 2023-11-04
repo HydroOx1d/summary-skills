@@ -1,14 +1,14 @@
 import React from "react";
 import cls from "./Sidebar.module.scss";
 import { classNames } from "shared/lib/classNames/className";
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher";
-import { LangSwitcher } from "shared/ui/LangSwitcher/LangSwitcher";
+import ThemeSwitcher  from "shared/ui/ThemeSwitcher/ThemeSwitcher";
+import LangSwitcher  from "shared/ui/LangSwitcher/LangSwitcher";
 
 interface SiderbarProps {
   className?: string;
 }
 
-export const Sidebar: React.FC<SiderbarProps> = (props) => {
+const Sidebar: React.FC<SiderbarProps> = (props) => {
 	const {
 		className
 	} = props;
@@ -17,11 +17,12 @@ export const Sidebar: React.FC<SiderbarProps> = (props) => {
 
 	return (
 		<div
+			data-testid="sidebar"
 			className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
 				className,
 			])}
 		>
-			<button onClick={() => setCollpased((prev) => !prev)}>Collapse</button>
+			<button data-testid="sidebar-collapse-btn" onClick={() => setCollpased((prev) => !prev)}>Collapse</button>
 			<div className={cls.switchers}>
 				<ThemeSwitcher />
 				<LangSwitcher/>
@@ -29,3 +30,5 @@ export const Sidebar: React.FC<SiderbarProps> = (props) => {
 		</div>
 	);
 };
+
+export default Sidebar;
