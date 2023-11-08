@@ -11,3 +11,9 @@
   border: none;
   outline: none;
 }
+
+.outline {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  padding: 5px;
+}

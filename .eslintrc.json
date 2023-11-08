@@ -8,7 +8,8 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "plugin:storybook/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -36,6 +37,8 @@
             "error",
             "always"
         ],
-        "@typescript-eslint/no-unused-vars": ["warn"]
+        "@typescript-eslint/no-unused-vars": [
+            "warn"
+        ]
     }
 }

@@ -1,6 +1,6 @@
 import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from "./types/config";
+import cssLoaders from "./loaders/cssLoad";
 
 
 const webpackLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
@@ -8,6 +8,8 @@ const webpackLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
 		test: /\.svg$/,
 		use: ["@svgr/webpack"],
 	};
+
+	const cssLoader = cssLoaders(options.isDev);
 
 	const babelLoader = {
 		test: /\.(ts|tsx)$/,
@@ -19,27 +21,6 @@ const webpackLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
 			},
 		},
 	};
-
-	const cssLoader = {
-		test: /\.s[ac]ss$/i,
-		use: [
-			// Создаем отдельный css файл только в production режиме
-			options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-
-			{
-				loader: "css-loader",
-				options: {
-					modules: {
-						// Делаем уникальным только те классы, которые содержатся в example.module.scss|sass
-						auto: (s: string) => Boolean(s.includes(".module.")),
-						localIdentName: options.isDev ? "[path][name]__[local]--[hash:base64:5]" : "[hash:base64:8]",
-					},
-				},
-			},
-
-			"sass-loader",
-		],
-	};
   
 	const tsLoader = {
 		test: /\.tsx?$/,
@@ -47,12 +28,7 @@ const webpackLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
 		exclude: /node_modules/,
 	};
 
-	return [
-		svgLoader,
-		babelLoader,
-		tsLoader,
-		cssLoader
-	];
+	return [svgLoader, babelLoader, tsLoader, cssLoader];
 };
 
 export {

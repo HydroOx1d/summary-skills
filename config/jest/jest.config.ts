@@ -37,7 +37,7 @@ const config: Config = {
 	testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[tj]s?(x)"],
 	transform: {
 		".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
-		"^.+\\.svg$": "<rootDir>/config/jest/svgTransformer.ts",
+		"^.+\\.svg$": "<rootDir>/config/jest/svgTransformer.js",
 	},
 	setupFilesAfterEnv: ["<rootDir>/config/jest/setupTests.ts"],
 	// Indicates whether the coverage information should be collected while executing the test
