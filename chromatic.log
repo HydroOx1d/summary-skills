@@ -1,0 +1,93 @@
+
+Chromatic CLI v7.6.0
+https://www.chromatic.com/docs/cli
+
+Authenticating with Chromatic
+    → Connecting to https://index.chromatic.com
+Authenticated with Chromatic
+    → Using project token '****************44c5'
+Retrieving git information
+Retrieved git information
+    → Commit '7c9a11a' on branch 'master'; found 1 parent build
+Collecting Storybook metadata
+Collected Storybook metadata
+    → Storybook 7.5.3 for React; using the unknown builder (0); supported addons found: Unknown
+Initializing build
+Initialized build
+    → Build 3 initialized
+Building your Storybook
+    → Running command: npm run build-storybook -- --output-dir /tmp/chromatic--13312-YMvicICRLdqN
+Storybook built in 43 seconds
+    → View build log at /home/nurs/Desktop/projects/ulbitv-course/build-storybook.log
+Publish your built Storybook
+    → Validating Storybook files
+Publishing your built Storybook
+    → Retrieving target location
+    → Starting publish
+    → [                    ] 0%
+    → [==                  ] 10%
+    → [===                 ] 14%
+    → [====                ] 18%
+    → [====                ] 19%
+    → [=====               ] 27%
+    → [=========           ] 45%
+    → [=========           ] 46%
+    → [=========           ] 47%
+    → [==========          ] 48%
+    → [==========          ] 50%
+    → [==========          ] 51%
+    → [==========          ] 52%
+    → [===========         ] 53%
+    → [===========         ] 54%
+    → [===========         ] 55%
+    → [============        ] 58%
+    → [============        ] 59%
+    → [============        ] 60%
+    → [============        ] 61%
+    → [=============       ] 63%
+    → [=============       ] 65%
+    → [==============      ] 68%
+    → [==============      ] 71%
+    → [==============      ] 72%
+    → [===============     ] 73%
+    → [===============     ] 74%
+    → [===============     ] 77%
+    → [=================   ] 83%
+    → [=================   ] 86%
+    → [==================  ] 90%
+    → [==================  ] 92%
+    → [=================== ] 93%
+    → [=================== ] 94%
+    → [=================== ] 96%
+    → [====================] 98%
+    → [====================] 99%
+Publish complete in 11 seconds
+    → View your Storybook at https://654cb6dda1039e57f34d3d2b-fprnxrtvjf.chromatic.com
+Verifying your Storybook
+    → This may take a few minutes
+Started build 3
+    → View build details at https://www.chromatic.com/build?appId=654cb6dda1039e57f34d3d2b&number=3
+Running 22 tests
+    → This may take a few minutes
+ℹ Speed up Continuous Integration
+Your project is linked to GitHub so Chromatic will report results there.
+This means you can pass the --exit-once-uploaded flag to skip waiting for build results.
+Read more here: https://www.chromatic.com/docs/cli#chromatic-options
+    → [=                   ] 1/22  About › Light 
+    → [===                 ] 3/22  Home › Light 
+    → [=====               ] 5/22  NotFound › Light 
+    → [========            ] 9/22  AppLink › Secondary 
+    → [==========          ] 11/22  Button › Default 
+    → [===========         ] 12/22  Button › Clear 
+    → [==============      ] 15/22  Loader › Normal 
+    → [=================   ] 19/22  PageError › Light 
+    → [==================  ] 20/22  PageError › Dark 
+    → [=================== ] 21/22  Sidebar › Light 
+    → [====================] 22/22  Sidebar › Dark 
+✔ Build 3 passed!
+No visual changes were found in this build.
+ℹ View build details at https://www.chromatic.com/build?appId=654cb6dda1039e57f34d3d2b&number=3
+Build 3 passed!
+    → Tested 22 stories across 9 components; captured 22 snapshots in 24 seconds
+
+
