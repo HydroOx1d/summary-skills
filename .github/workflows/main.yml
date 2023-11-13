@@ -1,0 +1,23 @@
+name: testing
+on: 
+  push:
+    branches: [master]
+  pull_request: 
+    branches: [master]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+      - name: Get Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: Install node_modules
+        uses: npm install
+      - name: Unit testing the application
+        uses: npm run test:unit
