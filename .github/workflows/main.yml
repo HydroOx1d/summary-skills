@@ -1,11 +1,11 @@
-name: testing
+name: Main Workflow
 on: 
   push:
     branches: [master]
   pull_request: 
     branches: [master]
 jobs:
-  pipeline:
+  unit-testing:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,3 +21,24 @@ jobs:
         run: npm install
       - name: Unit testing the application
         run: npm run test:unit
+  ui-testing:
+    runs-on: ubuntu-latest
+    needs: unit-testing
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: Install node_modules
+        run: npm install
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
