@@ -6,9 +6,7 @@ import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { BuildOptions } from "./types/config";
 
 const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
-	return [
-		new webpack.HotModuleReplacementPlugin(),
-		new ReactRefreshPlugin(),
+	const plugins = [
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(options.isDev)
 		}),
@@ -19,9 +17,16 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 		new MiniCssExtractPlugin({
 			filename: "css/[name].[contenthash:8].css",
 			chunkFilename: "css/[name].[contenthash8].css"
-		}),
-		new BundleAnalyzerPlugin()
+		})
 	];
+
+	if (options.isDev) {
+		plugins.push(new BundleAnalyzerPlugin());
+		plugins.push(new webpack.HotModuleReplacementPlugin());
+		plugins.push(new ReactRefreshPlugin());
+	}
+	
+	return plugins;
 };
 
 export {webpackPlugins};
