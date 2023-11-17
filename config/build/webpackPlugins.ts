@@ -7,6 +7,11 @@ import { BuildOptions } from "./types/config";
 
 const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
 	const plugins = [
+		new BundleAnalyzerPlugin({
+			openAnalyzer: options.isDev,
+			analyzerMode: options.isDev ? "server": "static",
+			reportFilename: "bundleInfo.html"
+		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(options.isDev)
 		}),
@@ -21,7 +26,6 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 	];
 
 	if (options.isDev) {
-		plugins.push(new BundleAnalyzerPlugin());
 		plugins.push(new webpack.HotModuleReplacementPlugin());
 		plugins.push(new ReactRefreshPlugin());
 	}
