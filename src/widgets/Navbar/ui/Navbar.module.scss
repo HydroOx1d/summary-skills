@@ -6,13 +6,3 @@
   background-color: var(--bg-inverted-color);
   min-height: var(--navbar-height);
 }
-
-.links {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-
-  & > *:not(:last-child) {
-    margin-right: 10px;
-  }
-}

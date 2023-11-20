@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import Button, { ButtonTheme } from "./Button";
+import Button, { ButtonTheme, SizesButton } from "./Button";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -34,6 +34,22 @@ export const Outline: Story = {
 	}
 };
 
+export const OutlineSizeL: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		theme: ButtonTheme.OUTLINE,
+		size: SizesButton.L
+	},
+};
+
+export const OutlineSizeXL: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		theme: ButtonTheme.OUTLINE,
+		size: SizesButton.XL,
+	},
+};
+
 export const OutlineDark: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
@@ -42,4 +58,57 @@ export const OutlineDark: Story = {
 	decorators: [
 		ThemeDecorator(Theme.DARK)
 	]
+};
+
+export const Background: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		theme: ButtonTheme.BACKGROUND,
+	},
+};
+
+export const BackgroundInverted: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		theme: ButtonTheme.BACKGROUND_INVERTED,
+	},
+};
+
+export const Square: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		children: ">",
+		theme: ButtonTheme.BACKGROUND_INVERTED,
+		square: true
+	},
+};
+
+export const SquareSizeM: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		children: ">",
+		theme: ButtonTheme.BACKGROUND_INVERTED,
+		square: true,
+		size: SizesButton.M
+	},
+};
+
+export const SquareSizeL: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		children: ">",
+		theme: ButtonTheme.BACKGROUND_INVERTED,
+		square: true,
+		size: SizesButton.L,
+	},
+};
+
+export const SquareSizeXL: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		children: ">",
+		theme: ButtonTheme.BACKGROUND_INVERTED,
+		square: true,
+		size: SizesButton.XL,
+	},
 };
