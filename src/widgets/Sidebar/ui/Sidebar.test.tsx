@@ -1,16 +1,16 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { renderWithTranslations } from "shared/lib/tests/renderWithTranslations/renderWithTranslations";
+import { renderTestComponent } from "shared/lib/tests/renderTestComponent/renderTestComponent";
 import Sidebar from "widgets/Sidebar/ui/Sidebar";
 
 describe("Sidebar", () => {
 	test("first render component", () => {
-		renderWithTranslations(<Sidebar/>);
+		renderTestComponent(<Sidebar/>, { route: "/" });
 
 		expect(screen.queryByTestId("sidebar")).toBeInTheDocument();
 	});
 
 	test("collapse sidebar", () => {
-		renderWithTranslations(<Sidebar/>);
+		renderTestComponent(<Sidebar />, { route: "/" });
 
 		const $el = screen.queryByTestId("sidebar");
 		const $collapseBtn = screen.queryByTestId("sidebar-collapse-btn");

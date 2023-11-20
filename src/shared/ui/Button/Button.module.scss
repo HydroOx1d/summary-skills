@@ -1,5 +1,4 @@
 .Button {
-  display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -43,11 +42,13 @@
   height: var(--font-line-m);
   font: var(--font-m);
 }
+
 .square.size_l {
   width: var(--font-line-l);
   height: var(--font-line-l);
   font: var(--font-l);
 }
+
 .square.size_xl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
@@ -57,9 +58,11 @@
 .size_m {
   font: var(--font-m);
 }
+
 .size_l {
   font: var(--font-l);
 }
+
 .size_xl {
   font: var(--font-xl);
 }
