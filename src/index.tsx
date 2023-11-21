@@ -6,16 +6,19 @@ import { App } from "./app/App";
 import "./app/styles/index.scss";
 
 import "shared/config/langConfig/langConfig";
+import { StoreProvider } from "app/providers/store";
 
 const root = createRoot(document.getElementById("root"));
 
 
 root.render(
-	<BrowserRouter>
-		<ErrorBoundary>
-			<ThemeProvider>
-				<App />
-			</ThemeProvider>
-		</ErrorBoundary>
-	</BrowserRouter>
+	<StoreProvider>
+		<BrowserRouter>
+			<ErrorBoundary>
+				<ThemeProvider>
+					<App />
+				</ThemeProvider>
+			</ErrorBoundary>
+		</BrowserRouter>
+	</StoreProvider>
 );
