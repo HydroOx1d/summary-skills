@@ -6,5 +6,7 @@
   "pageError": "Something went wrong! Please, try to refresh the page",
   "pageRefresh": "Refresh",
   "shortLanguage": "En",
-  "login": "Login"
+  "login": "Login",
+  "loginFormUsername": "User name",
+  "loginFormPassword": "Password"
 }

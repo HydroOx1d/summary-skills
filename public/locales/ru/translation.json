@@ -6,5 +6,7 @@
   "pageError": "Что-то пошло не так! Пожалуйста, попробуй обновить страницу",
   "pageRefresh": "Обновить",
   "shortLanguage": "Ру",
-  "login": "Войти"
+  "login": "Войти",
+  "loginFormUsername": "Имя пользователя",
+  "loginFormPassword": "Пароль"
 }
