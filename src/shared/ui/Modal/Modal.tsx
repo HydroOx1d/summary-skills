@@ -8,6 +8,7 @@ interface ModalProps {
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+	lazy?: boolean;
 }
 
 const Modal = (props: React.PropsWithChildren<ModalProps> ) => {
@@ -15,10 +16,12 @@ const Modal = (props: React.PropsWithChildren<ModalProps> ) => {
 		children,
 		className,
 		isOpen = false,
-		onClose
+		onClose,
+		lazy
 	} = props;
 
 	const {theme} = useTheme();
+	const [isMounted, setIsMounted] = React.useState(false);
 
 	const closeHandle = React.useCallback(() => {
 		if (onClose) {
@@ -41,6 +44,16 @@ const Modal = (props: React.PropsWithChildren<ModalProps> ) => {
 			window.removeEventListener("keydown", onKeyDown);
 		};
 	}, [isOpen, onKeyDown]);
+
+	React.useEffect(() => {
+		if(isOpen) {
+			setIsMounted(true);
+		}
+	}, [isOpen]);
+
+	if(lazy && !isMounted) {
+		return null;
+	}
 
 	return (
 		<Portal>
