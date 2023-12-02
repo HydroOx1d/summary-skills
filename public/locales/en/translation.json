@@ -8,5 +8,8 @@
   "shortLanguage": "En",
   "login": "Login",
   "loginFormUsername": "User name",
-  "loginFormPassword": "Password"
+  "loginFormPassword": "Password",
+  "authForm": "Auth form",
+  "authError": "Your login or password is wrong",
+  "logout": "Logout"
 }

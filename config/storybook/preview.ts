@@ -1,4 +1,3 @@
-import React from "react";
 import type { Preview } from "@storybook/react";
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator";
 import { Theme } from "../../src/app/providers/ThemeProvider";
@@ -19,7 +18,7 @@ const preview: Preview = {
 	decorators: [
 		ThemeDecorator(Theme.LIGHT),
 		RouteDecorator(),
-		LangDecorator()
+		LangDecorator(),
 	],
 };
 
