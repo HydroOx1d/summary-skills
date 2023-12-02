@@ -1,5 +1,9 @@
-import LoginForm from "./ui/LoginForm/LoginForm";
+import type { LoginSchema } from "./model/types/loginSchema";
+import { loginReducer } from "./model/slice/loginSlice";
+import LoginModal from "./ui/LoginModal/LoginModal";
 
 export {
-	LoginForm
+	LoginModal,
+	LoginSchema,
+	loginReducer,
 };

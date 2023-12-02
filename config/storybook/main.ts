@@ -23,8 +23,10 @@ const config: StorybookConfig = {
 
 	async webpackFinal(config: webpack.Configuration) {
 
-		config.resolve.modules.push(path.resolve(__dirname, "..", "..", "src"));
-		config.resolve.extensions.push("ts", "tsx");
+		config.resolve.modules.push(
+			path.resolve(__dirname, "..", "..", "src")
+		);
+		config.resolve.extensions.push(".tsx", ".ts", ".js");
 		config.module.rules.push(cssLoader(true));
 
 		config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
