@@ -12,7 +12,7 @@ const Loader = (props: LoaderProps) => {
 	} = props;
   
 	return (
-		<span className={classNames("loader", {}, [className])}></span>
+		<div className={classNames("loader", {}, [className])}></div>
 	);
 };
 
