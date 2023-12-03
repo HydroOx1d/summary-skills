@@ -1,83 +1,49 @@
 .loader {
-  transform: rotateZ(45deg);
-  perspective: 1000px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  color: var(--inverted-color);
+  position: relative;
+  animation: rotate 1s linear infinite;
 }
 
 .loader::before,
 .loader::after {
   content: "";
-  display: block;
+  box-sizing: border-box;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: inherit;
-  height: inherit;
+  inset: 0;
   border-radius: 50%;
-  transform: rotateX(70deg);
-  animation: 1s spin linear infinite;
+  border: 5px solid #fff;
+  animation: prix-clip-fix 2s linear infinite;
 }
 
 .loader::after {
-  color: #ff3d00;
-  transform: rotateY(70deg);
-  animation-delay: 0.4s;
+  inset: 8px;
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: #ff3d00;
 }
 
 @keyframes rotate {
   0% {
-    transform: translate(-50%, -50%) rotateZ(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    transform: translate(-50%, -50%) rotateZ(360deg);
+    transform: rotate(360deg);
   }
 }
 
-@keyframes rotateccw {
+@keyframes prix-clip-fix {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(-360deg);
-  }
-}
-
-@keyframes spin {
-  0%,
-  100% {
-    box-shadow: 0.2em 0 0 0 currentcolor;
-  }
-
-  12% {
-    box-shadow: 0.2em 0.2em 0 0 currentcolor;
-  }
-
-  25% {
-    box-shadow: 0 0.2em 0 0 currentcolor;
-  }
-
-  37% {
-    box-shadow: -0.2em 0.2em 0 0 currentcolor;
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
   }
 
   50% {
-    box-shadow: -0.2em 0 0 0 currentcolor;
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
   }
 
-  62% {
-    box-shadow: -0.2em -0.2em 0 0 currentcolor;
-  }
-
-  75% {
-    box-shadow: 0 -0.2em 0 0 currentcolor;
-  }
-
-  87% {
-    box-shadow: 0.2em -0.2em 0 0 currentcolor;
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
   }
 }

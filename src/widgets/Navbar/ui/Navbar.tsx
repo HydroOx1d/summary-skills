@@ -43,7 +43,9 @@ const Navbar = () => {
 				<Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
 					{t("login")}
 				</Button>
-				<LoginModal isOpen={modalIsAuth} onClose={onCloseModal}/>
+				{modalIsAuth && (
+					<LoginModal isOpen={modalIsAuth} onClose={onCloseModal} />
+				)}
 			</div>
 		</nav>
 	);
