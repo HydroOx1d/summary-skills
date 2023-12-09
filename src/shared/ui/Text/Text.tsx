@@ -7,7 +7,7 @@ export enum TextTheme {
   ERROR = "error"
 }
 
-interface TextProps {
+interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   title?: string;
   text?: string;
