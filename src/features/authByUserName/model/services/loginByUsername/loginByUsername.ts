@@ -17,7 +17,7 @@ export const loginByUsername = createAsyncThunk<User, LoginData, {rejectValue: s
 		});
 
 		if (!response.data) {
-			throw new Error();
+			throw new Error("no user");
 		}
 
 		thunkAPI.dispatch(userActions.setAuthData(response.data));

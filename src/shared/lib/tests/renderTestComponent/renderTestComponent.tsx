@@ -1,4 +1,4 @@
-import { DeepPartial } from "@reduxjs/toolkit";
+import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit";
 import { render } from "@testing-library/react";
 import { StateSchema, StoreProvider } from "app/providers/store";
 import { ReactNode } from "react";
@@ -8,17 +8,19 @@ import i18n from "shared/config/langConfig/langConfigForTests";
 
 interface RenderWithRouterOptions {
 	route?: string,
-	initialState?: DeepPartial<StateSchema>
+	initialState?: DeepPartial<StateSchema>,
+	asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
 const renderTestComponent = (component: ReactNode, options: RenderWithRouterOptions = {}) => {
 	const {
 		route = "/",
-		initialState
+		initialState,
+		asyncReducers
 	} = options;
 	
 	return render(
-		<StoreProvider initialState={initialState}>
+		<StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
 			<MemoryRouter initialEntries={[route]}>
 				<I18nextProvider i18n={i18n}>{component}</I18nextProvider>
 			</MemoryRouter>

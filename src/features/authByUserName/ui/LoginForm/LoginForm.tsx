@@ -48,19 +48,21 @@ const LoginForm = React.memo(() => {
 	
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<div className={cls.Form}>
+			<div className={cls.Form} data-testid="loginForm">
 				<Text title={t("authForm")} />
 				<Input
 					type="text"
 					placeholder={t("loginFormUsername")}
 					onChange={onChangeUsername}
 					value={username}
+					data-testid="loginFormUsername"
 				/>
 				<Input
 					type="password"
 					placeholder={t("loginFormPassword")}
 					onChange={onChangePassword}
 					value={password}
+					data-testid="loginFormPassword"
 				/>
 				{error && <Text text={error} theme={TextTheme.ERROR} />}
 				<Button
