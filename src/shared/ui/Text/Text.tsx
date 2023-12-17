@@ -14,7 +14,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   theme?: TextTheme
 }
 
-const Text = (props: TextProps) => {
+const Text = React.memo((props: TextProps) => {
 	const {
 		className,
 		title,
@@ -28,6 +28,8 @@ const Text = (props: TextProps) => {
 			{text && <div className={cls.text}>{text}</div>}
 		</div>
 	);
-};
+});
+
+Text.displayName = "Text";
 
 export default Text;

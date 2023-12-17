@@ -11,7 +11,7 @@ interface ThemeSwitcherProps {
 }
 
 
-const ThemeSwitcher = (props: ThemeSwitcherProps) => {
+const ThemeSwitcher = React.memo((props: ThemeSwitcherProps) => {
 	const {
 		className
 	} = props;
@@ -29,7 +29,9 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
 			</Button>
 		</div>
 	);
-};
+});
+
+ThemeSwitcher.displayName = "ThemeSwitcher";
 
 
 export default ThemeSwitcher;

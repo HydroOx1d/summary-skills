@@ -19,7 +19,15 @@ const initialReducers: ReducersList = {
 	loginForm: loginReducer
 };
 
-const LoginForm = React.memo(() => {
+interface LoginFormProps {
+	onSuccess?: () => void
+}
+
+const LoginForm = React.memo((props: LoginFormProps) => {
+	const {
+		onSuccess
+	} = props;
+
 	const {t} = useTranslation();
 	
 	const dispatch = useDispatch<ThunkDispatch<StateSchema, unknown, AnyAction>>();
@@ -37,13 +45,17 @@ const LoginForm = React.memo(() => {
 	}, [dispatch]);
 	
 	const onLoginClick = React.useCallback(
-		() => {
-			dispatch(loginByUsername({
+		async () => {
+			const result = await dispatch(loginByUsername({
 				password,
 				username
 			}));
+
+			if (result.meta.requestStatus === "fulfilled") {
+				onSuccess();
+			}
 		},
-		[dispatch, password, username]
+		[dispatch, onSuccess, password, username]
 	);
 	
 	return (

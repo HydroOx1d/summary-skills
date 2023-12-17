@@ -4,23 +4,17 @@ import { classNames } from "shared/lib/classNames/className";
 import ThemeSwitcher  from "shared/ui/ThemeSwitcher/ThemeSwitcher";
 import LangSwitcher  from "shared/ui/LangSwitcher/LangSwitcher";
 import Button, { ButtonTheme, SizesButton } from "shared/ui/Button/Button";
-import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { useTranslation } from "react-i18next";
-import { routePath } from "shared/config/routeConfig/routeConfig";
-import AboutIcon from "shared/assets/icons/about.svg";
-import HomeIcon from "shared/assets/icons/home.svg";
+import { sidebarItems } from "../model/items";
+import SidebarItem from "./SidebarItem";
 
 interface SiderbarProps {
   className?: string;
 }
 
-const Sidebar: React.FC<SiderbarProps> = (props) => {
-	const {
-		className
-	} = props;
+const Sidebar = React.memo((props: SiderbarProps) => {
+	const { className } = props;
 
 	const [collapsed, setCollpased] = React.useState(false);
-	const {t} = useTranslation();
 
 	return (
 		<div
@@ -30,20 +24,9 @@ const Sidebar: React.FC<SiderbarProps> = (props) => {
 			])}
 		>
 			<div className={cls.links}>
-				<AppLink
-					theme={AppLinkTheme.SECONDARY}
-					to={routePath.main}
-				>
-					<HomeIcon className={cls.linkIcon} width={24} height={24} />
-					<span>{t("mainLink")}</span>
-				</AppLink>
-				<AppLink
-					theme={AppLinkTheme.SECONDARY}
-					to={routePath.about}
-				>
-					<AboutIcon className={cls.linkIcon} width={24} height={24} />
-					<span>{t("aboutLink")}</span>
-				</AppLink>
+				{sidebarItems.map((sidebarItem) => {
+					return <SidebarItem item={sidebarItem} key={sidebarItem.path} />;
+				})}
 			</div>
 			<Button
 				theme={ButtonTheme.BACKGROUND_INVERTED}
@@ -61,6 +44,8 @@ const Sidebar: React.FC<SiderbarProps> = (props) => {
 			</div>
 		</div>
 	);
-};
+});
+
+Sidebar.displayName = "Sidebar";
 
 export default Sidebar;

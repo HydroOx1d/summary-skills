@@ -13,20 +13,20 @@ interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme
 }
 
-const AppLink: React.FC<AppLinkProps> = (props) => {
-	const {
-		className,
-		children,
-		to,
-		theme = "",
-		...otherProps
-	} = props;
+const AppLink = React.memo((props: AppLinkProps) => {
+	const { className, children, to, theme = "", ...otherProps } = props;
 
 	return (
-		<Link to={to} className={classNames(cls.AppLink, {}, [className, cls[theme]])} {...otherProps}>
+		<Link
+			to={to}
+			className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+			{...otherProps}
+		>
 			{children}
 		</Link>
 	);
-};
+});
+
+AppLink.displayName = "AppLink";
 
 export default AppLink;

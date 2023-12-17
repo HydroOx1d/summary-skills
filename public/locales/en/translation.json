@@ -11,5 +11,6 @@
   "loginFormPassword": "Password",
   "authForm": "Auth form",
   "authError": "Your login or password is wrong",
-  "logout": "Logout"
+  "logout": "Logout",
+  "profileLink": "Profile"
 }

@@ -23,7 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	size?: SizesButton;
 }
 
-const Button = (props: ButtonProps) => {
+const Button = React.memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
@@ -43,6 +43,8 @@ const Button = (props: ButtonProps) => {
 			{children}
 		</button>
 	);
-};
+});
+
+Button.displayName = "Button";
 
 export default Button;

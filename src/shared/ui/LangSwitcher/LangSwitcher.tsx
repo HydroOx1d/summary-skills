@@ -9,12 +9,9 @@ interface LangSwitcher {
 	short?: boolean
 }
 
-const LangSwitcher: React.FC<LangSwitcher> = (props) => {
-	const {
-		className,
-		short = false
-	} = props;
-  
+const LangSwitcher = React.memo((props: LangSwitcher) => {
+	const { className, short = false } = props;
+
 	const { t, i18n } = useTranslation();
 
 	const toggleLang = () => {
@@ -30,6 +27,8 @@ const LangSwitcher: React.FC<LangSwitcher> = (props) => {
 			{t(short ? "shortLanguage" : "language")}
 		</Button>
 	);
-};
+});
+
+LangSwitcher.displayName = "LangSwitcher";
 
 export default LangSwitcher;

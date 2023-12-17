@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entity/User";
 import { LoginModal } from "features/authByUserName";
 
-const Navbar = () => {
+const Navbar = React.memo(() => {
 	const {t} = useTranslation();
 	const dispatch = useDispatch();
 	const [modalIsAuth, setModalIsAuth] = React.useState(false);
@@ -49,6 +49,8 @@ const Navbar = () => {
 			</div>
 		</nav>
 	);
-};
+});
+
+Navbar.displayName = "Navbar";
 
 export default Navbar;
