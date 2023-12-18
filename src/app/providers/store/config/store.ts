@@ -3,6 +3,7 @@ import { StateSchema, StoreWithReducerManager } from "./stateSchema";
 import { counterReducer } from "entity/Counter";
 import { userReducer } from "entity/User";
 import { createReducerManager } from "./reducerManager";
+import { $api } from "shared/api/api";
 
 export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
@@ -13,10 +14,17 @@ export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersM
 
 	const reducerManager = createReducerManager(rootReducers);
 
-	const store: StoreWithReducerManager = configureStore<StateSchema>({
+	const store: StoreWithReducerManager = configureStore({
 		reducer: reducerManager.reduce,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
+		middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+			thunk: {
+				extraArgument: {
+					api: $api
+				}
+			}
+		})
 	});
 
 	store.reducerManager = reducerManager;

@@ -13,7 +13,8 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 			reportFilename: "bundleInfo.html"
 		}),
 		new webpack.DefinePlugin({
-			__IS_DEV__: JSON.stringify(options.isDev)
+			__IS_DEV__: JSON.stringify(options.isDev),
+			__API__: JSON.stringify(options.apiUrl)
 		}),
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({

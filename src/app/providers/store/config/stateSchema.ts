@@ -4,6 +4,7 @@ import { AnyAction, CombinedState, Reducer, ReducersMapObject } from "@reduxjs/t
 import { CounterSchema } from "entity/Counter";
 import { UserSchema } from "entity/User";
 import { ProfileSchema } from "entity/Profile";
+import { AxiosInstance } from "axios";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -26,4 +27,13 @@ export interface ReducerManager {
 
 export interface StoreWithReducerManager extends ToolkitStore<StateSchema> {
   reducerManager?: ReducerManager
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance
+}
+
+export interface ThunkConfig<RejectValueType> {
+  rejectValue: RejectValueType;
+  extra: ThunkExtraArg
 }
