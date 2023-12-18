@@ -3,7 +3,7 @@ import { classNames } from "shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";
 import cls from "./NotFound.module.scss";
 
-const NotFound = () => {
+const NotFound = React.memo(() => {
 	const {t} = useTranslation();
 
 	return (
@@ -11,6 +11,8 @@ const NotFound = () => {
 			{t("notFound")}
 		</div>
 	);
-};
+});
+
+NotFound.displayName = "NotFound";
 
 export default NotFound;

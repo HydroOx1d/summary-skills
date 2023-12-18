@@ -43,10 +43,6 @@
   right: -32px;
 }
 
-.linkIcon {
-  fill: var(--secondary-color);
-}
-
 @container sidebar (width <= 80px) {
   .links {
     & > * {

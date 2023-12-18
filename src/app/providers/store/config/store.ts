@@ -23,3 +23,5 @@ export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersM
 
 	return store;
 };
+
+export type AppDispatch = ReturnType<typeof setupStore>["dispatch"];
