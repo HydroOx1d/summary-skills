@@ -1,5 +1,5 @@
 
-type Mods = Record<string, string | boolean>;
+type Mods = Record<string, string | boolean | undefined>;
 
 // Функция для удобной работы с классами
 // Функция принимает три аргумента (главный класс, модификаторы и дополнительные)
@@ -7,7 +7,7 @@ type Mods = Record<string, string | boolean>;
 // Пример: 
 // input: classnames('app', {hovered: true, selected: false}, 'app2')
 // output: 'app hovered app2'
-export const classNames = (cls: string, mods: Mods = {}, additional: string[] = []): string => {
+export const classNames = (cls: string, mods: Mods = {}, additional: Array<string | undefined> = []): string => {
 	return [
 		cls,
 		...additional.filter(Boolean),

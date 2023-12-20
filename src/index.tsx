@@ -8,7 +8,7 @@ import "./app/styles/index.scss";
 import "shared/config/langConfig/langConfig";
 import { StoreProvider } from "app/providers/store";
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root")!);
 
 
 root.render(

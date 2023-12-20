@@ -18,7 +18,7 @@ describe("Counter", () => {
 			},
 		});
 
-		fireEvent.click(screen.queryByTestId("increment-btn"));
+		fireEvent.click(screen.queryByTestId("increment-btn")!);
 
 		expect(screen.queryByTestId("value")).toHaveTextContent("11");
 	});
@@ -32,7 +32,7 @@ describe("Counter", () => {
 			},
 		});
 
-		fireEvent.click(screen.queryByTestId("decrement-btn"));
+		fireEvent.click(screen.queryByTestId("decrement-btn")!);
 
 		expect(screen.queryByTestId("value")).toHaveTextContent("9");
 	});
@@ -40,7 +40,7 @@ describe("Counter", () => {
 	test("increment value when state is empty", () => {
 		renderTestComponent(<Counter />);
 
-		fireEvent.click(screen.queryByTestId("increment-btn"));
+		fireEvent.click(screen.queryByTestId("increment-btn")!);
 
 		expect(screen.queryByTestId("value")).toHaveTextContent("1");
 	});

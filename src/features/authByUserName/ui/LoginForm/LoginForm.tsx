@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
-import { StateSchema } from "app/providers/store";
+import { StateSchema, ThunkExtraArg } from "app/providers/store";
 import Text, { TextTheme } from "shared/ui/Text/Text";
 import { getLoginStateUsername } from "../../model/selectors/getLoginStateUsername/getLoginStateUsername";
 import { getLoginStatePassword } from "../../model/selectors/getLoginStatePassword/getLoginStatePassword";
@@ -30,7 +30,7 @@ const LoginForm = React.memo((props: LoginFormProps) => {
 
 	const {t} = useTranslation();
 	
-	const dispatch = useDispatch<ThunkDispatch<StateSchema, unknown, AnyAction>>();
+	const dispatch = useDispatch<ThunkDispatch<StateSchema, ThunkExtraArg, AnyAction>>();
 	const username = useSelector(getLoginStateUsername);
 	const password = useSelector(getLoginStatePassword);
 	const isLoading = useSelector(getLoginStateIsLoading);
@@ -52,7 +52,7 @@ const LoginForm = React.memo((props: LoginFormProps) => {
 			}));
 
 			if (result.meta.requestStatus === "fulfilled") {
-				onSuccess();
+				onSuccess?.();
 			}
 		},
 		[dispatch, onSuccess, password, username]

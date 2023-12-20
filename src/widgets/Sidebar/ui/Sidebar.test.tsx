@@ -13,7 +13,7 @@ describe("Sidebar", () => {
 		renderTestComponent(<Sidebar />, { route: "/" });
 
 		const $el = screen.queryByTestId("sidebar");
-		const $collapseBtn = screen.queryByTestId("sidebar-collapse-btn");
+		const $collapseBtn = screen.queryByTestId("sidebar-collapse-btn")!;
 
 		expect($el).not.toHaveClass("collapsed");
 

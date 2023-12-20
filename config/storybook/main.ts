@@ -23,31 +23,35 @@ const config: StorybookConfig = {
 
 	async webpackFinal(config: webpack.Configuration) {
 
-		config.resolve.modules.push(
+		config.resolve!.modules!.push(
 			path.resolve(__dirname, "..", "..", "src")
 		);
-		config.resolve.extensions.push(".tsx", ".ts", ".js");
-		config.module.rules.push(cssLoader(true));
+		config.resolve!.extensions!.push(".tsx", ".ts", ".js");
+		config.module!.rules!.push(cssLoader(true));
 
-		config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-			if(/svg/.test(rule.test as string)) {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
+		config!.module!.rules = config!.module!.rules.map((rule: RuleSetRule) => {
+			if (/svg/.test(rule.test as string)) {
 				return {
 					...rule,
-					exclude: /\.svg$/i
+					exclude: /\.svg$/i,
 				};
 			}
 
 			return rule;
-		});
+		}
+		);
 
-		config.module.rules.push({
+		config!.module!.rules.push({
 			test: /\.svg$/,
 			use: ["@svgr/webpack"],
 		});
 
-		config.plugins.push(
+		config!.plugins!.push(
 			new webpack.DefinePlugin({
 				__IS_DEV__: JSON.stringify(true),
+				__API__: JSON.stringify("")
 			})
 		);
 

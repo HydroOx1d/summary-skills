@@ -4,8 +4,6 @@ import { StateSchemaKey } from "app/providers/store/config/stateSchema";
 import React from "react";
 import { useDispatch, useStore } from "react-redux";
 
-type ReducersEntriesType = [StateSchemaKey, Reducer];
-
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
 };
@@ -22,18 +20,18 @@ const ReducerLoader = (props: React.PropsWithChildren<ReducerLoader>) => {
 
 	React.useEffect(() => {
 
-		Object.entries(reducers).forEach(([name, reducer]: ReducersEntriesType) => {
-			if (!store.reducerManager.check(name)) {
-				store.reducerManager.add(name, reducer);
+		Object.entries(reducers).forEach(([name, reducer]) => {
+			if (!store.reducerManager?.check(name as StateSchemaKey)) {
+				store.reducerManager?.add(name as StateSchemaKey, reducer);
 				dispatch({ type: `@LOAD_REDUCER ${name} reducer is added` });
 			}
 		});
 		return () => {
 			if (removeAfterUnmount) {
 				Object.entries(reducers).forEach(
-					([name]: ReducersEntriesType) => {
-						if (store.reducerManager.check(name)) {
-							store.reducerManager.remove(name);
+					([name]) => {
+						if (store.reducerManager?.check(name as StateSchemaKey)) {
+							store.reducerManager?.remove(name as StateSchemaKey);
 							dispatch({ type: `@LOAD_REDUCER ${name} reducer is removed` });
 						}
 					}
