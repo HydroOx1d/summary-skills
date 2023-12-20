@@ -52,7 +52,7 @@ const LoginForm = React.memo((props: LoginFormProps) => {
 			}));
 
 			if (result.meta.requestStatus === "fulfilled") {
-				onSuccess();
+				onSuccess?.();
 			}
 		},
 		[dispatch, onSuccess, password, username]

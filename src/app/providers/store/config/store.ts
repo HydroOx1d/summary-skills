@@ -15,16 +15,19 @@ export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersM
 	const reducerManager = createReducerManager(rootReducers);
 
 	const store: StoreWithReducerManager = configureStore({
-		reducer: reducerManager.reduce,
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		//@ts-ignore
+		reducer: reducerManager.reduce as ReducersMapObject<StateSchema>,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
-		middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-			thunk: {
-				extraArgument: {
-					api: $api
-				}
-			}
-		})
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware({
+				thunk: {
+					extraArgument: {
+						api: $api,
+					},
+				},
+			}),
 	});
 
 	store.reducerManager = reducerManager;

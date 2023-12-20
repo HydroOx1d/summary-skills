@@ -1,5 +1,6 @@
-import { profileReducer } from "entity/Profile";
-import React from "react";
+import { ProfileCard, fetchProfileData, profileReducer } from "entity/Profile";
+import React, { useEffect } from "react";
+import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 
 const initialReducers: ReducersList = {
@@ -7,9 +8,15 @@ const initialReducers: ReducersList = {
 };
 
 const Profile = React.memo(() => {
+	const dispatch = useThunkDispatch();
+
+	useEffect(() => {
+		dispatch(fetchProfileData());
+	}, [dispatch]);
+
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<div>Профиль</div>
+			<ProfileCard/>
 		</ReducerLoader>
 	);
 });
