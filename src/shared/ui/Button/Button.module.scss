@@ -74,5 +74,11 @@
 }
 
 .disabled {
-  opacity: .5;
+  opacity: 0.5;
+}
+
+.outline_red {
+  background-color: transparent;
+  border: 1px solid var(--red-light-color);
+  color: var(--red-light-color);
 }

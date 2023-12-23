@@ -1,4 +1,12 @@
 {
   "profile": "Профиль",
-  "profileBtnEdit": "Редактировать профиль"
+  "profileBtnEdit": "Редактировать профиль",
+  "profileBtnCancelEdit": "Отменить редактирование",
+  "profileBtnSaveEdit": "Сохранить",
+  "profileFieldName": "Имя",
+  "profileFieldSurname": "Фамилия",
+  "profileFieldAge": "Возраст",
+  "profileFieldCity": "Город",
+  "profileFieldUsername": "Имя пользователя",
+  "profileFieldAvatarLink": "Ссылка на аватар"
 }

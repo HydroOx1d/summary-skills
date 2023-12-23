@@ -10,6 +10,16 @@ declare module "*.svg" {
   export default content;
 }
 
+declare module "*.png" {
+  const value: string;
+  export default value;
+}
+
+declare module "*.jpg" {
+  const value: string;
+  export default value;
+}
+
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
 
