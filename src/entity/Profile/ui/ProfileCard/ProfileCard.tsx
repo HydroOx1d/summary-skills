@@ -2,7 +2,7 @@ import React from "react";
 import cls from "./ProfileCard.module.scss";
 import Text, { TextAlign, TextTheme } from "shared/ui/Text/Text";
 import Input from "shared/ui/Input/Input";
-import { Profile } from "../../model/types/profileSchema";
+import { Profile, ValidateProfileError } from "../../model/types/profileSchema";
 import Loader from "shared/ui/Loader/Loader";
 import { classNames } from "shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ interface ProfileCardProps {
   error?: string;
   isLoading?: boolean;
   readonly?: boolean;
+	validateErrors?: ValidateProfileError[];
   onUpdateProfileName?: (value?: string) => void;
   onUpdateProfileSurname?: (value?: string) => void;
   onUpdateProfileAge?: (value?: string) => void;
@@ -32,6 +33,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 		error,
 		isLoading,
 		readonly,
+		validateErrors,
 		onUpdateProfileName,
 		onUpdateProfileSurname,
 		onUpdateProfileAge,
@@ -57,6 +59,13 @@ const ProfileCard = (props: ProfileCardProps) => {
 			</div>
 		);
 	}
+
+	const errorsMapping: Record<ValidateProfileError, string> = {
+		[ValidateProfileError.INCORRECT_USER_AGE]: "Incorrect age",
+		[ValidateProfileError.INCORRECT_USER_DATA]: "Incorrect user data",
+		[ValidateProfileError.NO_DATA]: "No data",
+		[ValidateProfileError.SERVER_ERROR]: "Server error"
+	};
   
 	return (
 		<div className={cls.ProfileCard}>
@@ -64,6 +73,11 @@ const ProfileCard = (props: ProfileCardProps) => {
 				<Avatar src={data?.avatar} alt="Avatar" />
 			</div>
 			<div className={cls.data}>
+				{validateErrors?.length ? validateErrors.map(error => {
+					return (
+						<Text text={errorsMapping[error]} key={error}/>
+					);
+				}) : null}
 				<Input
 					readonly={readonly}
 					className={cls.input}

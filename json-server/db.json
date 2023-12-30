@@ -19,7 +19,7 @@
   "profile": {
     "name": "Nursultan",
     "surname": "Esenov",
-    "age": 19,
+    "age": null,
     "currency": "USD",
     "country": "America",
     "city": "Tokmok",

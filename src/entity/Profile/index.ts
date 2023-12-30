@@ -8,6 +8,7 @@ import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getPr
 import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProfileReadonly";
 import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
 import { saveProfileData } from "./model/services/saveProfileData/saveProfileData";
+import { getProfileValidateError } from "./model/selectors/getProfileValidateError/getProfileValidateError";
 
 export {
 	Profile,
@@ -21,5 +22,6 @@ export {
 	getProfileIsLoading,
 	getProfileReadonly,
 	getProfileForm,
+	getProfileValidateError,
 	saveProfileData
 };

@@ -1,4 +1,4 @@
-import { ProfileCard, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions, profileReducer } from "entity/Profile";
+import { ProfileCard, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateError, profileActions, profileReducer } from "entity/Profile";
 import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
@@ -19,6 +19,7 @@ const Profile = React.memo(() => {
 	const isLoading = useSelector(getProfileIsLoading);
 	const error = useSelector(getProfileError);
 	const readonly = useSelector(getProfileReadonly);
+	const validateErrors = useSelector(getProfileValidateError);
 
 	useEffect(() => {
 		thunkDispatch(fetchProfileData());
@@ -81,6 +82,7 @@ const Profile = React.memo(() => {
 				isLoading={isLoading}
 				error={error}
 				readonly={readonly}
+				validateErrors={validateErrors}
 				onUpdateProfileName={onUpdateProfileName}
 				onUpdateProfileSurname={onUpdateProfileSurname}
 				onUpdateProfileAge={onUpdateProfileAge}
