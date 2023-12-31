@@ -1,0 +1,19 @@
+.Select {
+  cursor: pointer;
+  width: 100%;
+  min-height: 35px;
+  border: 1px solid var(--primary-color);
+  background: none;
+  color: var(--primary-color);
+  outline: none;
+}
+
+.option {
+  color: var(--primary-inverted-color);
+  background-color: var(--bg-inveted-color);
+}
+
+.readonly {
+  opacity: .7;
+  pointer-events: none;
+}

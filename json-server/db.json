@@ -17,13 +17,13 @@
     }
   ],
   "profile": {
-    "name": "Ivan",
-    "surname": "Ivanov",
-    "age": 25,
+    "name": "Nursultan",
+    "surname": "Esenov",
+    "age": null,
     "currency": "USD",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "ivan123",
-    "avatar": "https://images.unsplash.com/photo-1702700485044-652cbbd41fde?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "country": "America",
+    "city": "Tokmok",
+    "username": "HydroOx1d",
+    "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 }

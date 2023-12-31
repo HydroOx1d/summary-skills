@@ -8,8 +8,6 @@ const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, "db.json"));
 const middlewares = jsonServer.defaults();
 
-server.use(middlewares);
-server.use(jsonServer.bodyParser);
 
 server.use(async (req, res, next) => {
 	await new Promise((res) => {
@@ -19,15 +17,8 @@ server.use(async (req, res, next) => {
 	next();
 });
 
-server.use(async (req, res, next) => {
-	if (!req.headers.authorization) {
-		return res.status(403).json({
-			message: "Auth error!",
-		});
-	}
-
-	next();
-});
+server.use(middlewares);
+server.use(jsonServer.bodyParser);
 
 server.post("/login", (req, res) => {
 	const { username, password } = req.body;
@@ -49,6 +40,16 @@ server.post("/login", (req, res) => {
 	return res.status(404).json({
 		message: "User is not found",
 	});
+});
+
+server.use(async (req, res, next) => {
+	if (!req.headers.authorization) {
+		return res.status(403).json({
+			message: "Auth error!",
+		});
+	}
+
+	next();
 });
 
 server.use(router);

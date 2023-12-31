@@ -7,3 +7,8 @@
   background: var(--bg-color);
   color: var(--primary-color);
 }
+
+.readonly {
+  opacity: .7;
+  pointer-events: none;
+}

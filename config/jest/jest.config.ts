@@ -40,7 +40,8 @@ const config: Config = {
 	setupFilesAfterEnv: ["<rootDir>/config/jest/setupTests.ts"],
 	globals: {
 		__IS_DEV__: true,
-		__API__: ""
+		__API__: "",
+		__PROJECT__: "jest"
 	},
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,

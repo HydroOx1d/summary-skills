@@ -7,11 +7,18 @@ export enum TextTheme {
   ERROR = "error"
 }
 
+export enum TextAlign {
+	LEFT = "left",
+	CENTER = "center",
+	RIGHT = "right"
+}
+
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   title?: string;
   text?: string;
-  theme?: TextTheme
+  theme?: TextTheme;
+	align?: TextAlign
 }
 
 const Text = React.memo((props: TextProps) => {
@@ -19,11 +26,12 @@ const Text = React.memo((props: TextProps) => {
 		className,
 		title,
 		text,
-		theme = TextTheme.PRIMARY
+		theme = TextTheme.PRIMARY,
+		align = TextAlign.LEFT
 	} = props;
 
 	return (
-		<div className={classNames(cls.Text, {}, [className, cls[theme]])}>
+		<div className={classNames(cls.Text, {}, [className, cls[theme], cls[align]])}>
 			{title && <div className={cls.title}>{title}</div>}
 			{text && <div className={cls.text}>{text}</div>}
 		</div>

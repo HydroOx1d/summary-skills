@@ -1,4 +1,12 @@
 {
   "profile": "Profile",
-  "profileBtnEdit": "Edit profile"
+  "profileBtnEdit": "Edit profile",
+  "profileBtnCancelEdit": "Cancel edit",
+  "profileBtnSaveEdit": "Save",
+  "profileFieldName": "Name",
+  "profileFieldSurname": "Surname",
+  "profileFieldAge": "Age",
+  "profileFieldCity": "City",
+  "profileFieldUsername": "Username",
+  "profileFieldAvatarLink": "Avatar link"
 }
