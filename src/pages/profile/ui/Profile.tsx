@@ -22,7 +22,9 @@ const Profile = React.memo(() => {
 	const validateErrors = useSelector(getProfileValidateError);
 
 	useEffect(() => {
-		thunkDispatch(fetchProfileData());
+		if (__PROJECT__ != "storybook") {
+			thunkDispatch(fetchProfileData());
+		}
 	}, [thunkDispatch]);
 
 	const onUpdateProfileName = useCallback((value?: string) => {
