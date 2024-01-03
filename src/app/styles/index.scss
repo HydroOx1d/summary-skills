@@ -23,4 +23,6 @@ body {
   flex: 1;
   width: 100%;
   padding: 10px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
 }

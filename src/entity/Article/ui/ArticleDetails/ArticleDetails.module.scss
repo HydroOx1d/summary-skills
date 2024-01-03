@@ -1,0 +1,12 @@
+.ArticleDetails {
+  
+
+  & > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  & > *:first-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
