@@ -1,5 +1,7 @@
 .ArticleDetails {
-  
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
 
   & > *:not(:last-child) {
     margin-bottom: 20px;
@@ -8,5 +10,28 @@
   & > *:first-child {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.articleInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.code {
+  border: 1px solid var(--primary-color);
+  padding: 20px;
+  position: relative;
+  background-color: var(--code-bg);
+}
+
+.copy {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  &:hover {
+    fill-opacity: .8;
   }
 }

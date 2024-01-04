@@ -1,11 +1,13 @@
 import { StateSchema, StoreProvider } from "app/providers/store";
+import { articleReducer } from "entity/Article";
 import { profileReducer } from "entity/Profile";
 import { loginReducer } from "features/authByUserName/model/slice/loginSlice";
 import { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 
 const asyncReducers: ReducersList = {
 	loginForm: loginReducer,
-	profile: profileReducer
+	profile: profileReducer,
+	article: articleReducer
 };
 
 export const StoreDecorator = (state: DeepPartial<StateSchema>) => {
