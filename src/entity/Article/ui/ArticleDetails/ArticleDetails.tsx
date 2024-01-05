@@ -87,6 +87,11 @@ const ArticleDetails = ({id}: ArticleDetailsProps) => {
 									</code>
 								</div>
 							);
+						},
+						p({children, className, ...rest}) {
+							return (
+								<Text text={children as string} className={className} {...rest}/>
+							);
 						}
 					}}
 				>{article?.content}</Markdown>

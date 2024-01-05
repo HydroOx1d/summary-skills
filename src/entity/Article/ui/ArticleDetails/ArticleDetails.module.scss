@@ -1,7 +1,6 @@
 .ArticleDetails {
   display: flex;
   flex-direction: column;
-  padding-left: 30px;
 
   & > *:not(:last-child) {
     margin-bottom: 20px;

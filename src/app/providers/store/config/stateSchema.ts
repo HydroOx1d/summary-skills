@@ -6,6 +6,7 @@ import { UserSchema } from "entity/User";
 import { ProfileSchema } from "entity/Profile";
 import { AxiosInstance } from "axios";
 import { ArticleDetailsSchema } from "entity/Article";
+import { ArticleDetailsCommentsSchema } from "features/articleCommentList";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -14,7 +15,8 @@ export interface StateSchema {
   // Async reducers 
   loginForm?: LoginSchema
   profile?: ProfileSchema
-  article?: ArticleDetailsSchema
+  article?: ArticleDetailsSchema;
+  articleComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
