@@ -22,9 +22,9 @@ export enum AppRoutes {
 export const routePath: Record<AppRoutes, string> = {
 	[AppRoutes.MAIN]: "/",
 	[AppRoutes.ABOUT]: "/about",
-	[AppRoutes.PROFILE]: "/profile", // :profileId
+	[AppRoutes.PROFILE]: "/profile/", // :profileId
 	[AppRoutes.ARTICLES]: "/articles",
-	[AppRoutes.ARTICLE_DETAIL]: "/articles", // :articleId
+	[AppRoutes.ARTICLE_DETAIL]: "/articles/", // :articleId
 	[AppRoutes.NOT_FOUND]: "*"
 };
 
@@ -38,7 +38,7 @@ export const routeConfig: AppRouteProps[] = [
 		element: <AboutPage />,
 	},
 	{
-		path: routePath.profile + "/:profileId",
+		path: routePath.profile + ":profileId",
 		element: <ProfilePage />,
 		onlyAuth: true,
 	},
@@ -48,7 +48,7 @@ export const routeConfig: AppRouteProps[] = [
 		onlyAuth: true,
 	},
 	{
-		path: routePath.article_detail + "/:articleId",
+		path: routePath.article_detail + ":articleId",
 		element: <ArticleDetailPage />,
 		onlyAuth: true,
 	},
