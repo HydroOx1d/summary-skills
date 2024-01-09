@@ -4,6 +4,11 @@
   cursor: pointer;
   display: flex;
   padding: 5px 10px;
+  transition: opacity 150ms linear;
+
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .clear,

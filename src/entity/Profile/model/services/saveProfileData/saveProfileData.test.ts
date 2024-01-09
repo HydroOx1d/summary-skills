@@ -5,6 +5,7 @@ import { Currency } from "entity/Currency";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 
 const data: Profile = {
+	id: "1",
 	name: "nurs",
 	surname: "nurs",
 	age: 18,
@@ -26,7 +27,7 @@ describe("testing save profile data thunk", () => {
 
 		action.api.put.mockReturnValue(Promise.resolve({ data }));
 
-		const result = await action.thunkCall();
+		const result = await action.thunkCall("1");
 
 		expect(action.api.put).toHaveBeenCalled();
 		expect(action.getState).toHaveBeenCalled();
@@ -44,7 +45,7 @@ describe("testing save profile data thunk", () => {
 
 		action.api.put.mockReturnValue(Promise.reject({ status: 403 }));
 
-		const result = await action.thunkCall();
+		const result = await action.thunkCall("1");
 
 		expect(action.api.put).toHaveBeenCalled();
 		expect(action.getState).toHaveBeenCalled();
@@ -59,7 +60,7 @@ describe("testing save profile data thunk", () => {
 			},
 		});
 
-		const result = await action.thunkCall();
+		const result = await action.thunkCall("1");
 
 		expect(action.getState).toHaveBeenCalled();
 		expect(result.payload).toEqual([

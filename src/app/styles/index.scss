@@ -1,6 +1,7 @@
 @import "./reset";
 @import "./themes/dark";
 @import "./themes/normal";
+@import "./themes/blue";
 @import "./variables/global";
 
 body {
@@ -22,4 +23,6 @@ body {
   flex: 1;
   width: 100%;
   padding: 10px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
 }

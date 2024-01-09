@@ -1,8 +1,11 @@
 .app_dark_theme {
-  --bg-color: #333;
-  --bg-inverted-color: #fff;
-  --primary-color: #FFA500;
-  --secondary-color: #b2aeae;
-  --primary-inverted-color: #000;
-  --secondary-inverted-color: #808080;
+  --bg-color: #000213;
+  --bg-inverted-color: #F4F5FB;
+  --primary-color: #F4F5FB;
+  --secondary-color: #F4F5FB;
+  --primary-inverted-color: #000213;
+  --secondary-inverted-color: #000213;
+  --skeleton-bg-color: #01031d;
+  --skeleton-gradient: #898787;
+  --code-bg: #010630;
 }

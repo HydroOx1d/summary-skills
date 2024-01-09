@@ -12,5 +12,6 @@
   "authForm": "Auth form",
   "authError": "Your login or password is wrong",
   "logout": "Logout",
-  "profileLink": "Profile"
+  "profileLink": "Profile",
+  "articlesLink": "Articles"
 }

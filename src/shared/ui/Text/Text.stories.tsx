@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Text, { TextTheme } from "./Text";
+import Text, { TextSize, TextTheme } from "./Text";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
@@ -17,6 +17,24 @@ export const Default: Story = {
 	args: {
 		title: "This is a title",
 		text: "And this is a text",
+	},
+};
+
+export const SizeM: Story = {
+	render: (args) => <Text {...args} />,
+	args: {
+		title: "This is a title",
+		text: "And this is a text",
+		size: TextSize.M
+	},
+};
+
+export const SizeL: Story = {
+	render: (args) => <Text {...args} />,
+	args: {
+		title: "This is a title",
+		text: "And this is a text",
+		size: TextSize.L,
 	},
 };
 

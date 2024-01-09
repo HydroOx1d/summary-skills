@@ -7,6 +7,7 @@ import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 describe("testing fetch profile data thunk", () => {
 	test("should return profile data", async () => {
 		const returnedValue: Profile = {
+			id: "1",
 			name: "nurs",
 			surname: "nurs",
 			age: 18,
@@ -21,7 +22,7 @@ describe("testing fetch profile data thunk", () => {
 
 		action.api.get.mockReturnValue(Promise.resolve({data: returnedValue}));
 
-		const result = await action.thunkCall();
+		const result = await action.thunkCall("1");
 
 		expect(action.api.get).toHaveBeenCalled();
 		expect(action.dispatch).toHaveBeenCalledTimes(2);
@@ -34,7 +35,7 @@ describe("testing fetch profile data thunk", () => {
 
 		action.api.get.mockReturnValue(Promise.reject({ data: {status: 403} }));
 
-		const result = await action.thunkCall();
+		const result = await action.thunkCall("1");
 
 		expect(action.api.get).toHaveBeenCalled();
 		expect(action.dispatch).toHaveBeenCalledTimes(2);

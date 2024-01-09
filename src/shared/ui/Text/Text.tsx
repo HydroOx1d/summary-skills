@@ -13,12 +13,18 @@ export enum TextAlign {
 	RIGHT = "right"
 }
 
+export enum TextSize {
+  M = "size_m",
+  L = "size_l",
+}
+
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
-	align?: TextAlign
+	align?: TextAlign;
+	size?: TextSize;
 }
 
 const Text = React.memo((props: TextProps) => {
@@ -27,11 +33,12 @@ const Text = React.memo((props: TextProps) => {
 		title,
 		text,
 		theme = TextTheme.PRIMARY,
-		align = TextAlign.LEFT
+		align = TextAlign.LEFT,
+		size = TextSize.M
 	} = props;
 
 	return (
-		<div className={classNames(cls.Text, {}, [className, cls[theme], cls[align]])}>
+		<div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
 			{title && <div className={cls.title}>{title}</div>}
 			{text && <div className={cls.text}>{text}</div>}
 		</div>

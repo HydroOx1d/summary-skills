@@ -9,6 +9,7 @@ import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProf
 import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
 import { saveProfileData } from "./model/services/saveProfileData/saveProfileData";
 import { getProfileValidateError } from "./model/selectors/getProfileValidateError/getProfileValidateError";
+import { canEditProfie } from "./model/selectors/canEditProfile/canEditProfile";
 
 export {
 	Profile,
@@ -23,5 +24,6 @@ export {
 	getProfileReadonly,
 	getProfileForm,
 	getProfileValidateError,
-	saveProfileData
+	saveProfileData,
+	canEditProfie
 };

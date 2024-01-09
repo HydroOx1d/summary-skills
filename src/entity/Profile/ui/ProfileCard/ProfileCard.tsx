@@ -135,4 +135,4 @@ const ProfileCard = (props: ProfileCardProps) => {
 	);
 };
 
-export default ProfileCard;
+export default React.memo(ProfileCard);

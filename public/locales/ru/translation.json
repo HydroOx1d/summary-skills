@@ -12,5 +12,6 @@
   "authForm": "Форма авторизации",
   "authError": "Вы неправильно ввели логин или пароль",
   "logout": "Выйти",
-  "profileLink": "Профиль"
+  "profileLink": "Профиль",
+  "articlesLink": "Статьи"
 }

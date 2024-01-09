@@ -1,12 +1,13 @@
+import { Country } from "entity/Country";
+import { Currency } from "entity/Currency/model/types/currency";
 import { ProfileCard, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateError, profileActions, profileReducer } from "entity/Profile";
 import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { Currency } from "entity/Currency/model/types/currency";
-import { Country } from "entity/Country";
 
 const initialReducers: ReducersList = {
 	profile: profileReducer
@@ -20,12 +21,15 @@ const Profile = React.memo(() => {
 	const error = useSelector(getProfileError);
 	const readonly = useSelector(getProfileReadonly);
 	const validateErrors = useSelector(getProfileValidateError);
+	const {profileId} = useParams<{profileId: string}>();
 
 	useEffect(() => {
 		if (__PROJECT__ != "storybook") {
-			thunkDispatch(fetchProfileData());
+			if(profileId) {
+				thunkDispatch(fetchProfileData(profileId));
+			}
 		}
-	}, [thunkDispatch]);
+	}, [profileId, thunkDispatch]);
 
 	const onUpdateProfileName = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({
