@@ -6,9 +6,9 @@ import { validateProfileData } from "../validateProfileData/validateProfileData"
 
 export const saveProfileData = createAsyncThunk<
   Profile,
-  void,
+  string,
   ThunkConfig<ValidateProfileError[]>
->("profile/saveProfileData", async (_, thunkAPI) => {
+>("profile/saveProfileData", async (profileId, thunkAPI) => {
 	try {
 		const formData = getProfileForm(thunkAPI.getState());
 
@@ -18,7 +18,7 @@ export const saveProfileData = createAsyncThunk<
 			return thunkAPI.rejectWithValue(errors);
 		}
 
-		const response = await thunkAPI.extra.api.put<Profile>("/profile", formData);
+		const response = await thunkAPI.extra.api.put<Profile>("/profile/" + profileId, formData);
 
 		if (!response.data) {
 			throw new Error("no user");

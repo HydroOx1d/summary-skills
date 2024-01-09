@@ -36,13 +36,20 @@ const config: Config = {
 	transform: {
 		".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
 		"^.+\\.svg$": "<rootDir>/config/jest/svgTransformer.js",
+		"\\.[jt]sx?$": "babel-jest",
 	},
 	setupFilesAfterEnv: ["<rootDir>/config/jest/setupTests.ts"],
 	globals: {
 		__IS_DEV__: true,
 		__API__: "",
-		__PROJECT__: "jest"
+		__PROJECT__: "jest",
 	},
+	moduleNameMapper: {
+		"react-markdown": "<rootDir>/node_modules/react-markdown/index.js",
+	},
+	transformIgnorePatterns: [
+		"node_modules/(?!react-markdown|devlop|hast-util-to-jsx-runtime|comma-separated-tokens|estree-util-is-identifier-name|hast-util-whitespace|property-information|space-separated-tokens|unist-util-position|vfile-message|unist-util-stringify-position|html-url-attributes|remark-parse|mdast-util-from-markdown|mdast-util-to-string|micromark|decode-named-character-reference|remark-rehype|mdast-util-to-hast|trim-lines|unist-util-visit|unist-util-is|unified|bail|is-plain-obj|trough|vfile)",
+	],
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 

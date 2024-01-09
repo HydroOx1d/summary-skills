@@ -6,6 +6,7 @@ import { Currency } from "entity/Currency";
 import { saveProfileData } from "../services/saveProfileData/saveProfileData";
 
 const data: Profile = {
+	id: "1",
 	name: "nurs",
 	surname: "nurs",
 	age: 18,
@@ -86,7 +87,7 @@ describe("profile slice test", () => {
 		};
 
 		expect(
-			profileReducer(state as ProfileSchema, saveProfileData.fulfilled(data, ""))
+			profileReducer(state as ProfileSchema, saveProfileData.fulfilled(data, "1", "1"))
 		).toEqual({
 			isLoading: false,
 			readonly: true,

@@ -6,11 +6,11 @@ import { ArticleDetailsCommentsSchema } from "../types/articleDetailsCommentsSch
 
 const commentAdapter = createEntityAdapter<IComment>({
 	selectId(comment: IComment) {
-		return comment.id;
+		return comment.id || 0;
 	}
 });
 
-export const getArticleComments = commentAdapter.getSelectors<StateSchema>((state) => state.articleComments || commentAdapter.getInitialState());
+export const getArticleComments = commentAdapter.getSelectors<StateSchema>((state) => state.articleComments || commentAdapter.getInitialState({}));
 
 const articleDetailsCommentsSlice = createSlice({
 	name: "articleDetailsComments",
@@ -19,7 +19,9 @@ const articleDetailsCommentsSlice = createSlice({
 		ids: [],
 		entities: {},
 	}),
-	reducers: {},
+	reducers: {
+		
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchCommentsByArticleId.pending, (state) => {

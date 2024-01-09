@@ -1,9 +1,17 @@
 import React from "react";
-import cls from "./ArticleCommentList.module.scss";
+import { CommentList, IComment } from "entity/Comment";
+import { classNames } from "shared/lib/classNames/className";
 
-const ArticleCommentList = () => {
+interface ArticleCommentListProps {
+	comments?: IComment[]
+	isLoading: boolean
+}
+
+const ArticleCommentList = ({isLoading, comments}: ArticleCommentListProps) => {
 	return (
-		<div className={cls.ArticleCommentList}>ArticleCommentList</div>
+		<div className={classNames("ArticleCommentList")}>
+			<CommentList comments={comments} isLoading={isLoading} />
+		</div>
 	);
 };
 

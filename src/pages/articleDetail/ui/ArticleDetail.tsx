@@ -1,7 +1,13 @@
 import { ArticleDetails } from "entity/Article";
-import { CommentList } from "entity/Comment";
-import { articleDetailsCommentsReducer, fetchCommentsByArticleId, getArticleDetailsCommentsIsLoading } from "features/articleCommentList";
-import { getArticleComments } from "features/articleCommentList/model/slice/articleDetailsCommentsSlice";
+import { AddNewCommentForm } from "features/addNewComment";
+import {
+	ArticleCommentList,
+	articleDetailsCommentsReducer,
+	fetchCommentsByArticleId,
+	getArticleComments,
+	getArticleDetailsCommentsIsLoading,
+	sendNewCommentForArticle,
+} from "features/articleCommentList";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -23,9 +29,18 @@ const ArticleDetail = () => {
 
 	React.useEffect(() => {
 		if (__PROJECT__ != "storybook") {
-			thunkDispatch(fetchCommentsByArticleId(articleId || ""));
+			if (articleId) {
+				thunkDispatch(fetchCommentsByArticleId(articleId));
+			}
 		}
 	}, [articleId, thunkDispatch]);
+
+	const onSendComment = React.useCallback(
+		(value: string) => {
+			thunkDispatch(sendNewCommentForArticle(value));
+		},
+		[thunkDispatch]
+	);
 
 	if(!articleId) {
 		return (
@@ -40,7 +55,11 @@ const ArticleDetail = () => {
 			<div className={classNames(cls.ArticlePage)}>
 				<ArticleDetails id={articleId} />
 				<Text title="Comments" className={cls.commentTitle} />
-				<CommentList isLoading={isLoading} comments={comments} />
+				<AddNewCommentForm
+					className={cls.commentForm}
+					onSendComment={onSendComment}
+				/>
+				<ArticleCommentList isLoading={isLoading} comments={comments} />
 			</div>
 		</ReducerLoader>
 	);

@@ -10,24 +10,33 @@
       "id": "2",
       "username": "mest",
       "password": "123",
+      "avatar": "http://t1.gstatic.com/images?q=tbn:ANd9GcSN2msxh1scu24EKYpKTDrkBrJyVoQHPtc4vGcSnBLZfjEF7a5TtP1-vUyvmyZe8cIeHI4S"
+    }
+  ],
+  "profile": [
+    {
+      "id": "1",
+      "name": "Nursultan",
+      "surname": "Esenov",
+      "age": 19,
+      "currency": "USD",
+      "country": "America",
+      "city": "Tokmok",
+      "username": "HydroOx1d",
       "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": "3",
-      "username": "jest",
-      "password": "123"
+      "id": "2",
+      "name": "Mike",
+      "surname": "Tyson",
+      "age": null,
+      "currency": "USD",
+      "country": "America",
+      "city": "Tokmok",
+      "username": "Tyson",
+      "avatar": "http://t1.gstatic.com/images?q=tbn:ANd9GcSN2msxh1scu24EKYpKTDrkBrJyVoQHPtc4vGcSnBLZfjEF7a5TtP1-vUyvmyZe8cIeHI4S"
     }
   ],
-  "profile": {
-    "name": "Nursultan",
-    "surname": "Esenov",
-    "age": null,
-    "currency": "USD",
-    "country": "America",
-    "city": "Tokmok",
-    "username": "HydroOx1d",
-    "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
   "articles": [
     {
       "id": "1",
@@ -44,22 +53,34 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "content": "some comments",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2",
+      "content": "123",
+      "id": 1
     },
     {
-      "id": "2",
-      "content": "some comments 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "1",
+      "content": "123",
+      "id": 2
     },
     {
-      "id": "3",
-      "content": "some comments 3",
-      "articleId": "2",
-      "userId": "1"
+      "articleId": "1",
+      "userId": "1",
+      "content": "321",
+      "id": 3
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "content": "test",
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "content": "new comment",
+      "id": 5
     }
   ]
 }
