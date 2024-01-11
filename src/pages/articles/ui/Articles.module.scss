@@ -1,3 +1,28 @@
 .ArticlePage {
   padding-left: 30px;
 }
+
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+
+  .icon {
+    cursor: pointer;
+    transition: all 150ms linear;
+
+    &:hover {
+      fill-opacity: .6;
+    }
+
+    &.isActive {
+      fill-opacity: .6;
+    }
+  }
+}

@@ -47,8 +47,8 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 					</div>
 					<div className={cls.content}>
 						<div className={cls.info}>
-							{views}
 							{types}
+							{views}
 						</div>
 						<Text text={article.title} className={cls.title} />
 					</div>

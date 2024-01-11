@@ -8,6 +8,7 @@ import { UserSchema } from "entity/User";
 import { NewCommentSchema } from "features/addNewComment";
 import { ArticleDetailsCommentsSchema } from "features/articleCommentList";
 import { LoginSchema } from "features/authByUserName";
+import { ArticlesSchema } from "pages/articles";
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -18,7 +19,8 @@ export interface StateSchema {
   profile?: ProfileSchema
   article?: ArticleDetailsSchema;
   articleComments?: ArticleDetailsCommentsSchema;
-  addNewComment?: NewCommentSchema
+  addNewComment?: NewCommentSchema;
+  articles?: ArticlesSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
