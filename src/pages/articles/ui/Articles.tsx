@@ -3,14 +3,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
-import { getArticlesError, getArticlesIsLoading, getArticlesView } from "../model/selectors/articlesSelectors";
-import { fetchArticles } from "../model/services/fetchArticles";
+import { getArticlesError, getArticlesHasMore, getArticlesIsLoading, getArticlesPageNum, getArticlesView } from "../model/selectors/articlesSelectors";
+import { fetchArticles } from "../model/services/fetchArticles/fetchArticles";
 import { articlesActions, articlesReducer, getArticles } from "../model/slice/articlesSlice";
 import cls from "./Articles.module.scss";
 import ViewListIcon from "shared/assets/icons/viewList.svg";
 import ViewCardsIcon from "shared/assets/icons/viewCards.svg";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { classNames } from "shared/lib/classNames/className";
+import Page from "shared/ui/Page/Page";
+import { fetchNextPageArticles } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 const initialReducers: ReducersList = {
 	articles: articlesReducer
@@ -32,20 +34,28 @@ const Article = () => {
 	const isLoading = useSelector(getArticlesIsLoading);
 	const error = useSelector(getArticlesError);
 	const view = useSelector(getArticlesView);
+	const page = useSelector(getArticlesPageNum);
+	const hasMore = useSelector(getArticlesHasMore);
 	const thunkDispatch = useThunkDispatch();
 	const dispatch = useAppDispatch();
 
 	React.useEffect(() => {
-		thunkDispatch(fetchArticles());
+		thunkDispatch(fetchArticles({
+			page: 1
+		}));
 	}, [thunkDispatch]);
 
 	const onToggleViews = React.useCallback((view: ArticleViewWay) => {
 		dispatch(articlesActions.setView(view));
 	}, [dispatch]);
+
+	const onFetchNextPart = React.useCallback(() => {
+		thunkDispatch(fetchNextPageArticles());
+	}, [thunkDispatch]);
 	
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<div className={cls.ArticlePage}>
+			<Page className={cls.ArticlesPage} onScrollEnd={onFetchNextPart}>
 				<div className={cls.filter}>
 					<div className={cls.icons}>
 						{iconsConstant.map(icon => {
@@ -62,7 +72,7 @@ const Article = () => {
 					</div>
 				</div>
 				<ArticleList articles={articles} view={view} isLoading={isLoading} />
-			</div>
+			</Page>
 		</ReducerLoader>
 	);
 };

@@ -26,7 +26,7 @@ describe("testing fetch articles feature", () => {
 
 		const action = new TestAsyncThunk(fetchArticles);
 		action.api.get.mockReturnValue(Promise.resolve({ data: returnedData }));
-		const result = await action.thunkCall();
+		const result = await action.thunkCall({page: 1});
 
 		expect(action.api.get).toHaveBeenCalled();
 		expect(result.meta.requestStatus).toBe("fulfilled");
@@ -37,7 +37,7 @@ describe("testing fetch articles feature", () => {
 	test("should return error with rejected response", async () => {
 		const action = new TestAsyncThunk(fetchArticles);
 		action.api.get.mockReturnValue(Promise.reject({ data: { status: 403 } }));
-		const result = await action.thunkCall();
+		const result = await action.thunkCall({page: 1});
 
 		expect(action.api.get).toHaveBeenCalled();
 		expect(result.meta.requestStatus).toBe("rejected");

@@ -13,25 +13,18 @@ interface ArticleListProps {
 }
 
 const ArticleList = (props: ArticleListProps) => {
-	const {className, articles, view, isLoading} = props;
-
-	if(isLoading) {
-		return <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-			{new Array(view === ArticleViewWay.CARDS ? 8 : 3).fill(0).map((_, i) => {
-				return <ArticleListSkeleton view={view} key={i}/>;
-			})}
-		</div>;
-	}
+	const { className, articles, view, isLoading } = props;
 
 	const renderArticle = (article: Article) => {
-		return (
-			<ArticleListItem article={article} view={view} key={article.id}/>
-		);
+		return <ArticleListItem article={article} view={view} key={article.id} />;
 	};
 
 	return (
 		<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 			{articles.length ? articles.map(renderArticle) : null}
+			{isLoading ? new Array(view === ArticleViewWay.CARDS ? 8 : 3).fill(0).map((_, i) => {
+				return <ArticleListSkeleton view={view} key={i} />;
+			}) : null}
 		</div>
 	);
 };

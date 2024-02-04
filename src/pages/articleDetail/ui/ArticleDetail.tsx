@@ -18,6 +18,7 @@ import Text from "shared/ui/Text/Text";
 import cls from "./Article.module.scss";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { routePath } from "shared/config/routeConfig/routeConfig";
+import Page from "shared/ui/Page/Page";
 
 const initialReducers: ReducersList = {
 	articleComments: articleDetailsCommentsReducer
@@ -51,15 +52,15 @@ const ArticleDetail = () => {
 
 	if(!articleId) {
 		return (
-			<div className={classNames(cls.ArticlePage)}>
+			<Page className={classNames(cls.ArticlePage)}>
         The article is not found
-			</div>
+			</Page>
 		);
 	}
 
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<div className={classNames(cls.ArticlePage)}>
+			<Page className={classNames(cls.ArticlePage)}>
 				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{"<"} Back</Button>
 				<ArticleDetails id={articleId} />
 				<Text title="Comments" className={cls.commentTitle} />
@@ -68,7 +69,7 @@ const ArticleDetail = () => {
 					onSendComment={onSendComment}
 				/>
 				<ArticleCommentList isLoading={isLoading} comments={comments} />
-			</div>
+			</Page>
 		</ReducerLoader>
 	);
 };

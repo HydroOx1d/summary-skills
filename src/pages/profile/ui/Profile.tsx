@@ -8,6 +8,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
+import Page from "shared/ui/Page/Page";
 
 const initialReducers: ReducersList = {
 	profile: profileReducer
@@ -82,22 +83,24 @@ const Profile = React.memo(() => {
 
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<ProfilePageHeader />
-			<ProfileCard
-				data={data}
-				isLoading={isLoading}
-				error={error}
-				readonly={readonly}
-				validateErrors={validateErrors}
-				onUpdateProfileName={onUpdateProfileName}
-				onUpdateProfileSurname={onUpdateProfileSurname}
-				onUpdateProfileAge={onUpdateProfileAge}
-				onUpdateProfileCity={onUpdateProfileCity}
-				onUpdateProfileAvatar={onUpdateProfileAvatar}
-				onUpdateProfileUsername={onUpdateProfileUsername}
-				onUpdateProfileCurrency={onUpdateProfileCurrency}
-				onUpdateProfileCountry={onUpdateProfileCountry}
-			/>
+			<Page>
+				<ProfilePageHeader />
+				<ProfileCard
+					data={data}
+					isLoading={isLoading}
+					error={error}
+					readonly={readonly}
+					validateErrors={validateErrors}
+					onUpdateProfileName={onUpdateProfileName}
+					onUpdateProfileSurname={onUpdateProfileSurname}
+					onUpdateProfileAge={onUpdateProfileAge}
+					onUpdateProfileCity={onUpdateProfileCity}
+					onUpdateProfileAvatar={onUpdateProfileAvatar}
+					onUpdateProfileUsername={onUpdateProfileUsername}
+					onUpdateProfileCurrency={onUpdateProfileCurrency}
+					onUpdateProfileCountry={onUpdateProfileCountry}
+				/>
+			</Page>
 		</ReducerLoader>
 	);
 });

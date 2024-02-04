@@ -1,7 +1,7 @@
 import { Article, ArticleViewWay } from "entity/Article";
 import { ArticlesSchema } from "../types/articles";
 import { articlesActions, articlesReducer } from "./articlesSlice";
-import { fetchArticles } from "../services/fetchArticles";
+import { fetchArticles } from "../services/fetchArticles/fetchArticles";
 
 const data: Article[] = [
 	{
@@ -59,7 +59,7 @@ describe("articles slice test", () => {
 			isLoading: true
 		};
 
-		expect(articlesReducer(state as ArticlesSchema, fetchArticles.fulfilled(data, ""))).toEqual({
+		expect(articlesReducer(state as ArticlesSchema, fetchArticles.fulfilled(data, "", {page: 1}))).toEqual({
 			ids: ["1"],
 			entities: {
 				"1": {

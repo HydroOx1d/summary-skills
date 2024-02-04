@@ -2,7 +2,7 @@ import { PayloadAction, createEntityAdapter, createSlice } from "@reduxjs/toolki
 import { StateSchema } from "app/providers/store";
 import { Article, ArticleViewWay } from "entity/Article";
 import { ArticlesSchema } from "../types/articles";
-import { fetchArticles } from "../services/fetchArticles";
+import { fetchArticles } from "../services/fetchArticles/fetchArticles";
 
 const articlesAdapter = createEntityAdapter<Article>({
 	selectId(comment: Article) {
@@ -20,11 +20,17 @@ const articlesSlice = createSlice({
 		isLoading: false,
 		ids: [],
 		entities: {},
-		view: ArticleViewWay.LIST
+		view: ArticleViewWay.LIST,
+		hasMore: true,
+		limit: 8,
+		page: 1
 	}),
 	reducers: {
 		setView(state, action: PayloadAction<ArticleViewWay>) {
 			state.view = action.payload;
+		},
+		setPage(state, action: PayloadAction<number>) {
+			state.page = action.payload;
 		}
 	},
 	extraReducers: (builder) => {
@@ -35,7 +41,8 @@ const articlesSlice = createSlice({
 
 		builder.addCase(fetchArticles.fulfilled, (state, action) => {
 			state.isLoading = false;
-			articlesAdapter.setMany(state, action.payload);
+			articlesAdapter.addMany(state, action.payload);
+			state.hasMore = action.payload.length > 0;
 		});
 
 		builder.addCase(fetchArticles.rejected, (state, action) => {

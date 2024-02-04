@@ -21,9 +21,7 @@ export const App = () => {
 				<Navbar />
 				<main className="main">
 					<Sidebar />
-					<div className="page-content">
-						<AppRouter />
-					</div>
+					<AppRouter />
 				</main>
 			</div>
 		</React.Suspense>
