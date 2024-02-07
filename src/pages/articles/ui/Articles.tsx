@@ -11,7 +11,7 @@ import ViewListIcon from "shared/assets/icons/viewList.svg";
 import ViewCardsIcon from "shared/assets/icons/viewCards.svg";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { classNames } from "shared/lib/classNames/className";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 import { fetchNextPageArticles } from "../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
 const initialReducers: ReducersList = {
@@ -34,8 +34,6 @@ const Article = () => {
 	const isLoading = useSelector(getArticlesIsLoading);
 	const error = useSelector(getArticlesError);
 	const view = useSelector(getArticlesView);
-	const page = useSelector(getArticlesPageNum);
-	const hasMore = useSelector(getArticlesHasMore);
 	const thunkDispatch = useThunkDispatch();
 	const dispatch = useAppDispatch();
 
@@ -54,7 +52,7 @@ const Article = () => {
 	}, [thunkDispatch]);
 	
 	return (
-		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
+		<ReducerLoader reducers={initialReducers}>
 			<Page className={cls.ArticlesPage} onScrollEnd={onFetchNextPart}>
 				<div className={cls.filter}>
 					<div className={cls.icons}>

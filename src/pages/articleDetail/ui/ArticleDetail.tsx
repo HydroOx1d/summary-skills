@@ -18,7 +18,7 @@ import Text from "shared/ui/Text/Text";
 import cls from "./Article.module.scss";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { routePath } from "shared/config/routeConfig/routeConfig";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 
 const initialReducers: ReducersList = {
 	articleComments: articleDetailsCommentsReducer

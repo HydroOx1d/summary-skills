@@ -4,12 +4,14 @@ import { counterReducer } from "entity/Counter";
 import { userReducer } from "entity/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
+import { scrollSaverReducer } from "features/scrollSaver";
 
 export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
 		...asyncReducers,
 		counter: counterReducer,
-		user: userReducer
+		user: userReducer,
+		scrollSaver: scrollSaverReducer
 	};
 
 	const reducerManager = createReducerManager(rootReducers);

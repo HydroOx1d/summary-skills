@@ -2,7 +2,7 @@ import React from "react";
 import { classNames } from "shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";
 import cls from "./NotFound.module.scss";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 
 const NotFound = React.memo(() => {
 	const {t} = useTranslation();

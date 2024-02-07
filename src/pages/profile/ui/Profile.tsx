@@ -8,7 +8,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
-import Page from "shared/ui/Page/Page";
+import Page from "widgets/Page/Page";
 
 const initialReducers: ReducersList = {
 	profile: profileReducer
