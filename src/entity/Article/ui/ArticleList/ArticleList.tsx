@@ -4,6 +4,7 @@ import { classNames } from "shared/lib/classNames/className";
 import { Article, ArticleViewWay } from "../../model/types/article";
 import ArticleListItem from "../ArticleListItem/ArticleListItem";
 import ArticleListSkeleton from "./ArticleListSkeleton";
+import Text from "shared/ui/Text/Text";
 
 interface ArticleListProps {
   className?: string;
@@ -14,6 +15,12 @@ interface ArticleListProps {
 
 const ArticleList = (props: ArticleListProps) => {
 	const { className, articles, view, isLoading } = props;
+
+	if (!isLoading && !articles.length) {
+		return (
+			<Text text="Статьи не найдены"/>
+		);
+	}
 
 	const renderArticle = (article: Article) => {
 		return <ArticleListItem article={article} view={view} key={article.id} />;

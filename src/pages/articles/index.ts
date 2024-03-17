@@ -1,4 +1,4 @@
-import { ArticleAsyncComponent as ArticlePage } from "./ui/Articles.async";
+import { ArticleAsyncComponent as ArticlePage } from "./ui/ArticlesPage/Articles.async";
 import { articlesReducer, articlesActions } from "./model/slice/articlesSlice";
 import { ArticlesSchema } from "./model/types/articles";
 

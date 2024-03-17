@@ -22,9 +22,7 @@ describe("testing fetch next articles page feature", () => {
 
 		expect(action.getState).toHaveBeenCalledTimes(3);
 		expect(action.dispatch).toHaveBeenCalledWith(articlesActions.setPage(2));
-		expect(action.dispatch).toHaveBeenCalledWith(fetchArticles({
-			page: 2
-		}));
+		expect(action.dispatch).toHaveBeenCalledWith(fetchArticles({}));
 		expect(action.dispatch).toHaveBeenCalledTimes(4);
 	});
 
@@ -47,9 +45,7 @@ describe("testing fetch next articles page feature", () => {
 			articlesActions.setPage(2)
 		);
 		expect(action.dispatch).not.toHaveBeenCalledWith(
-			fetchArticles({
-				page: 2,
-			})
+			fetchArticles({})
 		);
 		expect(action.dispatch).toHaveBeenCalledTimes(2);
 	});
@@ -73,9 +69,7 @@ describe("testing fetch next articles page feature", () => {
 			articlesActions.setPage(2)
 		);
 		expect(action.dispatch).not.toHaveBeenCalledWith(
-			fetchArticles({
-				page: 2,
-			})
+			fetchArticles({})
 		);
 		expect(action.dispatch).toHaveBeenCalledTimes(2);
 	});

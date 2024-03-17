@@ -1,26 +1,27 @@
 import React from "react";
 import { classNames } from "shared/lib/classNames/className";
 import cls from "./Select.module.scss";
-import { Currency } from "entity/Currency/model/types/currency";
 
-export interface OptionType {
-	value?: string;
+export interface OptionType<T extends string> {
+	value?: T;
 	content?: string;
 }
 
-interface SelectProps {
+type NewSelectProps = Omit<React.HTMLAttributes<HTMLSelectElement>, "onChange" | "value">
+
+interface SelectProps<T extends string> extends NewSelectProps {
   className?: string;
-	options?: OptionType[];
-	readonly?: boolean;
-	value?: string;
-	onChange?: (value: string) => void;
+  options?: OptionType<T>[];
+  readonly?: boolean;
+  value?: T;
+  onChange?: (value: T) => void;
 }
 
-const Select = React.memo((props: SelectProps) => {
-	const { className, options, readonly, value, onChange } = props;
+const Select = <T extends string>(props: SelectProps<T>) => {
+	const { className, options, readonly, value, onChange, placeholder, ...otherProps } = props;
 
 	const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		onChange?.(e.target.value);
+		onChange?.(e.target.value as T);
 	};
 
 	const optionsList = React.useMemo(() => {
@@ -40,12 +41,13 @@ const Select = React.memo((props: SelectProps) => {
 			])}
 			onChange={handleSelectChange}
 			value={value}
+			defaultValue={value || "DEFAULT"}
+			{...otherProps}
 		>
+			{placeholder && <option disabled value={"DEFAULT"}>{placeholder}</option>}
 			{optionsList}
 		</select>
 	);
-});
+};
 
-Select.displayName = "Select";
-
-export default Select;
+export default React.memo(Select) as typeof Select;

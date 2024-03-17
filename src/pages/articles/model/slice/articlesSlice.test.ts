@@ -1,4 +1,4 @@
-import { Article, ArticleViewWay } from "entity/Article";
+import { Article, ArticleType, ArticleViewWay } from "entity/Article";
 import { ArticlesSchema } from "../types/articles";
 import { articlesActions, articlesReducer } from "./articlesSlice";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";
@@ -40,13 +40,28 @@ describe("articles slice test", () => {
 		});
 	});
 
+	test("set type", () => {
+		const state: DeepPartial<ArticlesSchema> = {
+			type: "all" as ArticleType
+		};
+
+		expect(
+			articlesReducer(
+        state as ArticlesSchema,
+        articlesActions.setType("IT" as ArticleType)
+			)
+		).toEqual({
+			type: "IT" as ArticleType
+		});
+	});
+
 	test("extra reducer (fetchArticles test) - pending", () => {
 		const state: DeepPartial<ArticlesSchema> = {
 			isLoading: false,
 			error: "error"
 		};
 
-		expect(articlesReducer(state as ArticlesSchema, fetchArticles.pending)).toEqual({
+		expect(articlesReducer(state as ArticlesSchema, fetchArticles.pending("", {}))).toEqual({
 			isLoading: true,
 			error: undefined
 		});
@@ -56,17 +71,19 @@ describe("articles slice test", () => {
 		const state: DeepPartial<ArticlesSchema> = {
 			ids: [],
 			entities: {},
-			isLoading: true
+			isLoading: true,
+			hasMore: true
 		};
 
-		expect(articlesReducer(state as ArticlesSchema, fetchArticles.fulfilled(data, "", {page: 1}))).toEqual({
+		expect(articlesReducer(state as ArticlesSchema, fetchArticles.fulfilled(data, "", {}))).toEqual({
 			ids: ["1"],
 			entities: {
 				"1": {
 					...data[0]
 				}
 			},
-			isLoading: false
+			isLoading: false,
+			hasMore: false
 		});
 	});
 });

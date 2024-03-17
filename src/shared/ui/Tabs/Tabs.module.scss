@@ -1,0 +1,15 @@
+.Tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+
+  &.active {
+    background-color: var(--bg-inverted-color);
+    color: var(--primary-inverted-color);
+  }
+}
