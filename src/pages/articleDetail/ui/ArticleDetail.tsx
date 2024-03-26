@@ -8,20 +8,22 @@ import {
 	getArticleDetailsCommentsIsLoading,
 	sendNewCommentForArticle,
 } from "features/articleCommentList";
+import { ArtcileRecommendationList, articleRecommendationReducer } from "features/articleRecommendation";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { routePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/className";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
-import Text from "shared/ui/Text/Text";
-import cls from "./Article.module.scss";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import { routePath } from "shared/config/routeConfig/routeConfig";
+import Text from "shared/ui/Text/Text";
 import Page from "widgets/Page/Page";
+import cls from "./Article.module.scss";
 
 const initialReducers: ReducersList = {
-	articleComments: articleDetailsCommentsReducer
+	articleComments: articleDetailsCommentsReducer,
+	articleRecommendation: articleRecommendationReducer
 };
 
 const ArticleDetail = () => {
@@ -63,6 +65,7 @@ const ArticleDetail = () => {
 			<Page className={classNames(cls.ArticlePage)}>
 				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{"<"} Back</Button>
 				<ArticleDetails id={articleId} />
+				<ArtcileRecommendationList/>
 				<Text title="Comments" className={cls.commentTitle} />
 				<AddNewCommentForm
 					className={cls.commentForm}

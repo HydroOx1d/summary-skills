@@ -7,6 +7,7 @@ import { ProfileSchema } from "entity/Profile";
 import { UserSchema } from "entity/User";
 import { NewCommentSchema } from "features/addNewComment";
 import { ArticleDetailsCommentsSchema } from "features/articleCommentList";
+import { ArticleRecommendationSchema } from "features/articleRecommendation";
 import { LoginSchema } from "features/authByUserName";
 import { ScrollSaverSchema } from "features/scrollSaver";
 import { ArticlesSchema } from "pages/articles";
@@ -17,12 +18,13 @@ export interface StateSchema {
   scrollSaver: ScrollSaverSchema;
 
   // Async reducers 
-  loginForm?: LoginSchema
-  profile?: ProfileSchema
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
   article?: ArticleDetailsSchema;
+  articleRecommendation?: ArticleRecommendationSchema;
   articleComments?: ArticleDetailsCommentsSchema;
   addNewComment?: NewCommentSchema;
-  articles?: ArticlesSchema
+  articles?: ArticlesSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

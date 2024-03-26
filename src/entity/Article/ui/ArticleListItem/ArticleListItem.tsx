@@ -1,15 +1,14 @@
 import React from "react";
 import EyeIcon from "shared/assets/icons/eye-line.svg";
+import { routePath } from "shared/config/routeConfig/routeConfig";
 import { classNames } from "shared/lib/classNames/className";
+import AppLink from "shared/ui/AppLink/AppLink";
+import Avatar from "shared/ui/Avatar/Avatar";
+import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import Card from "shared/ui/Card/Card";
 import Text, { TextSize } from "shared/ui/Text/Text";
 import { Article, ArticleViewWay } from "../../model/types/article";
 import cls from "./ArticleListItem.module.scss";
-import Avatar from "shared/ui/Avatar/Avatar";
-import Button from "shared/ui/Button/Button";
-import { ButtonTheme } from "shared/ui/Button/Button";
-import { useNavigate } from "react-router-dom";
-import { routePath } from "shared/config/routeConfig/routeConfig";
 
 interface ArticleListItemProps {
   className?: string;
@@ -19,7 +18,6 @@ interface ArticleListItemProps {
 
 const ArticleListItem = (props: ArticleListItemProps) => {
 	const {className, article, view} = props;
-	const navigate = useNavigate();
 
 	const views = (
 		<div className={cls.views}>
@@ -30,17 +28,12 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 
 	const types = <div className={cls.type}>{article.type.join(",")}</div>;
 
-	const onNavigateToArticle = React.useCallback(() => {
-		navigate(routePath.article_detail + article.id);
-	}, [article.id, navigate]);
-  
-
 	if (view === ArticleViewWay.CARDS) {
 		return (
-			<div
+			<AppLink to={routePath.article_detail + article.id}
 				className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
 			>
-				<Card className={cls.card} onClick={onNavigateToArticle}>
+				<Card className={cls.card}>
 					<Text text={article.createdAt} className={cls.date} />
 					<div className={cls.image}>
 						<img src={article.firstImage} alt={article.title} />
@@ -53,7 +46,7 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 						<Text text={article.title} className={cls.title} />
 					</div>
 				</Card>
-			</div>
+			</AppLink>
 		);
 	}
 
@@ -82,13 +75,14 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 				</div>
 				<Text text={article.preview} className={cls.preview} />
 				<div className={cls.footer}>
-					<Button
-						className={cls.btn}
-						theme={ButtonTheme.OUTLINE}
-						onClick={onNavigateToArticle}
-					>
+					<AppLink to={routePath.article_detail + article.id}>
+						<Button
+							className={cls.btn}
+							theme={ButtonTheme.OUTLINE}
+						>
             Read more...
-					</Button>
+						</Button>
+					</AppLink>
 					{views}
 				</div>
 			</Card>
