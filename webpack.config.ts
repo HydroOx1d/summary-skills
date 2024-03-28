@@ -4,6 +4,7 @@ import { webpackConfig } from "./config/build/webpackConfig";
 import { BuildEnv } from "./config/build/types/config";
 
 export default (env: BuildEnv) => {
+	console.log(env);
 	const mode = env.mode || "development";
 
 	const isDev = mode === "development";
