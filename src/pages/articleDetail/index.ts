@@ -1,4 +1,4 @@
-import { ArticleDetailAsyncComponent as ArticleDetailPage } from "./ui/Article.async";
+import { ArticleDetailAsyncComponent as ArticleDetailPage } from "./ui/ArticleDetail/ArticleDetail.async";
 
 export {
 	ArticleDetailPage

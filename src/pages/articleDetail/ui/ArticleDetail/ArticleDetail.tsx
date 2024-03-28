@@ -11,15 +11,14 @@ import {
 import { ArtcileRecommendationList, articleRecommendationReducer } from "features/articleRecommendation";
 import React from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { routePath } from "shared/config/routeConfig/routeConfig";
+import { useParams } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/className";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import Text from "shared/ui/Text/Text";
 import Page from "widgets/Page/Page";
-import cls from "./Article.module.scss";
+import cls from "./ArticleDetail.module.scss";
+import ArtcileDetailHeader from "../ArticleDetailHeader/ArtcileDetailHeader";
 
 const initialReducers: ReducersList = {
 	articleComments: articleDetailsCommentsReducer,
@@ -31,11 +30,6 @@ const ArticleDetail = () => {
 	const comments = useSelector(getArticleComments.selectAll);
 	const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
 	const thunkDispatch = useThunkDispatch();
-	const navigate = useNavigate();
-
-	const onBackToList = React.useCallback(() => {
-		navigate(routePath.articles);
-	}, [navigate]);
 
 	React.useEffect(() => {
 		if (__PROJECT__ != "storybook") {
@@ -63,7 +57,7 @@ const ArticleDetail = () => {
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
 			<Page className={classNames(cls.ArticlePage)}>
-				<Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>{"<"} Back</Button>
+				<ArtcileDetailHeader/>
 				<ArticleDetails id={articleId} />
 				<ArtcileRecommendationList/>
 				<Text title="Comments" className={cls.commentTitle} />
