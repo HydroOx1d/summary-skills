@@ -21,6 +21,7 @@ const Article = () => {
 	const isLoading = useSelector(getArticlesIsLoading);
 	const view = useSelector(getArticlesView);
 	const thunkDispatch = useThunkDispatch();
+	const pageRef = React.useRef() as React.MutableRefObject<HTMLDivElement>;
 
 	React.useEffect(() => {
 		thunkDispatch(initialFetchArticles());
@@ -32,9 +33,9 @@ const Article = () => {
 
 	return (
 		<ReducerLoader reducers={initialReducers}>
-			<Page className={cls.ArticlesPage} onScrollEnd={onFetchNextPart}>
+			<Page className={cls.ArticlesPage} pageRef={pageRef}>
 				<ArticlesPageFilter />
-				<ArticleList articles={articles} view={view} isLoading={isLoading} />
+				<ArticleList articles={articles} view={view} isLoading={isLoading} onFetchNextPart={onFetchNextPart} ref={pageRef}/>
 			</Page>
 		</ReducerLoader>
 	);

@@ -13,10 +13,11 @@ import { useThrotle } from "shared/lib/hooks/useThrottle";
 interface PageProps {
   className?: string;
   onScrollEnd?: () => void;
+	pageRef?: React.MutableRefObject<HTMLDivElement>
 }
 
 const Page = (props: React.PropsWithChildren<PageProps>) => {
-	const { children, className, onScrollEnd } = props;
+	const { children, className, onScrollEnd, pageRef} = props;
 	const dispatch = useAppDispatch();
 	const {pathname} = useLocation();
 	const position = useSelector((state: StateSchema) => getScrollSaverByPath(state, pathname));
@@ -31,6 +32,9 @@ const Page = (props: React.PropsWithChildren<PageProps>) => {
 	});
 
 	React.useEffect(() => {
+		if (pageRef) {
+			pageRef.current = wrapperRef.current;
+		}
 		if(position) {
 			wrapperRef.current.scrollTo({
 				top: position

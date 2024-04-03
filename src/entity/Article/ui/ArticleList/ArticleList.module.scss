@@ -1,15 +1,19 @@
-.ArticleList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
-  row-gap: 30px;
-}
+// .ArticleList {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   column-gap: 20px;
+//   row-gap: 30px;
+// }
 
-.list {
-  display: block;
+// .list {
+//   display: block;
+// }
 
-  & > *:not(:last-child) {
-    margin-bottom: 30px;
+.articleWrapper {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
