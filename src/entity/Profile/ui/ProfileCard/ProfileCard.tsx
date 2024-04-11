@@ -9,6 +9,8 @@ import { useTranslation } from "react-i18next";
 import Avatar from "shared/ui/Avatar/Avatar";
 import { Currency, CurrencySelect } from "entity/Currency";
 import { Country, CountrySelect } from "entity/Country";
+import VStack from "shared/ui/Stack/VStack/VStack";
+import HStack from "shared/ui/Stack/HStack/HStack";
 
 interface ProfileCardProps {
   data?: Profile;
@@ -46,9 +48,9 @@ const ProfileCard = (props: ProfileCardProps) => {
 
 	if (isLoading) {
 		return (
-			<div className={classNames(cls.ProfileCard, {}, [cls.loading])}>
+			<HStack align="center" justify="center" className={classNames(cls.ProfileCard, {}, [cls.loading])}>
 				<Loader />
-			</div>
+			</HStack>
 		);
 	}
 
@@ -68,11 +70,11 @@ const ProfileCard = (props: ProfileCardProps) => {
 	};
   
 	return (
-		<div className={cls.ProfileCard}>
-			<div className={cls.avatarWrap}>
+		<VStack gap="16" className={cls.ProfileCard}>
+			<HStack justify="center" align="center">
 				<Avatar src={data?.avatar} alt="Avatar" />
-			</div>
-			<div className={cls.data}>
+			</HStack>
+			<VStack gap="16">
 				{validateErrors?.length ? validateErrors.map(error => {
 					return (
 						<Text text={errorsMapping[error]} key={error}/>
@@ -130,8 +132,8 @@ const ProfileCard = (props: ProfileCardProps) => {
 					value={data?.country}
 					onChange={onUpdateProfileCountry}
 				/>
-			</div>
-		</div>
+			</VStack>
+		</VStack>
 	);
 };
 

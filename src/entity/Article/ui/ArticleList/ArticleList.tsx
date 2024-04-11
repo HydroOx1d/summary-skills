@@ -37,7 +37,7 @@ const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDi
 			<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 				<VirtuosoGrid
 					useWindowScroll={true}
-					customScrollParent={parentScroll.current}
+					customScrollParent={parentScroll?.current}
 					data={articles}
 					totalCount={articles.length}
 					itemContent={renderArticle}
@@ -83,7 +83,7 @@ const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDi
 		<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 			<Virtuoso
 				useWindowScroll={true}
-				customScrollParent={parentScroll.current}
+				customScrollParent={parentScroll?.current}
 				data={articles}
 				totalCount={articles.length}
 				itemContent={renderArticle}

@@ -24,11 +24,15 @@ const Article = () => {
 	const pageRef = React.useRef() as React.MutableRefObject<HTMLDivElement>;
 
 	React.useEffect(() => {
-		thunkDispatch(initialFetchArticles());
+		if (__PROJECT__ != "storybook") {
+			thunkDispatch(initialFetchArticles());
+		}
 	}, [thunkDispatch]);
 
 	const onFetchNextPart = React.useCallback(() => {
-		thunkDispatch(fetchNextPageArticles());
+		if (__PROJECT__ != "storybook") {
+			thunkDispatch(fetchNextPageArticles());
+		}
 	}, [thunkDispatch]);
 
 	return (

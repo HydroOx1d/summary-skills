@@ -3,21 +3,6 @@
   border: 1px solid var(--primary-color);
 }
 
-.data {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 200px;
-}
-
-.avatarWrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
 }

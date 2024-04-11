@@ -13,8 +13,8 @@ const Skeleton = (props: SkeletonProps) => {
 	const {
 		className,
 		border,
-		height,
-		width
+		height = 600,
+		width = 400
 	} = props;
 
 	const styles: React.CSSProperties = {

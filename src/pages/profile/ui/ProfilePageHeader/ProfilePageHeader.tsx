@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
+import HStack from "shared/ui/Stack/HStack/HStack";
 import Text from "shared/ui/Text/Text";
-import cls from "./ProfilePageHeader.module.scss";
 
 const ProfilePageHeader = React.memo(() => {
 	const { t } = useTranslation("profile");
@@ -33,35 +33,35 @@ const ProfilePageHeader = React.memo(() => {
 	}, [profileData?.id, thunkDispatch]);
 
 	return (
-		<div className={cls.ProfilePageHeader}>
-			<Text title={t("profile")} className={cls.title} />
-			{canEdit && (
-				<>
-					{readonly ? (
-						<Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
-							{t("profileBtnEdit")}
-						</Button>
-					) : (
-						<>
-							<Button
-								theme={ButtonTheme.OUTLINE_RED}
-								onClick={onEditCancel}
-								className={cls.editCancel}
-							>
-								{t("profileBtnCancelEdit")}
+		<HStack justify="between" max>
+			<Text title={t("profile")} />
+			<HStack gap="8">
+				{canEdit && (
+					<>
+						{readonly ? (
+							<Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
+								{t("profileBtnEdit")}
 							</Button>
-							<Button
-								theme={ButtonTheme.OUTLINE}
-								onClick={onEditSave}
-								className={cls.editSave}
-							>
-								{t("profileBtnSaveEdit")}
-							</Button>
-						</>
-					)}
-				</>
-			)}
-		</div>
+						) : (
+							<>
+								<Button
+									theme={ButtonTheme.OUTLINE_RED}
+									onClick={onEditCancel}
+								>
+									{t("profileBtnCancelEdit")}
+								</Button>
+								<Button
+									theme={ButtonTheme.OUTLINE}
+									onClick={onEditSave}
+								>
+									{t("profileBtnSaveEdit")}
+								</Button>
+							</>
+						)}
+					</>
+				)}
+			</HStack>
+		</HStack>
 	);
 });
 

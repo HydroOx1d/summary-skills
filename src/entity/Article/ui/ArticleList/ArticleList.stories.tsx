@@ -47,7 +47,7 @@ const meta: Meta<typeof ArticleList> = {
 				id: String(index),
 			};
 		}),
-		view: ArticleViewWay.CARDS,
+		view: ArticleViewWay.CARDS
 	},
 };
 
@@ -88,6 +88,7 @@ export const ListSkeleton: Story = {
 	render: (args) => <ArticleList {...args} />,
 	args: {
 		isLoading: true,
+		articles: [],
 		view: ArticleViewWay.LIST
 	}
 };
@@ -96,6 +97,7 @@ export const CardsSkeleton: Story = {
 	render: (args) => <ArticleList {...args} />,
 	args: {
 		isLoading: true,
+		articles: [],
 		view: ArticleViewWay.CARDS
 	}
 };
