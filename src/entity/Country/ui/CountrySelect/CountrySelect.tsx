@@ -1,5 +1,5 @@
 import React from "react";
-import Select from "shared/ui/Select/Select";
+import ListBox from "shared/ui/ListBox/ListBox";
 import { Country } from "../../model/types/country";
 
 const countryOptions = [
@@ -30,12 +30,7 @@ const CountrySelect = React.memo((props: CountrySelectProps) => {
 	);
 
 	return (
-		<Select
-			readonly={readonly}
-			options={countryOptions}
-			value={value}
-			onChange={onHandleSelectChange}
-		/>
+		<ListBox value={value} onChange={onHandleSelectChange} options={countryOptions} readonly={readonly}/>
 	);
 });
 

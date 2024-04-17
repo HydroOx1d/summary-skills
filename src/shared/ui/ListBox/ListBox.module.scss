@@ -1,0 +1,33 @@
+.ListBox {
+  width: 100%;
+}
+
+.button_wrap {
+  width: 100%;
+  padding: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.button {
+  width: 100%;
+}
+
+.options {
+  background-color: var(--bg-inverted-color);
+}
+
+.option {
+  color: var(--primary-inverted-color);
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: .9;
+  }
+}
+
+.readonly {
+  opacity: .7;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import Select from "shared/ui/Select/Select";
+import ListBox from "shared/ui/ListBox/ListBox";
 import { Currency } from "../../model/types/currency";
 
 const currencyOptions = [
@@ -35,12 +35,7 @@ const CurrencySelect = React.memo((props: CurrencySelectProps) => {
 	}, [onChange]); 
   
 	return (
-		<Select
-			readonly={readonly}
-			options={currencyOptions}
-			value={value}
-			onChange={onHandleSelectChange}
-		/>
+		<ListBox value={value} onChange={onHandleSelectChange} options={currencyOptions} readonly={readonly}/>
 	);
 });
 
