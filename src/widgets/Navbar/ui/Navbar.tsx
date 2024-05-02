@@ -6,6 +6,9 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entity/User";
 import { LoginModal } from "features/authByUserName";
+import Dropdown, { DropdownItem } from "shared/ui/Dropdown/Dropdown";
+import Avatar from "shared/ui/Avatar/Avatar";
+import { routePath } from "shared/config/routeConfig/routeConfig";
 
 const Navbar = React.memo(() => {
 	const {t} = useTranslation();
@@ -25,13 +28,24 @@ const Navbar = React.memo(() => {
 		dispatch(userActions.logout());
 	}, [dispatch]);
 
+	const dropdownItems = React.useMemo<DropdownItem[]>(() => {
+		return [
+			{
+				content: "Profile",
+				href: routePath.profile + authData?.id
+			},
+			{
+				content: "Logout",
+				onClick: onLogout
+			},
+		];
+	}, [authData?.id, onLogout]);
+
 	if (authData) {
 		return (
 			<nav className={classNames(cls.Navbar)}>
 				<div className={cls.content}>
-					<Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout}>
-						{t("logout")}
-					</Button>
+					<Dropdown trigger={<Avatar size={40} src={authData.avatar} />} items={dropdownItems} direction="bottom right"/>
 				</div>
 			</nav>
 		);
