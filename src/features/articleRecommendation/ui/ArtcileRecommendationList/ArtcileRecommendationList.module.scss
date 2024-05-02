@@ -1,0 +1,14 @@
+.ArtcileRecommendationList {
+  margin-top: 15px;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.articles {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+}

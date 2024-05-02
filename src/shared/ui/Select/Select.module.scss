@@ -1,6 +1,5 @@
 .Select {
   cursor: pointer;
-  width: 100%;
   min-height: 35px;
   border: 1px solid var(--primary-color);
   background: none;
@@ -10,7 +9,7 @@
 
 .option {
   color: var(--primary-inverted-color);
-  background-color: var(--bg-inveted-color);
+  background-color: var(--bg-inverted-color);
 }
 
 .readonly {

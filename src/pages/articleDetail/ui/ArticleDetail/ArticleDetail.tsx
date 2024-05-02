@@ -8,6 +8,7 @@ import {
 	getArticleDetailsCommentsIsLoading,
 	sendNewCommentForArticle,
 } from "features/articleCommentList";
+import { ArtcileRecommendationList, articleRecommendationReducer } from "features/articleRecommendation";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -15,10 +16,13 @@ import { classNames } from "shared/lib/classNames/className";
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 import Text from "shared/ui/Text/Text";
-import cls from "./Article.module.scss";
+import Page from "widgets/Page/Page";
+import cls from "./ArticleDetail.module.scss";
+import ArtcileDetailHeader from "../ArticleDetailHeader/ArtcileDetailHeader";
 
 const initialReducers: ReducersList = {
-	articleComments: articleDetailsCommentsReducer
+	articleComments: articleDetailsCommentsReducer,
+	articleRecommendation: articleRecommendationReducer
 };
 
 const ArticleDetail = () => {
@@ -44,23 +48,25 @@ const ArticleDetail = () => {
 
 	if(!articleId) {
 		return (
-			<div className={classNames(cls.ArticlePage)}>
+			<Page className={classNames(cls.ArticlePage)}>
         The article is not found
-			</div>
+			</Page>
 		);
 	}
 
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<div className={classNames(cls.ArticlePage)}>
+			<Page className={classNames(cls.ArticlePage)}>
+				<ArtcileDetailHeader/>
 				<ArticleDetails id={articleId} />
+				<ArtcileRecommendationList/>
 				<Text title="Comments" className={cls.commentTitle} />
 				<AddNewCommentForm
 					className={cls.commentForm}
 					onSendComment={onSendComment}
 				/>
 				<ArticleCommentList isLoading={isLoading} comments={comments} />
-			</div>
+			</Page>
 		</ReducerLoader>
 	);
 };

@@ -1,10 +1,10 @@
+import { getUserAuthData } from "entity/User";
 import React from "react";
-import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { SidebarItemType } from "../model/items";
-import cls from "./SidebarItem.module.scss";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "entity/User";
+import AppLink, { AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { SidebarItemType } from "../model/types/sidebar";
+import cls from "./SidebarItem.module.scss";
 
 interface SidebarItemProps {
   item: SidebarItemType

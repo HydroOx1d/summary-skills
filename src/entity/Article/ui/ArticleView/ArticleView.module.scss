@@ -1,0 +1,17 @@
+.ArticleViewIcons {
+  display: flex;
+  gap: 20px;
+
+  .icon {
+    cursor: pointer;
+    transition: all 150ms linear;
+
+    &:hover {
+      fill-opacity: .6;
+    }
+
+    &.isActive {
+      fill-opacity: .6;
+    }
+  }
+}

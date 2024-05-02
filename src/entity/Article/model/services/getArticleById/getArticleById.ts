@@ -8,7 +8,11 @@ export const getArticleById = createAsyncThunk<
   ThunkConfig<string>
 >("article/getArticleById", async (articleId, thunkAPI) => {
 	try {
-		const response = await thunkAPI.extra.api.get<Article>(`/articles/${articleId}`);
+		const response = await thunkAPI.extra.api.get<Article>(`/articles/${articleId}`, {
+			params: {
+				_expand: "user"
+			}
+		});
 
 		if (!response.data) {
 			throw new Error("no user");
