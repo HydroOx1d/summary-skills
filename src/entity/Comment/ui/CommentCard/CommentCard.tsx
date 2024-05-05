@@ -20,7 +20,7 @@ const CommentCard = (props: CommentProps) => {
 
 	return (
 		<div className={classNames(cls.Comment, {}, [className])}>
-			<AppLink to={`${routePath.profile}/${comment?.user?.id}`} className={cls.header}>
+			<AppLink to={`${routePath.profile}${comment?.user?.id}`} className={cls.header}>
 				{comment?.user?.avatar ? <Avatar size={30} src={comment?.user.avatar}/> : null}
 				<Text text={comment?.user?.username}/>
 			</AppLink>

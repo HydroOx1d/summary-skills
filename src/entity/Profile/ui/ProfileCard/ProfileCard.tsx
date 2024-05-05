@@ -2,7 +2,7 @@ import React from "react";
 import cls from "./ProfileCard.module.scss";
 import Text, { TextAlign, TextTheme } from "shared/ui/Text/Text";
 import Input from "shared/ui/Input/Input";
-import { Profile, ValidateProfileError } from "../../model/types/profileSchema";
+import { Profile } from "../../model/types/profileSchema";
 import Loader from "shared/ui/Loader/Loader";
 import { classNames } from "shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,7 @@ import { Currency, CurrencySelect } from "entity/Currency";
 import { Country, CountrySelect } from "entity/Country";
 import VStack from "shared/ui/Stack/VStack/VStack";
 import HStack from "shared/ui/Stack/HStack/HStack";
+import { ValidateProfileError } from "features/editableProfileCard";
 
 interface ProfileCardProps {
   data?: Profile;
@@ -22,7 +23,7 @@ interface ProfileCardProps {
   onUpdateProfileSurname?: (value?: string) => void;
   onUpdateProfileAge?: (value?: string) => void;
   onUpdateProfileCity?: (value?: string) => void;
-  onUpdateProfileUsername?: (value?: string) => void;
+  onUpdateProfileUsername?: (value?: string) => void;	
   onUpdateProfileAvatar?: (value?: string) => void;
   onUpdateProfileCurrency?: (value?: Currency) => void;
   onUpdateProfileCountry?: (value?: Country) => void;

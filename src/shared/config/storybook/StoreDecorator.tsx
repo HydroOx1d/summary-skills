@@ -1,9 +1,9 @@
 import { StateSchema, StoreProvider } from "app/providers/store";
 import { articleReducer } from "entity/Article";
-import { profileReducer } from "entity/Profile";
 import { newCommentReducer } from "features/addNewComment";
 import { articleDetailsCommentsReducer } from "features/articleCommentList";
 import { loginReducer } from "features/authByUserName/model/slice/loginSlice";
+import { profileReducer } from "features/editableProfileCard";
 import { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 
 const asyncReducers: ReducersList = {

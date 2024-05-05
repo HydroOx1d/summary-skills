@@ -1,25 +1,25 @@
-import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
+import { CombinedState, Reducer, ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 import { StateSchema, StoreWithReducerManager } from "./stateSchema";
 import { counterReducer } from "entity/Counter";
 import { userReducer } from "entity/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
 import { scrollSaverReducer } from "features/scrollSaver";
+import { rtkApi } from "shared/api/rtkApi";
 
 export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
 		...asyncReducers,
 		counter: counterReducer,
 		user: userReducer,
-		scrollSaver: scrollSaverReducer
+		scrollSaver: scrollSaverReducer,
+		[rtkApi.reducerPath]: rtkApi.reducer
 	};
 
 	const reducerManager = createReducerManager(rootReducers);
 
 	const store: StoreWithReducerManager = configureStore({
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		//@ts-ignore
-		reducer: reducerManager.reduce as ReducersMapObject<StateSchema>,
+		reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
 		middleware: (getDefaultMiddleware) =>
@@ -29,7 +29,7 @@ export const setupStore = (initialState?: StateSchema, asyncReducers?: ReducersM
 						api: $api,
 					},
 				},
-			}),
+			}).concat(rtkApi.middleware),
 	});
 
 	store.reducerManager = reducerManager;

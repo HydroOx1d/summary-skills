@@ -2,16 +2,18 @@ import React from "react";
 import cls from "./ArticleList.module.scss";
 import { ArticleViewWay } from "../../model/types/article";
 import Skeleton from "shared/ui/Skeleton/Skeleton";
+import { classNames } from "shared/lib/classNames/className";
 
 interface ArticleListSkeletonProps {
+	className?: string;
   view: ArticleViewWay;
 }
 
-const ArticleListSkeleton = ({view}: ArticleListSkeletonProps) => {
+const ArticleListSkeleton = ({view, className}: ArticleListSkeletonProps) => {
   
 	if (view === ArticleViewWay.CARDS) {
 		return (
-			<div className={cls.Skeleton}>
+			<div className={classNames(cls.Skeleton, {}, [className])}>
 				<Skeleton width={"100%"} height={350} className={cls.image}/>
 				<div className={cls.info}>
 					<Skeleton width={50} height={15} />
