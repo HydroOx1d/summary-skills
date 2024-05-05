@@ -1,9 +1,10 @@
 import { DeepPartial } from "@reduxjs/toolkit";
-import { Profile, ProfileSchema, ValidateProfileError } from "../types/profileSchema";
 import { profileActions, profileReducer } from "./profileSlice";
 import { Country } from "entity/Country";
 import { Currency } from "entity/Currency";
 import { saveProfileData } from "../services/saveProfileData/saveProfileData";
+import { Profile } from "entity/Profile";
+import { ProfileSchema, ValidateProfileError } from "../types/editableProfileCard";
 
 const data: Profile = {
 	id: "1",

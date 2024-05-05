@@ -16,11 +16,11 @@
   "profile": [
     {
       "id": "1",
-      "name": "Nursultan",
-      "surname": "Esenov",
+      "name": "Hydro",
+      "surname": "Ox1d",
       "age": 19,
       "currency": "USD",
-      "country": "Russia",
+      "country": "America",
       "city": "Tokmok",
       "username": "HydroOx1d",
       "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -345,6 +345,12 @@
       "userId": "1",
       "content": "cool",
       "id": 9
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "content": "ad",
+      "id": 10
     }
   ]
 }

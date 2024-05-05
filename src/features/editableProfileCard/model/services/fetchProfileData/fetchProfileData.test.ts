@@ -1,8 +1,8 @@
 import { Country } from "entity/Country";
-import { Profile } from "../../types/profileSchema";
 import { fetchProfileData } from "./fetchProfileData";
 import { Currency } from "entity/Currency";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { Profile } from "entity/Profile";
 
 describe("testing fetch profile data thunk", () => {
 	test("should return profile data", async () => {

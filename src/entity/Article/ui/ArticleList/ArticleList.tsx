@@ -30,8 +30,6 @@ const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDi
 
 	const parentScroll = pageRef as React.MutableRefObject<HTMLDivElement>;
 
-	console.log(parentScroll);
-
 	if (view === ArticleViewWay.CARDS) {
 		return (
 			<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

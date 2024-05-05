@@ -27,6 +27,7 @@
   padding: 5px 10px;
   transition: all 200ms linear;
   font: var(--font-m);
+
   @media (hover: hover) {
     &:hover {
       opacity: .7;
@@ -38,14 +39,17 @@
   top: 100%;
   left: 0;
 }
+
 .bottom_right {
   top: 100%;
   right: 0;
 }
+
 .top_left {
   bottom: 100%;
   left: 0;
 }
+
 .top_right {
   bottom: 100%;
   right: 0;
