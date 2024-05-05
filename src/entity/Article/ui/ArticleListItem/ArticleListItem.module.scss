@@ -19,6 +19,7 @@
   .card {
     cursor: pointer;
   }
+
   .date {
     position: absolute;
     top: 10px;
@@ -32,6 +33,7 @@
   .image {
     position: relative;
     padding-top: 100%;
+
     img {
       position: absolute;
       top: 0;
@@ -58,6 +60,7 @@
   .card {
     padding: 10px 0;
   }
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -65,27 +68,33 @@
     padding: 0 10px;
     margin-bottom: 15px;
   }
+
   .user {
     display: flex;
     align-items: center;
     gap: 10px;
   }
+
   .title {
     margin-bottom: 15px;
     padding: 0 10px;
   }
+
   .type {
     margin-bottom: 15px;
     padding: 0 10px;
   }
+
   .image {
     padding-top: 30%;
     margin-bottom: 15px;
   }
+
   .preview {
     margin-bottom: 15px;
     padding: 0 10px;
   }
+
   .footer {
     display: flex;
     align-items: center;
