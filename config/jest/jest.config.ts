@@ -50,6 +50,14 @@ const config: Config = {
 	transformIgnorePatterns: [
 		"node_modules/(?!react-markdown|devlop|hast-util-to-jsx-runtime|comma-separated-tokens|estree-util-is-identifier-name|hast-util-whitespace|property-information|space-separated-tokens|unist-util-position|vfile-message|unist-util-stringify-position|html-url-attributes|remark-parse|mdast-util-from-markdown|mdast-util-to-string|micromark|decode-named-character-reference|remark-rehype|mdast-util-to-hast|trim-lines|unist-util-visit|unist-util-is|unified|bail|is-plain-obj|trough|vfile)",
 	],
+	"reporters": [
+		"default",
+		["jest-html-reporters", {
+			"publicPath": "<rootDir>/reports/jest-report",
+			"filename": "report.html",
+			"openReport": true
+		}]
+	]
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
 
