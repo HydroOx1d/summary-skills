@@ -6,7 +6,7 @@ import { getArticlesIsLoading, getArticlesView } from "../../model/selectors/art
 import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
 import { fetchNextPageArticles } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 
-const ArticleInfiniteList = (_: unknown, pageRef: React.ForwardedRef<HTMLDivElement>) => {
+const ArticleInfiniteList = () => {
 	const thunkDispatch = useThunkDispatch();
 	const articles = useSelector(getArticles.selectAll);
 	const isLoading = useSelector(getArticlesIsLoading);
@@ -19,8 +19,8 @@ const ArticleInfiniteList = (_: unknown, pageRef: React.ForwardedRef<HTMLDivElem
 	}, [thunkDispatch]);
 
 	return (
-		<ArticleList articles={articles} view={view} isLoading={isLoading} onFetchNextPart={onFetchNextPart} ref={pageRef}/>
+		<ArticleList articles={articles} view={view} isLoading={isLoading} onFetchNextPart={onFetchNextPart}/>
 	);
 };
 
-export default React.forwardRef(ArticleInfiniteList);
+export default ArticleInfiniteList;

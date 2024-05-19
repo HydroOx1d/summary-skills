@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useImperativeHandle } from "react";
 import { classNames } from "shared/lib/classNames/className";
 import cls from "./Page.module.scss";
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll";
@@ -13,17 +13,20 @@ import { useThrotle } from "shared/lib/hooks/useThrottle";
 interface PageProps {
   className?: string;
   onScrollEnd?: () => void;
-	pageRef?: React.MutableRefObject<HTMLDivElement>
 }
 
-const Page = (props: React.PropsWithChildren<PageProps>) => {
-	const { children, className, onScrollEnd, pageRef} = props;
+const Page = (props: React.PropsWithChildren<PageProps>, ref: React.ForwardedRef<HTMLElement>) => {
+	const { children, className, onScrollEnd} = props;
 	const dispatch = useAppDispatch();
 	const {pathname} = useLocation();
 	const position = useSelector((state: StateSchema) => getScrollSaverByPath(state, pathname));
 
 	const wrapperRef = React.useRef() as React.MutableRefObject<HTMLDivElement>;
 	const targetRef = React.useRef() as React.MutableRefObject<HTMLDivElement>;
+
+	useImperativeHandle(ref, () => {
+		return wrapperRef.current;
+	});
 
 	useInfiniteScroll({
 		wrapperRef,
@@ -32,9 +35,6 @@ const Page = (props: React.PropsWithChildren<PageProps>) => {
 	});
 
 	React.useEffect(() => {
-		if (pageRef) {
-			pageRef.current = wrapperRef.current;
-		}
 		if(position) {
 			wrapperRef.current.scrollTo({
 				top: position
@@ -64,4 +64,4 @@ const Page = (props: React.PropsWithChildren<PageProps>) => {
 	);
 };
 
-export default Page;
+export default React.forwardRef(Page);

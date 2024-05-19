@@ -15,7 +15,9 @@ interface ArticleListProps {
 	onFetchNextPart?: () => void;
 }
 
-const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDivElement>) => {
+// TODO: ref to parent element scroll
+
+const ArticleList = (props: ArticleListProps) => {
 	const { className, articles, view, isLoading, onFetchNextPart } = props;
 
 	if (!isLoading && !articles.length) {
@@ -28,14 +30,11 @@ const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDi
 		return <ArticleListItem article={article} view={view} key={article.id}/>;
 	};
 
-	const parentScroll = pageRef as React.MutableRefObject<HTMLDivElement>;
-
 	if (view === ArticleViewWay.CARDS) {
 		return (
 			<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 				<VirtuosoGrid
-					useWindowScroll={true}
-					customScrollParent={parentScroll?.current}
+					height={"100%"}
 					data={articles}
 					totalCount={articles.length}
 					itemContent={renderArticle}
@@ -80,8 +79,6 @@ const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDi
 	return (
 		<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 			<Virtuoso
-				useWindowScroll={true}
-				customScrollParent={parentScroll?.current}
 				data={articles}
 				totalCount={articles.length}
 				itemContent={renderArticle}
@@ -108,4 +105,4 @@ const ArticleList = (props: ArticleListProps, pageRef: React.ForwardedRef<HTMLDi
 	);
 };
 
-export default React.memo(React.forwardRef(ArticleList));
+export default React.memo(ArticleList);

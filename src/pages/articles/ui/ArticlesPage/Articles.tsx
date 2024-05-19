@@ -14,7 +14,6 @@ const initialReducers: ReducersList = {
 
 const Article = () => {
 	const thunkDispatch = useThunkDispatch();
-	const pageRef = React.useRef() as React.MutableRefObject<HTMLDivElement>;
 
 	React.useEffect(() => {
 		if (__PROJECT__ != "storybook") {
@@ -24,9 +23,9 @@ const Article = () => {
 
 	return (
 		<ReducerLoader reducers={initialReducers}>
-			<Page className={cls.ArticlesPage} pageRef={pageRef}>
+			<Page className={cls.ArticlesPage}>
 				<ArticlesPageFilter />
-				<ArticleInfiniteList ref={pageRef}/>
+				<ArticleInfiniteList />
 			</Page>
 		</ReducerLoader>
 	);

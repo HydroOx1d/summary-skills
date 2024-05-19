@@ -9,6 +9,10 @@
 //   display: block;
 // }
 
+.ArticleList {
+  height: calc(100% - 160px);
+}
+
 .articleWrapper {
   margin-bottom: 30px;
 
