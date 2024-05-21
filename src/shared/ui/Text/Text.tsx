@@ -25,6 +25,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   theme?: TextTheme;
 	align?: TextAlign;
 	size?: TextSize;
+	"data-testid"?: string;
 }
 
 const Text = React.memo((props: TextProps) => {
@@ -34,13 +35,14 @@ const Text = React.memo((props: TextProps) => {
 		text,
 		theme = TextTheme.PRIMARY,
 		align = TextAlign.LEFT,
-		size = TextSize.M
+		size = TextSize.M,
+		"data-testid": dataTestId = "Text"
 	} = props;
 
 	return (
 		<div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-			{title && <div className={cls.title}>{title}</div>}
-			{text && <div className={cls.text}>{text}</div>}
+			{title && <div className={cls.title} data-testid={`${dataTestId}.Heading`}>{title}</div>}
+			{text && <div className={cls.text} data-testid={`${dataTestId}.Paragraph`}>{text}</div>}
 		</div>
 	);
 });

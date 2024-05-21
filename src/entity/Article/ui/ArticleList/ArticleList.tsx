@@ -15,7 +15,7 @@ interface ArticleListProps {
 	onFetchNextPart?: () => void;
 }
 
-// TODO: ref to parent element scroll
+// TODO: implement ref to parent element to get its scroll
 
 const ArticleList = (props: ArticleListProps) => {
 	const { className, articles, view, isLoading, onFetchNextPart } = props;

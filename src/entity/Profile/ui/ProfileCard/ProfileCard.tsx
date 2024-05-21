@@ -78,7 +78,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 			<VStack gap="16">
 				{validateErrors?.length ? validateErrors.map(error => {
 					return (
-						<Text text={errorsMapping[error]} key={error}/>
+						<Text text={errorsMapping[error]} key={error} data-testid="ProfileCard.Error"/>
 					);
 				}) : null}
 				<Input
@@ -87,6 +87,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 					value={data?.name}
 					onChange={onUpdateProfileName}
 					placeholder={t("profileFieldName")}
+					data-testid="ProfileCard.NameInput"
 				/>
 				<Input
 					readonly={readonly}
@@ -94,6 +95,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 					value={data?.surname}
 					onChange={onUpdateProfileSurname}
 					placeholder={t("profileFieldSurname")}
+					data-testid="ProfileCard.SurnameInput"
 				/>
 				<Input
 					readonly={readonly}

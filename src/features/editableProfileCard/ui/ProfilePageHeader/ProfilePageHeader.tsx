@@ -38,12 +38,12 @@ const ProfilePageHeader = React.memo(() => {
 
 	return (
 		<HStack justify="between" max>
-			<Text title={t("profile")} />
+			<Text title={t("profile")} data-testid="ProfilePageHeader.Title"/>
 			<HStack gap="8">
 				{canEdit && (
 					<>
 						{readonly ? (
-							<Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
+							<Button theme={ButtonTheme.OUTLINE} onClick={onEdit} data-testid="ProfilePageHeader.EditButton">
 								{t("profileBtnEdit")}
 							</Button>
 						) : (
@@ -51,12 +51,14 @@ const ProfilePageHeader = React.memo(() => {
 								<Button
 									theme={ButtonTheme.OUTLINE_RED}
 									onClick={onEditCancel}
+									data-testid="ProfilePageHeader.CancelButton"
 								>
 									{t("profileBtnCancelEdit")}
 								</Button>
 								<Button
 									theme={ButtonTheme.OUTLINE}
 									onClick={onEditSave}
+									data-testid="ProfilePageHeader.EditSaveButton"
 								>
 									{t("profileBtnSaveEdit")}
 								</Button>

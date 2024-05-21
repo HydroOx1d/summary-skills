@@ -40,7 +40,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const validateErrors = useSelector(getProfileValidateError);
 
 	useEffect(() => {
-		if (__PROJECT__ != "storybook") {
+		if (__PROJECT__ != "storybook" && __PROJECT__ != "jest") {
 			if(profileId) {
 				thunkDispatch(fetchProfileData(profileId));
 			}
