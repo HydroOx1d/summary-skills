@@ -5,7 +5,7 @@ import {
 	articleDetailsCommentsReducer,
 	getArticleComments,
 } from "./model/slice/articleDetailsCommentsSlice";
-import { ArticleDetailsCommentsSchema } from "./model/types/articleDetailsCommentsSchema";
+import type { ArticleDetailsCommentsSchema } from "./model/types/articleDetailsCommentsSchema";
 import ArticleCommentList from "./ui/ArticleCommentList";
 import { sendNewCommentForArticle } from "./model/services/sendNewCommentForArticle/sendNewCommentForArticle";
 

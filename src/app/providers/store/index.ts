@@ -1,9 +1,9 @@
 import StoreProvider from "./ui/StoreProvider";
-import { StateSchema } from "./config/stateSchema";
-import { StoreWithReducerManager } from "../store/config/stateSchema";
-import { AppDispatch } from "../store/config/store";
-import { ThunkConfig } from "../store/config/stateSchema";
-import { ThunkExtraArg } from "app/providers/store/config/stateSchema";
+import type { StateSchema } from "./config/stateSchema";
+import type { StoreWithReducerManager } from "../store/config/stateSchema";
+import type { AppDispatch } from "../store/config/store";
+import type { ThunkConfig } from "../store/config/stateSchema";
+import type { ThunkExtraArg } from "app/providers/store/config/stateSchema";
 
 export {
 	StoreProvider,

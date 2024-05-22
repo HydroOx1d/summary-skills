@@ -11,7 +11,6 @@ import ArticleView from "./ui/ArticleView/ArticleView";
 import ArticleListSkeleton from "./ui/ArticleList/ArticleListSkeleton";
 
 export {
-	Article,
 	ArticleDetails,
 	ArticleDetailsSchema,
 	ArticleList, ArticleListItem, ArticleSort, ArticleListSkeleton,
@@ -19,3 +18,5 @@ export {
 	ArticleType,
 	ArticleTypeTabs, ArticleView, ArticleViewWay, articleActions, articleReducer, getArticleCanEdit, getArticleData
 };
+
+export type { Article };

@@ -1,10 +1,10 @@
-import webpack from "webpack";
+import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from "webpack";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { BuildOptions } from "./types/config";
-import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
 	const plugins = [
@@ -44,4 +44,4 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 	return plugins;
 };
 
-export {webpackPlugins};
+export { webpackPlugins };
