@@ -1,0 +1,29 @@
+import { getUserAuthData, getUserRoles, UserRoles } from "entity/User";
+import React, { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { routePath } from "shared/config/routeConfig/routeConfig";
+
+interface RequiredRolesProps {
+  roles?: UserRoles[]
+}
+
+const RequiredRoles = ({children, roles}: React.PropsWithChildren<RequiredRolesProps>) => {
+	const isAuth = useSelector(getUserAuthData);
+	const userRoles = useSelector(getUserRoles);
+
+	const isAdmin = useMemo(() => {
+		if (!roles) {
+			return true;
+		}
+
+		return userRoles?.some(role => roles?.includes(role));
+	},[roles, userRoles]);
+
+	if(!isAdmin) {
+		return <Navigate to={routePath.forbidden}/>;
+	}
+	return children;
+};
+
+export default RequiredRoles;

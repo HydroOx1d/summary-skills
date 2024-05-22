@@ -4,12 +4,14 @@
       "id": "1",
       "username": "test",
       "password": "123",
+      "roles": ["ADMIN", "MANAGER"],
       "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "2",
       "username": "mest",
       "password": "123",
+      "roles": ["USER"],
       "avatar": "http://t1.gstatic.com/images?q=tbn:ANd9GcSN2msxh1scu24EKYpKTDrkBrJyVoQHPtc4vGcSnBLZfjEF7a5TtP1-vUyvmyZe8cIeHI4S"
     }
   ],

@@ -4,7 +4,7 @@ import cls from "./Navbar.module.scss";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entity/User";
+import { getUserAuthData, getUserIsAdmin, userActions } from "entity/User";
 import { LoginModal } from "features/authByUserName";
 import Dropdown, { DropdownItem } from "shared/ui/Dropdown/Dropdown";
 import Avatar from "shared/ui/Avatar/Avatar";
@@ -15,6 +15,8 @@ const Navbar = React.memo(() => {
 	const dispatch = useDispatch();
 	const [modalIsAuth, setModalIsAuth] = React.useState(false);
 	const authData = useSelector(getUserAuthData);
+	const isAdmin = useSelector(getUserIsAdmin);
+	const isManager = useSelector(getUserIsAdmin);
 
 	const onCloseModal = React.useCallback(() => {
 		setModalIsAuth(false);
@@ -28,18 +30,24 @@ const Navbar = React.memo(() => {
 		dispatch(userActions.logout());
 	}, [dispatch]);
 
+	const isAdminPageAvailable = React.useMemo(() => isAdmin || isManager, [isAdmin, isManager]);
+
 	const dropdownItems = React.useMemo<DropdownItem[]>(() => {
 		return [
+			...(isAdminPageAvailable ? [{
+				content: "Admin",
+				href: routePath.admin
+			}] : []),
 			{
 				content: "Profile",
-				href: routePath.profile + authData?.id
+				href: routePath.profile + authData?.id,
 			},
 			{
 				content: "Logout",
 				onClick: onLogout
 			},
 		];
-	}, [authData?.id, onLogout]);
+	}, [authData?.id, isAdminPageAvailable, onLogout]);
 
 	if (authData) {
 		return (
