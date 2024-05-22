@@ -5,7 +5,7 @@ import { Theme } from "app/providers/ThemeProvider";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator";
 
 const meta: Meta<typeof Article> = {
-	title: "pages/Article",
+	title: "pages/Articles",
 	component: Article,
 	decorators: [
 		StoreDecorator({})
