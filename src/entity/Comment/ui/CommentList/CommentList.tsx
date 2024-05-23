@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./CommentList.module.scss";
 import { classNames } from "shared/lib/classNames/className";
-import { IComment } from "../../model/types/comment";
+import type { IComment } from "../../model/types/comment";
 import CommentCard from "../CommentCard/CommentCard";
 import Text from "shared/ui/Text/Text";
 import Skeleton from "shared/ui/Skeleton/Skeleton";

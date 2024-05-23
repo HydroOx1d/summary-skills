@@ -2,7 +2,7 @@ import React from "react";
 import cls from "./ProfileCard.module.scss";
 import Text, { TextAlign, TextTheme } from "shared/ui/Text/Text";
 import Input from "shared/ui/Input/Input";
-import { Profile } from "../../model/types/profileSchema";
+import type { Profile } from "../../model/types/profileSchema";
 import Loader from "shared/ui/Loader/Loader";
 import { classNames } from "shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";

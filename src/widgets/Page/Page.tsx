@@ -7,7 +7,7 @@ import { scrollSaverActions } from "features/scrollSaver";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getScrollSaverByPath } from "features/scrollSaver/model/selectors/scrollSaverSelectors";
-import { StateSchema } from "app/providers/store";
+import type { StateSchema } from "app/providers/store";
 import { useThrotle } from "shared/lib/hooks/useThrottle";
 
 interface PageProps {

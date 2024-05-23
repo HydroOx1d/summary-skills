@@ -5,7 +5,7 @@ import ProfileIcon from "shared/assets/icons/profile.svg";
 import ArticlesIcon from "shared/assets/icons/article.svg";
 import { createSelector } from "@reduxjs/toolkit";
 import { getUserAuthData } from "entity/User";
-import { SidebarItemType } from "../model/types/sidebar";
+import type { SidebarItemType } from "../model/types/sidebar";
 
 export const getSidebarItems = createSelector(getUserAuthData, (authData) => {
 	const sidebarItems: SidebarItemType[] = [

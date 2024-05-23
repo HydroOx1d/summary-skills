@@ -13,7 +13,8 @@ import { getLoginStateUsername } from "../../model/selectors/getLoginStateUserna
 import { getLoginStatePassword } from "../../model/selectors/getLoginStatePassword/getLoginStatePassword";
 import { getLoginStateIsLoading } from "../../model/selectors/getLoginStateIsLoading/getLoginStateIsLoading";
 import { getLoginStateError } from "../../model/selectors/getLoginStateError/getLoginStateError";
-import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
+import ReducerLoader from "shared/lib/reducerLoader/ReducerLoader";
+import type { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
 
 const initialReducers: ReducersList = {
 	loginForm: loginReducer

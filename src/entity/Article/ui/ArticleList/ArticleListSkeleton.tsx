@@ -1,6 +1,6 @@
 import React from "react";
 import cls from "./ArticleList.module.scss";
-import { ArticleViewWay } from "../../model/types/article";
+import { ArticleViewWay } from "../../model/consts/consts";
 import Skeleton from "shared/ui/Skeleton/Skeleton";
 import { classNames } from "shared/lib/classNames/className";
 

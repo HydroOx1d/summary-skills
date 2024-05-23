@@ -3,7 +3,7 @@ import { saveProfileData } from "./saveProfileData";
 import { Currency } from "entity/Currency";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { Profile } from "entity/Profile";
-import { ValidateProfileError } from "../../types/editableProfileCard";
+import { ValidateProfileError } from "../../consts/consts";
 
 const data: Profile = {
 	id: "1",

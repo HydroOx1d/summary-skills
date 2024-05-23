@@ -4,7 +4,7 @@ import { getArticlesInited } from "../../selectors/articlesSelectors";
 import { articlesActions } from "../../slice/articlesSlice";
 import { fetchArticles } from "../fetchArticles/fetchArticles";
 import { ArticleSortField, ArticleType } from "entity/Article";
-import { SortOrder } from "shared/types";
+import type { SortOrder } from "shared/types";
 
 export const initialFetchArticles = createAsyncThunk<void, void, ThunkConfig<void>>(
 	"articles/initialFetchArticles",

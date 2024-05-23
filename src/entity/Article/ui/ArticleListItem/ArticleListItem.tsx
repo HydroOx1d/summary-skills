@@ -7,7 +7,7 @@ import Avatar from "shared/ui/Avatar/Avatar";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import Card from "shared/ui/Card/Card";
 import Text, { TextSize } from "shared/ui/Text/Text";
-import { ArticleViewWay } from "../../model/types/article";
+import { ArticleViewWay } from "../../model/consts/consts";
 import type { Article } from "../../model/types/article";
 import cls from "./ArticleListItem.module.scss";
 

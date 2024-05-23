@@ -1,7 +1,7 @@
 import { getArticleCanEdit, getArticleData } from "./model/selectors/articleDetails";
 import { articleActions, articleReducer } from "./model/slice/articleSlice";
 import type { Article, ArticleDetailsSchema } from "./model/types/article";
-import { ArticleSortField, ArticleType, ArticleViewWay } from "./model/types/article";
+import { ArticleSortField, ArticleType, ArticleViewWay } from "./model/consts/consts";
 import ArticleDetails from "./ui/ArticleDetails/ArticleDetails";
 import ArticleList from "./ui/ArticleList/ArticleList";
 import ArticleListItem from "./ui/ArticleListItem/ArticleListItem";
@@ -16,7 +16,5 @@ export {
 	ArticleList, ArticleListItem, ArticleSort, ArticleListSkeleton,
 	ArticleSortField,
 	ArticleType,
-	ArticleTypeTabs, ArticleView, ArticleViewWay, articleActions, articleReducer, getArticleCanEdit, getArticleData
+	ArticleTypeTabs, ArticleView, ArticleViewWay, articleActions, articleReducer, getArticleCanEdit, getArticleData, Article
 };
-
-export type { Article };

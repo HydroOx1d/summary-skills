@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/store";
+import type { StateSchema } from "app/providers/store";
 import { getArticlesError, getArticlesIsLoading, getArticlesView } from "./articlesSelectors";
 import { ArticleViewWay } from "entity/Article";
 

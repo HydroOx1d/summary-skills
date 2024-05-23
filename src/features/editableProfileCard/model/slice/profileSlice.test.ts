@@ -4,7 +4,8 @@ import { Country } from "entity/Country";
 import { Currency } from "entity/Currency";
 import { saveProfileData } from "../services/saveProfileData/saveProfileData";
 import { Profile } from "entity/Profile";
-import { ProfileSchema, ValidateProfileError } from "../types/editableProfileCard";
+import type { ProfileSchema } from "../types/editableProfileCard";
+import { ValidateProfileError } from "../consts/consts";
 
 const data: Profile = {
 	id: "1",

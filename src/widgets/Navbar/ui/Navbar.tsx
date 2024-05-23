@@ -6,7 +6,8 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, getUserIsAdmin, userActions } from "entity/User";
 import { LoginModal } from "features/authByUserName";
-import Dropdown, { DropdownItem } from "shared/ui/Dropdown/Dropdown";
+import Dropdown from "shared/ui/Dropdown/Dropdown";
+import type { DropdownItem } from "shared/ui/Dropdown/Dropdown";
 import Avatar from "shared/ui/Avatar/Avatar";
 import { routePath } from "shared/config/routeConfig/routeConfig";
 

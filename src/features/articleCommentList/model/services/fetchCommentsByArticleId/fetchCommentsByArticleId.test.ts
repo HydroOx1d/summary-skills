@@ -1,4 +1,4 @@
-import { IComment } from "entity/Comment";
+import type { IComment } from "entity/Comment";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId";
 
