@@ -1,0 +1,18 @@
+
+.NotificationButton{
+  display: flex!important;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.notificationIcon {
+  fill:  var(--secondary-inverted-color);
+}
+
+.notifications {
+  min-width: 300px;
+  max-width: 600px;
+  max-height: 500px;
+  overflow: auto;
+}

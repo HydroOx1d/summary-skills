@@ -1,4 +1,36 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Описание 1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Описание 2",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Описание 3",
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Описание 4",
+      "userId": "2"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 5",
+      "description": "Описание 5",
+      "userId": "1"
+    }
+  ],
   "users": [
     {
       "id": "1",
