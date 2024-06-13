@@ -4,6 +4,7 @@ import { classNames } from "shared/lib/classNames/className";
 import Overlay from "../Overlay/Overlay";
 import Portal from "../Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
+import { useModal } from "shared/lib/hooks/useModal";
 
 interface DrawerProps {
   className?: string;
@@ -20,15 +21,15 @@ const Drawer = (props: React.PropsWithChildren<DrawerProps>) => {
 	} = props;
 
 	const {theme} = useTheme();
-
-	const onCloseHandle = React.useCallback(() => {
-		onClose?.();
-	}, [onClose]);
+	const {closeHandle} = useModal({
+		onClose,
+		isOpen
+	});
 
 	return (
 		<Portal>
 			<div className={classNames(cls.Drawer, {[cls.opened]: isOpen}, [className, theme])}>
-				<Overlay isOpen={isOpen} onClose={onCloseHandle}/>
+				<Overlay isOpen={isOpen} onClose={closeHandle}/>
 				<div className={cls.content}>{children}</div>
 			</div>
 		</Portal>
