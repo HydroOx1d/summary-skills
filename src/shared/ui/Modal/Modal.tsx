@@ -3,6 +3,7 @@ import { classNames } from "shared/lib/classNames/className";
 import cls from "./Modal.module.scss";
 import Portal from "shared/ui/Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
+import Overlay from "shared/ui/Overlay/Overlay";
 
 interface ModalProps {
   className?: string;
@@ -58,9 +59,8 @@ const Modal = (props: React.PropsWithChildren<ModalProps> ) => {
 	return (
 		<Portal>
 			<div className={classNames(cls.Modal, {[cls.modalOpened]: isOpen}, [className, theme])}>
-				<div className={cls.modalOverlay} onClick={closeHandle}>
-					<div className={cls.modalContent} onClick={(e:React.MouseEvent) => e.stopPropagation()}>{children}</div>
-				</div>
+				<Overlay isOpen={isOpen} onClose={closeHandle}/>
+				<div className={cls.modalContent}>{children}</div>
 			</div>
 		</Portal>
 	);

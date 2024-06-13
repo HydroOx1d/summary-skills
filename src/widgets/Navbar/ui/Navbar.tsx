@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { classNames } from "shared/lib/classNames/className";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import cls from "./Navbar.module.scss";
+import HStack from "shared/ui/Stack/HStack/HStack";
 
 const Navbar = React.memo(() => {
 	const {t} = useTranslation();
@@ -25,24 +26,24 @@ const Navbar = React.memo(() => {
 	if (authData) {
 		return (
 			<nav className={classNames(cls.Navbar)}>
-				<div className={cls.content}>
+				<HStack gap="16" max justify="flex-end">
 					<NotificationButton/>
 					<AvatarDropdown/>
-				</div>
+				</HStack>
 			</nav>
 		);
 	}
 
 	return (
 		<nav className={classNames(cls.Navbar)}>
-			<div className={cls.content}>
+			<HStack gap="16" max justify="flex-end">
 				<Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
 					{t("login")}
 				</Button>
 				{modalIsAuth && (
 					<LoginModal isOpen={modalIsAuth} onClose={onCloseModal} />
 				)}
-			</div>
+			</HStack>
 		</nav>
 	);
 });

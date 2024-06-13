@@ -1,0 +1,31 @@
+.Drawer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--modal-z-index);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 150ms linear;
+}
+
+.opened {
+  opacity: 1;
+  pointer-events: all;
+
+  .content {
+    bottom: 0;
+  }
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 50svh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  bottom: -100%;
+  transition: all 150ms linear;
+  transition-delay: 150ms;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  overflow: auto;
+}

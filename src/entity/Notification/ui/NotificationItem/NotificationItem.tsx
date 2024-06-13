@@ -16,7 +16,7 @@ const NotificationItem = (props: NotificationItem) => {
   
 	return (
 		<div className={classNames(cls.NotificationItem, {}, [className])}>
-			<Text title={item.title} text={item.description} theme={TextTheme.INVERTED} size={TextSize.M}/>
+			<Text title={item.title} text={item.description} theme={TextTheme.PRIMARY} size={TextSize.M}/>
 		</div>
 	);
 };
