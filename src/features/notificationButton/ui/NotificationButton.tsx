@@ -7,6 +7,7 @@ import { NotificationList } from "entity/Notification";
 import Button, { ButtonTheme } from "shared/ui/Button/Button";
 import Drawer from "shared/ui/Drawer/Drawer";
 import { useMediaQuery } from "react-responsive";
+import { AnimationProvider } from "shared/lib/providers/AnimationProvider";
 
 interface NotificationButtonProps {
   className?: string;
