@@ -1,6 +1,5 @@
 import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
-import cls from "./AvatarDropdown.module.scss";
 import Dropdown, { DropdownItem } from "@/shared/ui/Dropdown/Dropdown";
 import { getUserAuthData, getUserIsAdmin, userActions } from "@/entity/User";
 import { routePath } from "@/shared/config/routeConfig/routeConfig";
@@ -48,7 +47,7 @@ const AvatarDropdown = (props: AvatarDropdownProps) => {
 	}
 
 	return (
-		<Dropdown className={classNames(cls.AvatarDropdown, {}, [className])} trigger={<Avatar size={40} src={authData.avatar} />} items={dropdownItems} direction="bottom right"/>
+		<Dropdown className={classNames("", {}, [className])} trigger={<Avatar size={40} src={authData.avatar} />} items={dropdownItems} direction="bottom right"/>
 	);
 };
 
