@@ -1,4 +1,4 @@
-import type { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 import { getLoginState } from "./getLoginState";
 import type { DeepPartial } from "@reduxjs/toolkit";
 

@@ -1,5 +1,5 @@
-import { classNames } from "shared/lib/classNames/className";
-import Text, { TextSize, TextTheme } from "shared/ui/Text/Text";
+import { classNames } from "@/shared/lib/classNames/className";
+import Text, { TextSize, TextTheme } from "@/shared/ui/Text/Text";
 import { Notification } from "../../model/types/notification";
 import cls from "./NotificationItem.module.scss";
 

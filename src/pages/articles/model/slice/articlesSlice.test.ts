@@ -1,5 +1,5 @@
-import { ArticleType, ArticleViewWay } from "entity/Article";
-import type { Article } from "entity/Article";
+import { ArticleType, ArticleViewWay } from "@/entity/Article";
+import type { Article } from "@/entity/Article";
 import type { ArticlesSchema } from "../types/articles";
 import { articlesActions, articlesReducer } from "./articlesSlice";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";

@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Text.module.scss";
 
 export enum TextTheme {

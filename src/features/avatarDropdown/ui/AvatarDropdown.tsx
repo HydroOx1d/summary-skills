@@ -1,11 +1,11 @@
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./AvatarDropdown.module.scss";
-import Dropdown, { DropdownItem } from "shared/ui/Dropdown/Dropdown";
-import { getUserAuthData, getUserIsAdmin, userActions } from "entity/User";
-import { routePath } from "shared/config/routeConfig/routeConfig";
+import Dropdown, { DropdownItem } from "@/shared/ui/Dropdown/Dropdown";
+import { getUserAuthData, getUserIsAdmin, userActions } from "@/entity/User";
+import { routePath } from "@/shared/config/routeConfig/routeConfig";
 import { useDispatch, useSelector } from "react-redux";
-import Avatar from "shared/ui/Avatar/Avatar";
+import Avatar from "@/shared/ui/Avatar/Avatar";
 
 interface AvatarDropdownProps {
   className?: string;

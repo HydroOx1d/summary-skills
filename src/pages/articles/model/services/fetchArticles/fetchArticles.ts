@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "app/providers/store";
-import { ArticleType } from "entity/Article";
-import type {Article} from "entity/Article";
+import { ThunkConfig } from "@/app/providers/store";
+import { ArticleType } from "@/entity/Article";
+import type {Article} from "@/entity/Article";
 import { getArticlesLimit, getArticlesOrder, getArticlesPageNum, getArticlesSearch, getArticlesSort, getArticlesType } from "../../selectors/articlesSelectors";
 
 interface FetchArticlesProps {

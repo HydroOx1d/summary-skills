@@ -1,11 +1,11 @@
-import { AddNewCommentForm } from "features/addNewComment";
-import { ArticleCommentList, fetchCommentsByArticleId, getArticleComments, getArticleDetailsCommentsIsLoading, sendNewCommentForArticle } from "features/articleCommentList";
+import { AddNewCommentForm } from "@/features/addNewComment";
+import { ArticleCommentList, fetchCommentsByArticleId, getArticleComments, getArticleDetailsCommentsIsLoading, sendNewCommentForArticle } from "@/features/articleCommentList";
 import React from "react";
 import { useSelector } from "react-redux";
-import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
-import Text from "shared/ui/Text/Text";
+import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
+import Text from "@/shared/ui/Text/Text";
 import cls from "./ArticleDetailComment.module.scss";
-import VStack from "shared/ui/Stack/VStack/VStack";
+import VStack from "@/shared/ui/Stack/VStack/VStack";
 
 interface ArticleDetailCommentProps {
   articleId: string;

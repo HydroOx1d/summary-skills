@@ -1,7 +1,7 @@
 import React from "react";
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso";
-import { classNames } from "shared/lib/classNames/className";
-import Text from "shared/ui/Text/Text";
+import { classNames } from "@/shared/lib/classNames/className";
+import Text from "@/shared/ui/Text/Text";
 import { ArticleViewWay } from "../../model/consts/consts";
 import type {Article} from "../../model/types/article";
 import ArticleListItem from "../ArticleListItem/ArticleListItem";

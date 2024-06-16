@@ -1,5 +1,5 @@
-import type { IComment } from "entity/Comment";
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import type { IComment } from "@/entity/Comment";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId";
 
 describe("testing fetch comments by article id feature", () => {

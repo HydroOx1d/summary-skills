@@ -1,10 +1,10 @@
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import { render } from "@testing-library/react";
-import { StateSchema, StoreProvider } from "app/providers/store";
+import { StateSchema, StoreProvider } from "@/app/providers/store";
 import { ReactNode } from "react";
 import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";
-import i18n from "shared/config/langConfig/langConfigForTests";
+import i18n from "@/shared/config/langConfig/langConfigForTests";
 
 interface RenderWithRouterOptions {
 	route?: string,

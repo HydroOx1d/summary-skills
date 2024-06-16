@@ -1,14 +1,14 @@
-import { getUserAuthData } from "entity/User";
-import { LoginModal } from "features/authByUserName";
-import { AvatarDropdown } from "features/avatarDropdown";
-import { NotificationButton } from "features/notificationButton";
+import { getUserAuthData } from "@/entity/User";
+import { LoginModal } from "@/features/authByUserName";
+import { AvatarDropdown } from "@/features/avatarDropdown";
+import { NotificationButton } from "@/features/notificationButton";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { classNames } from "shared/lib/classNames/className";
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
+import { classNames } from "@/shared/lib/classNames/className";
+import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
 import cls from "./Navbar.module.scss";
-import HStack from "shared/ui/Stack/HStack/HStack";
+import HStack from "@/shared/ui/Stack/HStack/HStack";
 
 const Navbar = React.memo(() => {
 	const {t} = useTranslation();

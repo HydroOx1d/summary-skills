@@ -1,10 +1,10 @@
-import { Country } from "entity/Country";
-import { Currency } from "entity/Currency";
-import { ProfileCard } from "entity/Profile";
+import { Country } from "@/entity/Country";
+import { Currency } from "@/entity/Currency";
+import { ProfileCard } from "@/entity/Profile";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
 import { getProfileError } from "../model/selectors/getProfileError/getProfileError";
 import { getProfileForm } from "../model/selectors/getProfileForm/getProfileForm";
 import { getProfileIsLoading } from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
@@ -12,9 +12,9 @@ import { getProfileReadonly } from "../model/selectors/getProfileReadonly/getPro
 import { getProfileValidateError } from "../model/selectors/getProfileValidateError/getProfileValidateError";
 import { fetchProfileData } from "../model/services/fetchProfileData/fetchProfileData";
 import { profileActions, profileReducer } from "../model/slice/profileSlice";
-import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
+import ReducerLoader, { ReducersList } from "@/shared/lib/reducerLoader/ReducerLoader";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
-import VStack from "shared/ui/Stack/VStack/VStack";
+import VStack from "@/shared/ui/Stack/VStack/VStack";
 
 const initialReducers: ReducersList = {
 	profile: profileReducer

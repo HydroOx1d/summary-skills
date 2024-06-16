@@ -1,5 +1,5 @@
 import React from "react";
-import ListBox from "shared/ui/ListBox/ListBox";
+import ListBox from "@/shared/ui/ListBox/ListBox";
 import { Currency } from "../../model/types/currency";
 
 const currencyOptions = [

@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { sendNewCommentForArticle } from "./sendNewCommentForArticle";
 
 describe("testing send new comment for article feature", () => {

@@ -1,4 +1,4 @@
-import type { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 import { getNewCommentError, getNewCommentIsLoading, getNewCommentText } from "./addNewCommentSelectors";
 
 describe("new comment selectors", () => {

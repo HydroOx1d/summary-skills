@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { routeConfig } from "shared/config/routeConfig/routeConfig";
-import type { AppRouteProps } from "shared/config/routeConfig/routeConfig";
-import { PageLoader } from "widgets/PageLoader";
+import { routeConfig } from "@/shared/config/routeConfig/routeConfig";
+import type { AppRouteProps } from "@/shared/config/routeConfig/routeConfig";
+import { PageLoader } from "@/widgets/PageLoader";
 import RequiredAuth from "./RequiredAuth";
 import RequiredRoles from "./RequiredRoles";
 

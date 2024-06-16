@@ -1,13 +1,13 @@
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./NotificationButton.module.scss";
-import NotificationIcon from "shared/assets/icons/notification-line.svg";
-import Popover from "shared/ui/Popover/Popover";
-import { NotificationList } from "entity/Notification";
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import Drawer from "shared/ui/Drawer/Drawer";
+import NotificationIcon from "@/shared/assets/icons/notification-line.svg";
+import Popover from "@/shared/ui/Popover/Popover";
+import { NotificationList } from "@/entity/Notification";
+import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Drawer from "@/shared/ui/Drawer/Drawer";
 import { useMediaQuery } from "react-responsive";
-import { AnimationProvider } from "shared/lib/providers/AnimationProvider";
+import { AnimationProvider } from "@/shared/lib/providers/AnimationProvider";
 
 interface NotificationButtonProps {
   className?: string;

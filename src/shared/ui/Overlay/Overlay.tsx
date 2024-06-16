@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Overlay.module.scss";
 
 interface OverlayProps {

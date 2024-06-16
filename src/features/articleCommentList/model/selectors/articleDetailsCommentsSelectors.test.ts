@@ -1,4 +1,4 @@
-import type { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 import { getArticleDetailsCommentsIsLoading } from "./articleDetailsCommentsSelectors";
 
 describe("article details comments selectors test", () => {

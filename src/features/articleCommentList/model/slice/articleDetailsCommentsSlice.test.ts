@@ -1,4 +1,4 @@
-import type { IComment } from "entity/Comment";
+import type { IComment } from "@/entity/Comment";
 import type { ArticleDetailsCommentsSchema } from "../types/articleDetailsCommentsSchema";
 import { articleDetailsCommentsReducer } from "./articleDetailsCommentsSlice";
 import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";

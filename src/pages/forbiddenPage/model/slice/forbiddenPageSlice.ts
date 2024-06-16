@@ -10,7 +10,7 @@ export const forbiddenPageSlice = createSlice({
 	reducers: {
 		template(state) {}
 	},
-  // extraReducers: (builder) => {
+	// extraReducers: (builder) => {
 	// 	builder.addCase(, (state) => {});
 	// 	builder.addCase(, (state) => {});
 	// 	builder.addCase(, (state) => {});

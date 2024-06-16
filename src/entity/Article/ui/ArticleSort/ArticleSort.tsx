@@ -1,10 +1,10 @@
 import React from "react";
 import cls from "./ArticleSort.module.scss";
-import Select from "shared/ui/Select/Select";
-import type { OptionType } from "shared/ui/Select/Select";
-import { classNames } from "shared/lib/classNames/className";
+import Select from "@/shared/ui/Select/Select";
+import type { OptionType } from "@/shared/ui/Select/Select";
+import { classNames } from "@/shared/lib/classNames/className";
 import { ArticleSortField } from "../../model/consts/consts";
-import type { SortOrder } from "shared/types";
+import type { SortOrder } from "@/shared/types";
 
 interface ArticleSortProps {
   className?: string;

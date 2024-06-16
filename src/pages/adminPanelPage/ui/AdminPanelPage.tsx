@@ -1,6 +1,6 @@
 
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./AdminPanelPage.module.scss";
 
 interface AdminPanelPageProps {

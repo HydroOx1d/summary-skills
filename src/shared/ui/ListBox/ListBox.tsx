@@ -1,6 +1,6 @@
 import { Listbox } from "@headlessui/react";
 import { Fragment, useCallback } from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import Button, { ButtonTheme } from "../Button/Button";
 import cls from "./ListBox.module.scss";
 

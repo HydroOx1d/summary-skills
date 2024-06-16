@@ -1,6 +1,6 @@
-import ViewCardsIcon from "shared/assets/icons/viewCards.svg";
-import ViewListIcon from "shared/assets/icons/viewList.svg";
-import { classNames } from "shared/lib/classNames/className";
+import ViewCardsIcon from "@/shared/assets/icons/viewCards.svg";
+import ViewListIcon from "@/shared/assets/icons/viewList.svg";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./ArticleView.module.scss";
 import { ArticleViewWay } from "../../model/consts/consts";
 

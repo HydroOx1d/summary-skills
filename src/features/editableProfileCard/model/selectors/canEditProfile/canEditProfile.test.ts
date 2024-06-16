@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/store";
+import { StateSchema } from "@/app/providers/store";
 import { canEditProfie } from "./canEditProfile";
 
 describe("can edit profile data selector", () => {

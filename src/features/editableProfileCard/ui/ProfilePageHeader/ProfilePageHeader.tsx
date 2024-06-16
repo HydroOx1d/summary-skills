@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
-import Button, { ButtonTheme } from "shared/ui/Button/Button";
-import HStack from "shared/ui/Stack/HStack/HStack";
-import Text from "shared/ui/Text/Text";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
+import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import HStack from "@/shared/ui/Stack/HStack/HStack";
+import Text from "@/shared/ui/Text/Text";
 import { canEditProfie } from "../../model/selectors/canEditProfile/canEditProfile";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";

@@ -1,12 +1,12 @@
 import { screen } from "@testing-library/react";
-import { renderTestComponent } from "shared/lib/tests/renderTestComponent/renderTestComponent";
+import { renderTestComponent } from "@/shared/lib/tests/renderTestComponent/renderTestComponent";
 import EditableProfileCard from "./EditableProfileCard";
 import { profileReducer } from "../model/slice/profileSlice";
-import { Profile } from "entity/Profile";
-import { Country } from "entity/Country";
-import { Currency } from "entity/Currency";
+import { Profile } from "@/entity/Profile";
+import { Country } from "@/entity/Country";
+import { Currency } from "@/entity/Currency";
 import userEvent from "@testing-library/user-event";
-import { $api } from "shared/api/api";
+import { $api } from "@/shared/api/api";
 
 const profileData: Profile = {
 	age: 30,

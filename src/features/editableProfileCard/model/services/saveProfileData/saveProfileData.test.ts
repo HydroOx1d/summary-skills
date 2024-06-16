@@ -1,8 +1,8 @@
-import { Country } from "entity/Country";
+import { Country } from "@/entity/Country";
 import { saveProfileData } from "./saveProfileData";
-import { Currency } from "entity/Currency";
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { Profile } from "entity/Profile";
+import { Currency } from "@/entity/Currency";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { Profile } from "@/entity/Profile";
 import { ValidateProfileError } from "../../consts/consts";
 
 const data: Profile = {

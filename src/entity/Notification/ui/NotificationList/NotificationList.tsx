@@ -1,11 +1,11 @@
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./NotificationList.module.scss";
 import { useGetNotificationsQuery } from "../../api/notificationApi";
-import VStack from "shared/ui/Stack/VStack/VStack";
+import VStack from "@/shared/ui/Stack/VStack/VStack";
 import NotificationItem from "../NotificationItem/NotificationItem";
-import Skeleton from "shared/ui/Skeleton/Skeleton";
-import Text from "shared/ui/Text/Text";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
+import Text from "@/shared/ui/Text/Text";
 
 interface NotificationListProps {
   className?: string;

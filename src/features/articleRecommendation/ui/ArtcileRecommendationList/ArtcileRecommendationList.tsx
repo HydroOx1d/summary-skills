@@ -1,5 +1,5 @@
-import { ArticleListItem, ArticleListSkeleton, ArticleViewWay } from "entity/Article";
-import Text from "shared/ui/Text/Text";
+import { ArticleListItem, ArticleListSkeleton, ArticleViewWay } from "@/entity/Article";
+import Text from "@/shared/ui/Text/Text";
 import { useGetArticleRecommendationListQuery } from "../../api/articleRecommendaion";
 import cls from "./ArtcileRecommendationList.module.scss";
 

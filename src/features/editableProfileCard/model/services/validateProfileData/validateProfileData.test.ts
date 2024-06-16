@@ -1,7 +1,7 @@
-import { Country } from "entity/Country";
+import { Country } from "@/entity/Country";
 import { validateProfileData } from "./validateProfileData";
-import { Currency } from "entity/Currency";
-import { Profile } from "entity/Profile";
+import { Currency } from "@/entity/Currency";
+import { Profile } from "@/entity/Profile";
 import { ValidateProfileError } from "../../consts/consts";
 
 const data: Profile = {
