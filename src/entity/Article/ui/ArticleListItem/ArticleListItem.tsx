@@ -1,5 +1,5 @@
 import React from "react";
-import EyeIcon from "@/shared/assets/icons/eye-line.svg";
+import EyeIcon from "@/shared/assets/icons/eye-line.svg?react";
 import { routePath } from "@/shared/config/routeConfig/routeConfig";
 import { classNames } from "@/shared/lib/classNames/className";
 import AppLink from "@/shared/ui/AppLink/AppLink";
