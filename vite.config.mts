@@ -1,8 +1,8 @@
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
+import {UserConfig} from "vite";
 
-/** @type {import('vite').UserConfig} */
-export default {
+const config: UserConfig = {
 	plugins: [
 		react(),
 		svgr({
@@ -20,3 +20,5 @@ export default {
 		__PROJECT__: JSON.stringify("frontend")
 	}
 };
+
+export default config;
