@@ -1,8 +1,8 @@
 import React from "react";
 import cls from "./StarRating.module.scss";
 import { classNames } from "@/shared/lib/classNames/className";
-import Star from "@/shared/assets/icons/star-line.svg";
-import StarFill from "@/shared/assets/icons/star-fill.svg";
+import Star from "@/shared/assets/icons/star-line.svg?react";
+import StarFill from "@/shared/assets/icons/star-fill.svg?react";
 import HStack from "../Stack/HStack/HStack";
 
 const ratings = [1,2,3,4,5];

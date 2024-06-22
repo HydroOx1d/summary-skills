@@ -11,6 +11,7 @@ import Page from "@/widgets/Page/Page";
 import ArticleDetailComment from "../ArticleDetailComment/ArticleDetailComment";
 import ArtcileDetailHeader from "../ArticleDetailHeader/ArtcileDetailHeader";
 import cls from "./ArticleDetail.module.scss";
+import { RatingCard } from "@/entity/Rating";
 
 const initialReducers: ReducersList = {
 	articleComments: articleDetailsCommentsReducer
@@ -33,6 +34,12 @@ const ArticleDetail = () => {
 				<ArtcileDetailHeader/>
 				<ArticleDetails id={articleId} />
 				<ArtcileRecommendationList/>
+				<RatingCard
+					title="Понравилась статья?"
+					className={cls.articleRating}
+					hasFeedback
+					feedbackTitle="Напишите ваше мнение о статье"
+				/>
 				<ArticleDetailComment articleId={articleId}/>
 			</Page>
 		</ReducerLoader>

@@ -5,7 +5,7 @@ const firstCharToUpperCase = require("../firstCharToUpperCase");
 module.exports = (sliceName) => {
 	return `
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./${firstCharToUpperCase(sliceName)}.module.scss";
 
 interface ${firstCharToUpperCase(sliceName)}Props {
