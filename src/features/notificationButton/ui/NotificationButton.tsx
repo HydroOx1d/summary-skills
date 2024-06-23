@@ -1,7 +1,7 @@
 import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./NotificationButton.module.scss";
-import NotificationIcon from "@/shared/assets/icons/notification-line.svg?react";
+import NotificationIcon from "@/shared/assets/icons/notification-line.svg";
 import Popover from "@/shared/ui/Popover/Popover";
 import { NotificationList } from "@/entity/Notification";
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";

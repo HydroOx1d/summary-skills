@@ -18,6 +18,7 @@ interface RatingCardProps {
 	title?: string;
 	hasFeedback?: boolean;
 	feedbackTitle?: string;
+	rate?: number;
 	onAccept?: (rating: number, feedback?: string) => void;
 	onCancel?: (rating: number) => void;
 }
@@ -29,7 +30,8 @@ const RatingCard = (props: RatingCardProps) => {
 		hasFeedback,
 		onAccept,
 		onCancel,
-		title
+		title,
+		rate = 0
 	} = props;
 
 	const [modalIsOpen, setModalIsOpen] = React.useState(false);
@@ -71,8 +73,8 @@ const RatingCard = (props: RatingCardProps) => {
 	return (
 		<Card className={classNames(cls.RatingCard, {}, [className])}>
 			<VStack gap="8" align="center" max>
-				<Text title={title} />
-				<StarRating size={40} onSelect={onRatingSelect}/>
+				<Text title={ratingCount ? "Спасибо за оценку!" : title} />
+				<StarRating size={40} onSelect={onRatingSelect} selectedRating={rate}/>
 			</VStack>
 			{isDesktop && (
 				<Modal isOpen={modalIsOpen}>

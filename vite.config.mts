@@ -6,7 +6,7 @@ const config: UserConfig = {
 	plugins: [
 		react(),
 		svgr({
-			
+			include: "**/*.svg"
 		})
 	],
 	resolve: {
