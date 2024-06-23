@@ -1,4 +1,4 @@
-import { ArticleRating } from "@/entity/Rating";
+import type { ArticleRating } from "@/entity/Rating";
 import { rtkApi } from "@/shared/api/rtkApi";
 
 interface ArticleRatingArgs {
