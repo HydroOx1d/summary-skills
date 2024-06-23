@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 
 
 export const getNewCommentError = (state: StateSchema) => state.addNewComment?.error;

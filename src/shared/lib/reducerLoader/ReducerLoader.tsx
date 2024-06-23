@@ -1,6 +1,6 @@
 import { Reducer } from "@reduxjs/toolkit";
-import { StoreWithReducerManager } from "app/providers/store";
-import { StateSchemaKey } from "app/providers/store/config/stateSchema";
+import { StoreWithReducerManager } from "@/app/providers/store";
+import { StateSchemaKey } from "@/app/providers/store/config/stateSchema";
 import React from "react";
 import { useDispatch, useStore } from "react-redux";
 

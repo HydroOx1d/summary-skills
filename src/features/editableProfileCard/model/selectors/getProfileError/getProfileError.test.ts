@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/store";
+import { StateSchema } from "@/app/providers/store";
 import { getProfileError } from "./getProfileError";
 
 describe("get profile data selector", () => {

@@ -1,10 +1,11 @@
-import { ArticleList } from "entity/Article";
+import { ArticleList } from "@/entity/Article";
 import { getArticles } from "../../model/slice/articlesSlice";
 import React from "react";
 import { useSelector } from "react-redux";
 import { getArticlesIsLoading, getArticlesView } from "../../model/selectors/articlesSelectors";
-import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
+import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
 import { fetchNextPageArticles } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import cls from "./ArticleInfiniteList.module.scss";
 
 const ArticleInfiniteList = () => {
 	const thunkDispatch = useThunkDispatch();
@@ -19,7 +20,7 @@ const ArticleInfiniteList = () => {
 	}, [thunkDispatch]);
 
 	return (
-		<ArticleList articles={articles} view={view} isLoading={isLoading} onFetchNextPart={onFetchNextPart}/>
+		<ArticleList className={cls.ArticleInfiniteList} articles={articles} view={view} isLoading={isLoading} onFetchNextPart={onFetchNextPart}/>
 	);
 };
 

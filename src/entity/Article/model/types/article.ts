@@ -1,10 +1,4 @@
-import { User } from "entity/User";
-
-export enum ArticleSortField {
-  VIEWS = "views",
-  TITLE = "title",
-  CREATED_AT = "createdAt",
-}
+import { User } from "@/entity/User";
 
 export interface Article {
   id: string;
@@ -23,15 +17,4 @@ export interface ArticleDetailsSchema {
   data?: Article;
   error?: string;
   isLoading: boolean;
-}
-
-export enum ArticleType {
-  ALL = "all",
-  IT = "IT",
-  ECONOMICS = "economics"
-}
-
-export enum ArticleViewWay {
-  CARDS = "cards",
-  LIST = "list"
 }

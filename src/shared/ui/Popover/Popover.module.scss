@@ -1,0 +1,43 @@
+.Popover {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  padding: 0;margin: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: auto;
+}
+
+.panel {
+  position: absolute;
+  z-index: 10;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border-radius: 4px;
+}
+
+.bottom_left {
+  top: 100%;
+  left: 0;
+}
+
+.bottom_right {
+  top: 100%;
+  right: 0;
+}
+
+.top_left {
+  bottom: 100%;
+  left: 0;
+}
+
+.top_right {
+  bottom: 100%;
+  right: 0;
+}

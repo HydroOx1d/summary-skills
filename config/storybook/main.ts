@@ -28,7 +28,10 @@ const config: StorybookConfig = {
 		);
 		config.resolve!.extensions!.push(".tsx", ".ts", ".js");
 		config.module!.rules!.push(cssLoader(true));
-
+		config.resolve!.alias! = {
+			...config.resolve?.alias,
+			"@": path.resolve(__dirname, "..", "..", "src")
+		};
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		//@ts-ignore
 		config!.module!.rules = config!.module!.rules.map((rule: RuleSetRule) => {

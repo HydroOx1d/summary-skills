@@ -12,8 +12,9 @@
     "baseUrl": ".",
     "strict": true,
     "paths": {
-      "*": ["./src/*"]
-    }
+      "@/*": ["./src/*"]
+    },
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
@@ -23,7 +24,7 @@
   "include": [
     "src",
     "./config/**/*.ts"
-  ],
+, "config/build/babel/babel-plugin-remove-attributes.js"  ],
   "exclude": [
     "node_modules"
   ]

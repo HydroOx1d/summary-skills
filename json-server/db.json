@@ -1,15 +1,54 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Описание 1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Описание 2",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Описание 3",
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "title": "Уведомление 4",
+      "description": "Описание 4",
+      "userId": "2"
+    },
+    {
+      "id": "5",
+      "title": "Уведомление 5",
+      "description": "Описание 5",
+      "userId": "1"
+    }
+  ],
   "users": [
     {
       "id": "1",
       "username": "test",
       "password": "123",
+      "roles": [
+        "ADMIN",
+        "MANAGER"
+      ],
       "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "2",
       "username": "mest",
       "password": "123",
+      "roles": [
+        "USER"
+      ],
       "avatar": "http://t1.gstatic.com/images?q=tbn:ANd9GcSN2msxh1scu24EKYpKTDrkBrJyVoQHPtc4vGcSnBLZfjEF7a5TtP1-vUyvmyZe8cIeHI4S"
     }
   ],
@@ -351,6 +390,48 @@
       "userId": "1",
       "content": "ad",
       "id": 10
+    }
+  ],
+  "articles-rating": [
+    {
+      "id": 1,
+      "rate": 4,
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": 2,
+      "rate": 2,
+      "articleId": "2",
+      "userId": "1"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "asdsadasdsad",
+      "id": 3
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "Круто",
+      "id": 4
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "ы",
+      "id": 5
+    },
+    {
+      "articleId": "3",
+      "userId": "2",
+      "rate": 5,
+      "feedback": "фуфло",
+      "id": 6
     }
   ]
 }

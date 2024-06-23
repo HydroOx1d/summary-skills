@@ -1,17 +1,17 @@
 import React from "react";
 import cls from "./ProfileCard.module.scss";
-import Text, { TextAlign, TextTheme } from "shared/ui/Text/Text";
-import Input from "shared/ui/Input/Input";
-import { Profile } from "../../model/types/profileSchema";
-import Loader from "shared/ui/Loader/Loader";
-import { classNames } from "shared/lib/classNames/className";
+import Text, { TextAlign, TextTheme } from "@/shared/ui/Text/Text";
+import Input from "@/shared/ui/Input/Input";
+import type { Profile } from "../../model/types/profileSchema";
+import Loader from "@/shared/ui/Loader/Loader";
+import { classNames } from "@/shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";
-import Avatar from "shared/ui/Avatar/Avatar";
-import { Currency, CurrencySelect } from "entity/Currency";
-import { Country, CountrySelect } from "entity/Country";
-import VStack from "shared/ui/Stack/VStack/VStack";
-import HStack from "shared/ui/Stack/HStack/HStack";
-import { ValidateProfileError } from "features/editableProfileCard";
+import Avatar from "@/shared/ui/Avatar/Avatar";
+import { Currency, CurrencySelect } from "@/entity/Currency";
+import { Country, CountrySelect } from "@/entity/Country";
+import VStack from "@/shared/ui/Stack/VStack/VStack";
+import HStack from "@/shared/ui/Stack/HStack/HStack";
+import { ValidateProfileError } from "@/features/editableProfileCard";
 
 interface ProfileCardProps {
   data?: Profile;
@@ -78,7 +78,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 			<VStack gap="16">
 				{validateErrors?.length ? validateErrors.map(error => {
 					return (
-						<Text text={errorsMapping[error]} key={error}/>
+						<Text text={errorsMapping[error]} key={error} data-testid="ProfileCard.Error"/>
 					);
 				}) : null}
 				<Input
@@ -87,6 +87,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 					value={data?.name}
 					onChange={onUpdateProfileName}
 					placeholder={t("profileFieldName")}
+					data-testid="ProfileCard.NameInput"
 				/>
 				<Input
 					readonly={readonly}
@@ -94,6 +95,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 					value={data?.surname}
 					onChange={onUpdateProfileSurname}
 					placeholder={t("profileFieldSurname")}
+					data-testid="ProfileCard.SurnameInput"
 				/>
 				<Input
 					readonly={readonly}

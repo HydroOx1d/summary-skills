@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { classNames } from "shared/lib/classNames/className";
-import Button, { ButtonTheme, SizesButton } from "shared/ui/Button/Button";
-import LangSwitcher from "shared/ui/LangSwitcher/LangSwitcher";
-import ThemeSwitcher from "shared/ui/ThemeSwitcher/ThemeSwitcher";
+import { classNames } from "@/shared/lib/classNames/className";
+import Button, { ButtonTheme, SizesButton } from "@/shared/ui/Button/Button";
+import LangSwitcher from "@/shared/ui/LangSwitcher/LangSwitcher";
+import ThemeSwitcher from "@/shared/ui/ThemeSwitcher/ThemeSwitcher";
 import { getSidebarItems } from "../selectors/getSidebarItems";
 import cls from "./Sidebar.module.scss";
 import SidebarItem from "./SidebarItem";

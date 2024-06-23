@@ -1,8 +1,8 @@
 import React from "react";
-import { Theme, useTheme } from "app/providers/ThemeProvider";
-import SunIcon from "shared/assets/icons/sun-fill.svg";
-import MoonIcon from "shared/assets/icons/moon-fill.svg";
-import { classNames } from "shared/lib/classNames/className";
+import { Theme, useTheme } from "@/app/providers/ThemeProvider";
+import SunIcon from "@/shared/assets/icons/sun-fill.svg";
+import MoonIcon from "@/shared/assets/icons/moon-fill.svg";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./ThemeSwitcher.module.scss";
 import Button, { ButtonTheme } from "../Button/Button";
 

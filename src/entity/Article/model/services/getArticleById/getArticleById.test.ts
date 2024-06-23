@@ -1,5 +1,5 @@
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { Article } from "../../types/article";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import type { Article } from "../../types/article";
 import { getArticleById } from "./getArticleById";
 
 describe("testing fetch article data thunk", () => {

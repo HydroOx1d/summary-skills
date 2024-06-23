@@ -1,12 +1,12 @@
-import { ArticleSort, ArticleSortField, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewWay } from "entity/Article";
+import { ArticleSort, ArticleSortField, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewWay } from "@/entity/Article";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { useDebounce } from "shared/lib/hooks/useDebounce";
-import { useThunkDispatch } from "shared/lib/hooks/useThunkDispatch";
-import { SortOrder } from "shared/types";
-import Input from "shared/ui/Input/Input";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce";
+import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
+import { SortOrder } from "@/shared/types";
+import Input from "@/shared/ui/Input/Input";
 import {
 	getArticlesOrder,
 	getArticlesSearch,

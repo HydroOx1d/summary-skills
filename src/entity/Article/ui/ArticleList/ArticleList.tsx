@@ -1,8 +1,9 @@
 import React from "react";
 import { Virtuoso, VirtuosoGrid } from "react-virtuoso";
-import { classNames } from "shared/lib/classNames/className";
-import Text from "shared/ui/Text/Text";
-import { Article, ArticleViewWay } from "../../model/types/article";
+import { classNames } from "@/shared/lib/classNames/className";
+import Text from "@/shared/ui/Text/Text";
+import { ArticleViewWay } from "../../model/consts/consts";
+import type {Article} from "../../model/types/article";
 import ArticleListItem from "../ArticleListItem/ArticleListItem";
 import cls from "./ArticleList.module.scss";
 import ArticleListSkeleton from "./ArticleListSkeleton";
@@ -15,7 +16,7 @@ interface ArticleListProps {
 	onFetchNextPart?: () => void;
 }
 
-// TODO: ref to parent element scroll
+// TODO: implement ref to parent element to get its scroll
 
 const ArticleList = (props: ArticleListProps) => {
 	const { className, articles, view, isLoading, onFetchNextPart } = props;

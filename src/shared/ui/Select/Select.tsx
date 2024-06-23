@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Select.module.scss";
 
 export interface OptionType<T extends string> {

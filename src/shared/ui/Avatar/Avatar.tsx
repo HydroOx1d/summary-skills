@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import cls from "./Avatar.module.scss";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 
 interface AvatarProps {
   className?: string;

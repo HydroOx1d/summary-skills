@@ -1,6 +1,6 @@
-import { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 import { getArticlesError, getArticlesIsLoading, getArticlesView } from "./articlesSelectors";
-import { ArticleViewWay } from "entity/Article";
+import { ArticleViewWay } from "@/entity/Article";
 
 describe("article selectors test", () => {
 	test("return articles loading status", () => {

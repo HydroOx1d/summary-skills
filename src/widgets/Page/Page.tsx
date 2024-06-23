@@ -1,14 +1,14 @@
 import React, { useImperativeHandle } from "react";
-import { classNames } from "shared/lib/classNames/className";
+import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Page.module.scss";
-import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import { scrollSaverActions } from "features/scrollSaver";
+import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { scrollSaverActions } from "@/features/scrollSaver";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getScrollSaverByPath } from "features/scrollSaver/model/selectors/scrollSaverSelectors";
-import { StateSchema } from "app/providers/store";
-import { useThrotle } from "shared/lib/hooks/useThrottle";
+import { getScrollSaverByPath } from "@/features/scrollSaver/model/selectors/scrollSaverSelectors";
+import type { StateSchema } from "@/app/providers/store";
+import { useThrotle } from "@/shared/lib/hooks/useThrottle";
 
 interface PageProps {
   className?: string;

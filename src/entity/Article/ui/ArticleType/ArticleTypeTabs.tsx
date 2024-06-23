@@ -1,5 +1,6 @@
-import Tabs, { TabType } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "../../model/types/article";
+import Tabs from "@/shared/ui/Tabs/Tabs";
+import type { TabType } from "@/shared/ui/Tabs/Tabs";
+import { ArticleType } from "../../model/consts/consts";
 import React from "react";
 import cls from "./ArticleTypeTabs.module.scss";
 

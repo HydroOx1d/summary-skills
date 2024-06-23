@@ -1,6 +1,6 @@
-import { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 import { getLoginState } from "./getLoginState";
-import { DeepPartial } from "@reduxjs/toolkit";
+import type { DeepPartial } from "@reduxjs/toolkit";
 
 describe("get login state selector", () => {
 	test("should return login form", () => {

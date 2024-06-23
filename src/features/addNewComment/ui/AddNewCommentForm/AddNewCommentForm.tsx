@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { classNames } from "shared/lib/classNames/className";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
-import ReducerLoader, { ReducersList } from "shared/lib/reducerLoader/ReducerLoader";
-import Button, { ButtonTheme, SizesButton } from "shared/ui/Button/Button";
-import Input from "shared/ui/Input/Input";
+import { classNames } from "@/shared/lib/classNames/className";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import ReducerLoader from "@/shared/lib/reducerLoader/ReducerLoader";
+import type { ReducersList } from "@/shared/lib/reducerLoader/ReducerLoader";
+import Button, { ButtonTheme, SizesButton } from "@/shared/ui/Button/Button";
+import Input from "@/shared/ui/Input/Input";
 import { getNewCommentError, getNewCommentIsLoading, getNewCommentText } from "../../model/selectors/addNewCommentSelectors";
 import { newCommentActions, newCommentReducer } from "../../model/slice/newCommentSlice";
 import cls from "./AddNewCommentForm.module.scss";

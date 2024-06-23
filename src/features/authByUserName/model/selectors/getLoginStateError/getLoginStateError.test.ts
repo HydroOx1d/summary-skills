@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/store";
+import type { StateSchema } from "@/app/providers/store";
 import { getLoginStateError } from "./getLoginStateError";
 
 describe("get login state selector", () => {

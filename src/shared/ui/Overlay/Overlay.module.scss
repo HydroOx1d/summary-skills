@@ -1,0 +1,14 @@
+.Overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--overlay-color);
+  z-index: var(--overlay-z-index);
+  transition: all 150ms ease-in-out;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.opened {
+  pointer-events: all;
+  opacity: 1;
+}

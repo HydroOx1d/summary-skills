@@ -1,5 +1,5 @@
 import { getArticleById } from "../services/getArticleById/getArticleById";
-import { Article, ArticleDetailsSchema } from "../types/article";
+import type { Article, ArticleDetailsSchema } from "../types/article";
 import { articleReducer } from "./articleSlice";
 
 const data: Article = {

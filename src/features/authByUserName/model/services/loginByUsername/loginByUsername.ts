@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import i18n from "shared/config/langConfig/langConfig";
-import { User, userActions } from "entity/User";
-import { ThunkConfig } from "app/providers/store";
+import i18n from "@/shared/config/langConfig/langConfig";
+import { userActions } from "@/entity/User";
+import type { User } from "@/entity/User";
+import type { ThunkConfig } from "@/app/providers/store";
 
 interface LoginData {
   username: string;
