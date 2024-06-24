@@ -36,9 +36,13 @@ const RatingCard = (props: RatingCardProps) => {
 
 	const [modalIsOpen, setModalIsOpen] = React.useState(false);
 	const [feedbackValue, setFeedbackValue] = React.useState("");
-	const [ratingCount, setRatingcount] = React.useState(0);
+	const [ratingCount, setRatingcount] = React.useState(rate);
 	const isDesktop = useMediaQuery({minWidth: 767});
 	const isMobile = useMediaQuery({maxWidth: 767});
+
+	React.useEffect(() => {
+		setRatingcount(rate);
+	}, [rate]);
 
 	const onRatingSelect = React.useCallback((rating: number) => {		
 		if (hasFeedback) {

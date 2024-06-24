@@ -42,6 +42,8 @@ const ArticleRating = (props: ArticleRatingProps) => {
 
 	const rating = articleRating?.[0];
 
+	console.log(articleRating);
+
 	return (
 		<RatingCard
 			onAccept={onAcceptHandle}
