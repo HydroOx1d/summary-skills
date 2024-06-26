@@ -60,6 +60,7 @@
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.8.1",
     "eslint": "^8.52.0",
+    "eslint-plugin-fsd-import-checker": "file:config/eslint/packages/eslint-plugin-fsd-import-checker",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
