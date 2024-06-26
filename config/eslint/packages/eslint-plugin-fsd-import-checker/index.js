@@ -3,7 +3,7 @@
 const RuleTester = require("eslint").RuleTester;
 const Path = require("path");
 
-const layers = new Set(["features", "entity", "pages", "widgets", "shared"]);
+const layers = new Set(["features", "entity", "pages", "widgets"]);
 
 function isRelative(path) {
 	return path.startsWith("../") || path.startsWith("./");
@@ -36,13 +36,13 @@ function shouldBeRelative(filename, path) {
 		return false;
 	}
 
-	return pathLayer === filenameLayer || pathSlice === filenameSlice;
+	return pathLayer === filenameLayer && pathSlice === filenameSlice;
 }
 
 const plugin = {
 	meta: {
 		name: "eslint-plugin-fsd-import-checker",
-		version: "1.0.2"
+		version: "1.0.3"
 	},
 	rules: {
 		"check": {

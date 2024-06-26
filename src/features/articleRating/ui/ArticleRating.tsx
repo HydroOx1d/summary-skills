@@ -2,7 +2,7 @@ import { RatingCard } from "@/entity/Rating";
 import { getUserAuthData, User } from "@/entity/User";
 import React from "react";
 import { useSelector } from "react-redux";
-import { useCreateArticleRaingMutation, useGetArticleRatingQuery } from "@/features/articleRating/api/articleRatingApi";
+import { useCreateArticleRaingMutation, useGetArticleRatingQuery } from "../api/articleRatingApi";
 
 interface ArticleRatingProps {
   className?: string;
