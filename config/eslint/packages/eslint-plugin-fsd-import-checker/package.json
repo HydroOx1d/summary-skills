@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-fsd-import-checker",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "plugin for checking correctness of imports in project using FSD methodology",
   "main": "index.js",
   "scripts": {

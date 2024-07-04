@@ -2,12 +2,7 @@
 /* eslint-disable no-undef */
 
 const Path = require("path");
-
-const layers = new Set(["features", "entity", "pages", "widgets"]);
-
-function isRelative(path) {
-	return path == "." || path.startsWith("../") || path.startsWith("./");
-}
+const {isRelative, layers} = require("../../helpers/index.js");
 
 // filename: example - \\?\C:\Users\User\Desktop\projects\production-project\src\pages\about\ui\About.tsx
 // path: example - features/test/model/types

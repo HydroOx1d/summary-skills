@@ -6,7 +6,7 @@ import { ArticleRating } from "@/features/articleRating";
 import { ArtcileRecommendationList } from "@/features/articleRecommendation";
 import { classNames } from "@/shared/lib/classNames/className";
 import ReducerLoader, { ReducersList } from "@/shared/lib/reducerLoader/ReducerLoader";
-import Page from "@/widgets/Page/Page";
+import {Page} from "@/widgets/Page";
 import React from "react";
 import { useParams } from "react-router-dom";
 import ArticleDetailComment from "../ArticleDetailComment/ArticleDetailComment";
