@@ -1,6 +1,5 @@
 import React from "react";
 import EyeIcon from "@/shared/assets/icons/eye-line.svg";
-import { routePath } from "@/shared/config/routeConfig/routeConfig";
 import { classNames } from "@/shared/lib/classNames/className";
 import AppLink from "@/shared/ui/AppLink/AppLink";
 import Avatar from "@/shared/ui/Avatar/Avatar";
@@ -10,6 +9,7 @@ import Text, { TextSize } from "@/shared/ui/Text/Text";
 import { ArticleViewWay } from "../../model/consts/consts";
 import type { Article } from "../../model/types/article";
 import cls from "./ArticleListItem.module.scss";
+import { routePath } from "@/shared/constants/router";
 
 interface ArticleListItemProps {
   className?: string;
