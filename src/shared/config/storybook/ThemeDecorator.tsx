@@ -1,5 +1,5 @@
-import { Theme, ThemeProvider } from "@/app/providers/ThemeProvider";
-
+import { Theme } from "@/shared/constants/theme";
+import { ThemeProvider } from "@/shared/lib/providers/ThemeProvider";
 
 export const ThemeDecorator = (theme: Theme) => {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any

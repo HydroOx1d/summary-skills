@@ -11,7 +11,7 @@ import { Currency, CurrencySelect } from "@/entity/Currency";
 import { Country, CountrySelect } from "@/entity/Country";
 import VStack from "@/shared/ui/Stack/VStack/VStack";
 import HStack from "@/shared/ui/Stack/HStack/HStack";
-import { ValidateProfileError } from "@/features/editableProfileCard";
+import { ValidateProfileError } from "../../model/consts/profile";
 
 interface ProfileCardProps {
   data?: Profile;

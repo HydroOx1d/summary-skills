@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
 import ArticleDetails from "./ArticleDetails";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/constants/theme";
 
 const meta: Meta<typeof ArticleDetails> = {
 	title: "entity/ArticleDetails",

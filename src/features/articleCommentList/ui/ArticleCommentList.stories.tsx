@@ -3,7 +3,7 @@ import Avatar from "@/shared/assets/tests/storybook-avatar.jpg";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
 import ArticleCommentList from "./ArticleCommentList";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/constants/theme";
 
 const meta: Meta<typeof ArticleCommentList> = {
 	title: "features/ArticleCommentList",

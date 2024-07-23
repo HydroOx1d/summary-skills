@@ -3,7 +3,7 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
 import AddNewCommentForm from "./AddNewCommentForm";
 import {action} from "@storybook/addon-actions";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/constants/theme";
 
 const meta: Meta<typeof AddNewCommentForm> = {
 	title: "features/AddNewCommentForm",
