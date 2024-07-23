@@ -5,7 +5,7 @@ import Text from "@/shared/ui/Text/Text";
 import type { IComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
 import AppLink from "@/shared/ui/AppLink/AppLink";
-import { routePath } from "@/shared/config/routeConfig/routeConfig";
+import { routePath } from "@/shared/constants/router";
 
 interface CommentProps {
   className?: string;

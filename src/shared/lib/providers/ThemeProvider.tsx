@@ -1,5 +1,12 @@
 import React from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../lib/ThemeContext";
+import { LOCAL_STORAGE_THEME_KEY, Theme } from "@/shared/constants/theme";
+
+export interface ThemeContextProps {
+  theme?: Theme;
+  setTheme?: (theme: Theme) => void;
+}
+
+export const ThemeContext = React.createContext<ThemeContextProps>({});
 
 const defaultPropsValue = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 

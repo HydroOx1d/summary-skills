@@ -3,9 +3,9 @@ import cls from "./Drawer.module.scss";
 import { classNames } from "@/shared/lib/classNames/className";
 import Overlay from "../Overlay/Overlay";
 import Portal from "../Portal/Portal";
-import { useTheme } from "@/app/providers/ThemeProvider";
 import { useModal } from "@/shared/lib/hooks/useModal";
 import { AnimationProvider, useAnimation } from "@/shared/lib/providers/AnimationProvider";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 interface DrawerProps {
   className?: string;

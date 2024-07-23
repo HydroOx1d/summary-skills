@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { routePath } from "@/shared/config/routeConfig/routeConfig";
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
 import cls from "./ArticleDetailHeader.module.scss";
 import { useSelector } from "react-redux";
 import { getArticleCanEdit } from "@/entity/Article";
+import { routePath } from "@/shared/constants/router";
 
 const ArtcileDetailHeader = () => {
 	const navigate = useNavigate();

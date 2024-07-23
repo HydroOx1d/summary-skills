@@ -17,13 +17,11 @@ const ArticleRating = (props: ArticleRatingProps) => {
 
 	const authData = useSelector(getUserAuthData) as Required<User>;
 
-	const {data: rating} = useGetArticleRatingQuery({
+	const {data: articleRating} = useGetArticleRatingQuery({
 		articleId,
 		userId: authData.id
 	});
 	const [createRating] = useCreateArticleRaingMutation();
-
-	console.log(rating);
 
 	const onCreateRatingHandle = React.useCallback((rating: number, feedback?: string) => {
 		createRating({
@@ -42,6 +40,10 @@ const ArticleRating = (props: ArticleRatingProps) => {
 		onCreateRatingHandle(rating);
 	}, [onCreateRatingHandle]);
 
+	const rating = articleRating?.[0];
+
+	console.log(articleRating);
+
 	return (
 		<RatingCard
 			onAccept={onAcceptHandle}
@@ -50,7 +52,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
 			title="Понравилась статья?"
 			hasFeedback
 			feedbackTitle="Напишите ваше мнение о статье"
-			rate={rating?.length ? rating?.[0]?.rate : 0}
+			rate={rating?.rate ?? 0}
 		/>
 	);
 };

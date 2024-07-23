@@ -2,9 +2,9 @@ import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import Dropdown, { DropdownItem } from "@/shared/ui/Dropdown/Dropdown";
 import { getUserAuthData, getUserIsAdmin, userActions } from "@/entity/User";
-import { routePath } from "@/shared/config/routeConfig/routeConfig";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@/shared/ui/Avatar/Avatar";
+import { routePath } from "@/shared/constants/router";
 
 interface AvatarDropdownProps {
   className?: string;

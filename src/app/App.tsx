@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { classNames } from "@/shared/lib/classNames/className";
-import { useTheme } from "@/app/providers/ThemeProvider";
-import { AppRouter } from "@/app/providers/router";
+import { AppRouter } from "./providers/router";
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
 import { useDispatch } from "react-redux";
 import { userActions } from "@/entity/User";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 export const App = () => {
 	const { theme } = useTheme();

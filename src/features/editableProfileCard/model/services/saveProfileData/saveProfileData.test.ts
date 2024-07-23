@@ -2,8 +2,7 @@ import { Country } from "@/entity/Country";
 import { saveProfileData } from "./saveProfileData";
 import { Currency } from "@/entity/Currency";
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { Profile } from "@/entity/Profile";
-import { ValidateProfileError } from "../../consts/consts";
+import { Profile, ValidateProfileError } from "@/entity/Profile";
 
 const data: Profile = {
 	id: "1",

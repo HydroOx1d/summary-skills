@@ -1,5 +1,4 @@
-import { Profile } from "@/entity/Profile";
-import { ValidateProfileError } from "../consts/consts";
+import { Profile, ValidateProfileError } from "@/entity/Profile";
 
 export interface ProfileSchema {
   readonly: boolean;

@@ -433,5 +433,21 @@
       "feedback": "фуфло",
       "id": 6
     }
+  ],
+  "profiles-rating": [
+    {
+      "id": 1,
+      "rate": 5,
+      "profileId": "1",
+      "userId": "2",
+      "feedback": "Красавчик"
+    },
+    {
+      "profileId": "2",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "чорт",
+      "id": 2
+    }
   ]
 }

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Theme } from "@/app/providers/ThemeProvider";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
 import ArticleList from "./ArticleList";
 import { ArticleViewWay } from "../../model/consts/consts";
+import { Theme } from "@/shared/constants/theme";
 
 const articles = [
 	{

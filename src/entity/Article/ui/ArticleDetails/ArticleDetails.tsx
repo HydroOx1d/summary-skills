@@ -1,4 +1,4 @@
-import { articleReducer } from "@/entity/Article/model/slice/articleSlice";
+import { articleReducer } from "../../model/slice/articleSlice";
 import React from "react";
 import Markdown from "react-markdown";
 import { useSelector } from "react-redux";

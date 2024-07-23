@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
 import LoginForm from "./LoginForm";
 import { renderTestComponent } from "@/shared/lib/tests/renderTestComponent/renderTestComponent";
-import { loginReducer } from "@/features/authByUserName/model/slice/loginSlice";
+import { loginReducer } from "../../model/slice/loginSlice";
 
 describe("test Login form component", () => {
 	test("should render the component correctly", () => {

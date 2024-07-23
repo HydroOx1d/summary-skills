@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Popover from "./Popover";
-import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
 import Button from "../Button/Button";
 
 const meta: Meta<typeof Popover> = {
