@@ -1,11 +1,10 @@
 import type { Preview } from "@storybook/react";
-import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator";
-import { Theme } from "../../src/shared/lib/providers/ThemeProvider";
-import { RouteDecorator } from "../../src/shared/config/storybook/RouteDecorator";
-import { LangDecorator } from "../../src/shared/config/storybook/LangDecorator";
 import "../../src/app/styles/index.scss";
 import {initialize, mswLoader} from "msw-storybook-addon";
-import { http, HttpResponse } from "msw";
+import { Theme } from "@/shared/constants/theme";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator";
+import { LangDecorator } from "@/shared/config/storybook/LangDecorator";
 
 initialize();
 
