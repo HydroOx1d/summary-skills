@@ -1,5 +1,5 @@
 import { getUserAuthData, getUserRoles, UserRoles } from "@/entity/User";
-import { routePath } from "@/shared/constants/router";
+import { getForbiddenRoute } from "@/shared/constants/router";
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -21,7 +21,7 @@ const RequiredRoles = ({children, roles}: React.PropsWithChildren<RequiredRolesP
 	},[roles, userRoles]);
 
 	if(!isAdmin) {
-		return <Navigate to={routePath.forbidden}/>;
+		return <Navigate to={getForbiddenRoute()}/>;
 	}
 	return children;
 };

@@ -1,11 +1,11 @@
-import React from "react";
+import { getProfleRoute } from "@/shared/constants/router";
 import { classNames } from "@/shared/lib/classNames/className";
+import AppLink from "@/shared/ui/AppLink/AppLink";
 import Avatar from "@/shared/ui/Avatar/Avatar";
 import Text from "@/shared/ui/Text/Text";
+import React from "react";
 import type { IComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
-import AppLink from "@/shared/ui/AppLink/AppLink";
-import { routePath } from "@/shared/constants/router";
 
 interface CommentProps {
   className?: string;
@@ -20,7 +20,7 @@ const CommentCard = (props: CommentProps) => {
 
 	return (
 		<div className={classNames(cls.Comment, {}, [className])}>
-			<AppLink to={`${routePath.profile}${comment?.user?.id}`} className={cls.header}>
+			<AppLink to={getProfleRoute(comment?.user?.id)} className={cls.header}>
 				{comment?.user?.avatar ? <Avatar size={30} src={comment?.user.avatar}/> : null}
 				<Text text={comment?.user?.username}/>
 			</AppLink>

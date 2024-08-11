@@ -1,15 +1,15 @@
-import React from "react";
 import EyeIcon from "@/shared/assets/icons/eye-line.svg";
+import { getArticlesRoute } from "@/shared/constants/router";
 import { classNames } from "@/shared/lib/classNames/className";
 import AppLink from "@/shared/ui/AppLink/AppLink";
 import Avatar from "@/shared/ui/Avatar/Avatar";
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
 import Card from "@/shared/ui/Card/Card";
 import Text, { TextSize } from "@/shared/ui/Text/Text";
+import React from "react";
 import { ArticleViewWay } from "../../model/consts/consts";
 import type { Article } from "../../model/types/article";
 import cls from "./ArticleListItem.module.scss";
-import { routePath } from "@/shared/constants/router";
 
 interface ArticleListItemProps {
   className?: string;
@@ -31,7 +31,7 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 
 	if (view === ArticleViewWay.CARDS) {
 		return (
-			<AppLink to={routePath.article_detail + article.id}
+			<AppLink to={getArticlesRoute(article.id)}
 				className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
 			>
 				<Card className={cls.card}>
@@ -76,7 +76,7 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 				</div>
 				<Text text={article.preview} className={cls.preview} />
 				<div className={cls.footer}>
-					<AppLink to={routePath.article_detail + article.id}>
+					<AppLink to={getArticlesRoute(article.id)}>
 						<Button
 							className={cls.btn}
 							theme={ButtonTheme.OUTLINE}

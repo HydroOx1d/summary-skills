@@ -7,45 +7,45 @@ import { ForbiddenPagePage } from "@/pages/forbiddenPage";
 import { HomePage } from "@/pages/home";
 import { NotFound } from "@/pages/notFound";
 import { ProfilePage } from "@/pages/profile";
-import { routePath } from "@/shared/constants/router";
+import { getAboutRoute, getAdminRoute, getArticlesRoute, getForbiddenRoute, getMainRoute, getProfleRoute } from "@/shared/constants/router";
 import { AppRouteProps } from "@/shared/types";
 
 export const routeConfig: AppRouteProps[] = [
 	{
-		path: routePath.main,
+		path: getMainRoute(),
 		element: <HomePage />,
 	},
 	{
-		path: routePath.about,
+		path: getAboutRoute(),
 		element: <AboutPage />,
 	},
 	{
-		path: routePath.profile + ":profileId",
+		path: getProfleRoute(":profileId"),
 		element: <ProfilePage />,
 		onlyAuth: true,
 	},
 	{
-		path: routePath.articles,
+		path: getArticlesRoute(),
 		element: <ArticlePage />,
 		onlyAuth: true,
 	},
 	{
-		path: routePath.article_detail + ":articleId",
+		path: getArticlesRoute(":articleId"),
 		element: <ArticleDetailPage />,
 		onlyAuth: true,
 	},
 	{
-		path: routePath.admin,
+		path: getAdminRoute(),
 		element: <AdminPanelPagePage />,
 		onlyAuth: true,
 		roles: [UserRoles.ADMIN]
 	},
 	{
-		path: routePath.forbidden,
+		path: getForbiddenRoute(),
 		element: <ForbiddenPagePage />,
 	},
 	{
-		path: routePath.not_found,
+		path: "*",
 		element: <NotFound />,
 	},
 ];

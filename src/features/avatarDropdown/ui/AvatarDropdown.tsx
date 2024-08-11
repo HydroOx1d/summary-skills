@@ -4,7 +4,7 @@ import Dropdown, { DropdownItem } from "@/shared/ui/Dropdown/Dropdown";
 import { getUserAuthData, getUserIsAdmin, userActions } from "@/entity/User";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@/shared/ui/Avatar/Avatar";
-import { routePath } from "@/shared/constants/router";
+import { getAdminRoute, getProfleRoute } from "@/shared/constants/router";
 
 interface AvatarDropdownProps {
   className?: string;
@@ -29,11 +29,11 @@ const AvatarDropdown = (props: AvatarDropdownProps) => {
 		return [
 			...(isAdminPageAvailable ? [{
 				content: "Admin",
-				href: routePath.admin
+				href: getAdminRoute()
 			}] : []),
 			{
 				content: "Profile",
-				href: routePath.profile + authData?.id,
+				href: getProfleRoute(authData?.id)
 			},
 			{
 				content: "Logout",
