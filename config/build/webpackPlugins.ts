@@ -8,6 +8,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { BuildOptions } from "./types/config";
 
 const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
+	const isProd = !options.isDev;
 	const plugins = [
 		new BundleAnalyzerPlugin({
 			openAnalyzer: options.isDev,
@@ -22,18 +23,6 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 		new webpack.ProgressPlugin(),
 		new HtmlWebpackPlugin({
 			template: options.paths.html
-		}),
-		new MiniCssExtractPlugin({
-			filename: "css/[name].[contenthash:8].css",
-			chunkFilename: "css/[name].[contenthash8].css"
-		}),
-		new CopyWebpackPlugin({
-			patterns: [
-				{
-					from: options.paths.locales,
-					to: options.paths.buildLocales
-				}
-			]
 		})
 	];
 
@@ -48,6 +37,21 @@ const webpackPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] 
 				},
 				mode: "write-references",
 			},
+		}));
+	}
+
+	if (isProd) {
+		plugins.push(new MiniCssExtractPlugin({
+			filename: "css/[name].[contenthash:8].css",
+			chunkFilename: "css/[name].[contenthash8].css"
+		}));
+		plugins.push(new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: options.paths.locales,
+					to: options.paths.buildLocales
+				}
+			]
 		}));
 	}
 	
