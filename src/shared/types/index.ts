@@ -8,3 +8,7 @@ export type AppRouteProps = RouteProps & {
 	onlyAuth?: boolean;
 	roles?: UserRoles[];
 }
+
+export interface DataTestId {
+	"data-testid"?: string
+}

@@ -9,14 +9,15 @@ import { useSelector } from "react-redux";
 import { getScrollSaverByPath } from "@/features/scrollSaver";
 import type { StateSchema } from "@/app/providers/store";
 import { useThrotle } from "@/shared/lib/hooks/useThrottle";
+import { DataTestId } from "@/shared/types";
 
-interface PageProps {
+interface PageProps extends DataTestId {
   className?: string;
   onScrollEnd?: () => void;
 }
 
 const Page = (props: React.PropsWithChildren<PageProps>, ref: React.ForwardedRef<HTMLElement>) => {
-	const { children, className, onScrollEnd} = props;
+	const { children, className, onScrollEnd, "data-testid": dataTestId } = props;
 	const dispatch = useAppDispatch();
 	const {pathname} = useLocation();
 	const position = useSelector((state: StateSchema) => getScrollSaverByPath(state, pathname));
@@ -57,6 +58,7 @@ const Page = (props: React.PropsWithChildren<PageProps>, ref: React.ForwardedRef
 			className={classNames(cls.Page, {}, [className])}
 			ref={wrapperRef}
 			onScroll={onScroll}
+			data-testid={dataTestId}
 		>
 			{children}
 			<div ref={targetRef} />

@@ -23,7 +23,7 @@ const Article = () => {
 
 	return (
 		<ReducerLoader reducers={initialReducers}>
-			<Page className={cls.ArticlesPage}>
+			<Page data-testid="ArticlesPage" className={cls.ArticlesPage}>
 				<ArticlesPageFilter />
 				<ArticleInfiniteList />
 			</Page>

@@ -16,7 +16,7 @@ const Profile = React.memo(() => {
 	}
 
 	return (
-		<Page>
+		<Page data-testid="ProfilePage">
 			<VStack gap="16">
 				<EditableProfileCard profileId={profileId}/>
 				<ProfileRating profileId={profileId} />

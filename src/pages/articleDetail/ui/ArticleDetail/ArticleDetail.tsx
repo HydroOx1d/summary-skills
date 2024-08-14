@@ -22,7 +22,7 @@ const ArticleDetail = () => {
 
 	if(!articleId) {
 		return (
-			<Page className={classNames(cls.ArticlePage)}>
+			<Page data-testid="ArticleDetailPage" className={classNames(cls.ArticlePage)}>
         The article is not found
 			</Page>
 		);
@@ -30,7 +30,7 @@ const ArticleDetail = () => {
 
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
-			<Page className={classNames(cls.ArticlePage)}>
+			<Page data-testid="ArticleDetailPage" className={classNames(cls.ArticlePage)}>
 				<ArtcileDetailHeader/>
 				<ArticleDetails id={articleId} />
 				<ArtcileRecommendationList/>

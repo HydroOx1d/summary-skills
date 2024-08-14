@@ -1,6 +1,6 @@
 
-import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
+import { Page } from "@/widgets/Page";
 
 interface ForbiddenPageProps {
   className?: string;
@@ -12,7 +12,7 @@ const ForbiddenPage = (props: ForbiddenPageProps) => {
 	} = props;
 
 	return (
-		<div className={classNames("", {}, [className])}>ForbiddenPage</div>
+		<Page data-testid="ForbiddenPage" className={classNames("", {}, [className])}>ForbiddenPage</Page>
 	);
 };
 

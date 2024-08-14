@@ -8,7 +8,7 @@ const NotFound = React.memo(() => {
 	const {t} = useTranslation();
 
 	return (
-		<Page className={classNames(cls.NotFound)}>
+		<Page data-testid="NotFoundPage" className={classNames(cls.NotFound)}>
 			{t("notFound")}
 		</Page>
 	);
