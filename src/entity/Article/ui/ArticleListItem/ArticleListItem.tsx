@@ -10,6 +10,8 @@ import React from "react";
 import { ArticleViewWay } from "../../model/consts/consts";
 import type { Article } from "../../model/types/article";
 import cls from "./ArticleListItem.module.scss";
+import AppImage from "@/shared/ui/AppImage/AppImage";
+import Skeleton from "@/shared/ui/Skeleton/Skeleton";
 
 interface ArticleListItemProps {
   className?: string;
@@ -37,7 +39,13 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 				<Card className={cls.card}>
 					<Text text={article.createdAt} className={cls.date} />
 					<div className={cls.image}>
-						<img src={article.firstImage} alt={article.title} />
+						<AppImage 
+							src={article.firstImage} 
+							alt={article.title}
+							fallback={
+								<Skeleton width="100%" height="100%"/>
+							}
+						/>
 					</div>
 					<div className={cls.content}>
 						<div className={cls.info}>
@@ -72,7 +80,13 @@ const ArticleListItem = (props: ArticleListItemProps) => {
 				<Text title={article.title} className={cls.title} size={TextSize.L} />
 				{types}
 				<div className={classNames(cls.image, {}, ["_ibg"])}>
-					<img src={article.firstImage} alt={article.title} />
+					<AppImage 
+						src={article.firstImage} 
+						alt={article.title}
+						fallback={
+							<Skeleton width="100%" height="100%"/>
+						}
+					/>
 				</div>
 				<Text text={article.preview} className={cls.preview} />
 				<div className={cls.footer}>

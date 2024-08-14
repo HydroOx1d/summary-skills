@@ -11,7 +11,7 @@ export enum AppRoutes {
 
 export const getMainRoute = () => "/";
 export const getAboutRoute = () => "/about";
-export const getProfleRoute = (profileId?: string) => `/profile/${profileId}`;
-export const getArticlesRoute = (articleId?: string) => `/articles/${articleId}`;
+export const getProfleRoute = (profileId?: string) => `/profile/${profileId ?? ""}`;
+export const getArticlesRoute = (articleId?: string) => `/articles/${articleId ?? ""}`;
 export const getAdminRoute = () => "/admin";
 export const getForbiddenRoute = () => "/forbidden";
