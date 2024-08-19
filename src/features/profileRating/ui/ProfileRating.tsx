@@ -52,8 +52,6 @@ const ProfileRating = (props: ProfileRatingProps) => {
 		return null;
 	}
 
-
-
 	const rating = profileRating?.[0];
 
 	return (

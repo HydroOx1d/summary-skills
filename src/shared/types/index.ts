@@ -12,3 +12,7 @@ export type AppRouteProps = RouteProps & {
 export interface DataTestId {
 	"data-testid"?: string
 }
+
+export interface FeatureFlags {
+	isArticleRatingEnabled?: boolean;
+}

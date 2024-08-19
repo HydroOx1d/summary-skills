@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import ArticleDetailComment from "../ArticleDetailComment/ArticleDetailComment";
 import ArtcileDetailHeader from "../ArticleDetailHeader/ArtcileDetailHeader";
 import cls from "./ArticleDetail.module.scss";
+import { getFeatureFlag } from "@/shared/lib/features/setAndGetFeatureFlags";
 
 const initialReducers: ReducersList = {
 	articleComments: articleDetailsCommentsReducer
@@ -19,6 +20,7 @@ const initialReducers: ReducersList = {
 
 const ArticleDetail = () => {
 	const {articleId} = useParams<{articleId: string}>();
+	const isArticleRatingEnabled = getFeatureFlag("isArticleRatingEnabled");
 
 	if(!articleId) {
 		return (
@@ -34,7 +36,7 @@ const ArticleDetail = () => {
 				<ArtcileDetailHeader/>
 				<ArticleDetails id={articleId} />
 				<ArtcileRecommendationList/>
-				<ArticleRating articleId={articleId} className={cls.articleRating}/>
+				{isArticleRatingEnabled && <ArticleRating articleId={articleId} className={cls.articleRating}/>}
 				<ArticleDetailComment articleId={articleId}/>
 			</Page>
 		</ReducerLoader>
