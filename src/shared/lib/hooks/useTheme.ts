@@ -1,11 +1,11 @@
-import { LOCAL_STORAGE_THEME_KEY, Theme } from "@/shared/constants/theme";
+import { ThemeContext } from "@/app/providers/theme";
+import { Theme } from "@/shared/constants/theme";
 import React from "react";
-import { ThemeContext } from "../providers/ThemeProvider";
 
 export const useTheme = () => {
 	const {theme, setTheme} = React.useContext(ThemeContext);
 
-	const toggleTheme = () => {
+	const toggleTheme = (callback: (theme: Theme) => void) => {
 		let newTheme: Theme;
 
 		switch(theme) {
@@ -24,7 +24,7 @@ export const useTheme = () => {
     
 		setTheme?.(newTheme);
     
-		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+		callback(newTheme);
 	};
 
 	return {

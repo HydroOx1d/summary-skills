@@ -40,10 +40,16 @@
         "ADMIN",
         "MANAGER"
       ],
+      "accountSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true
+      },
       "features": {
         "isArticleRatingEnabled": true
       },
-      "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "avatar": "https://images.unsplash.com/photo-1702930848643-40e813e36392?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "theme": "app_blue_theme",
+      "isFirstVisit": true
     },
     {
       "id": "2",
@@ -52,6 +58,10 @@
       "roles": [
         "USER"
       ],
+      "accountSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true
+      },
       "features": {
         "isArticleRatingEnabled": false
       },

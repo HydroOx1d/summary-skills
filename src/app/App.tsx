@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import { userActions } from "@/entity/User";
 import { classNames } from "@/shared/lib/classNames/className";
-import { AppRouter } from "./providers/router";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { userActions } from "@/entity/User";
-import { useTheme } from "@/shared/lib/hooks/useTheme";
+import { AppRouter } from "./providers/router";
 
 export const App = () => {
 	const { theme } = useTheme();
 	const dispatch = useDispatch();
-
+	
 	useEffect(() => {
 		dispatch(userActions.initAuthData());
 	}, [dispatch]);

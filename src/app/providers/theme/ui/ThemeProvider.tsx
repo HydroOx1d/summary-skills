@@ -1,5 +1,7 @@
+import { getAccountSettings } from "@/entity/User";
+import { Theme } from "@/shared/constants/theme";
 import React from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme } from "@/shared/constants/theme";
+import { useSelector } from "react-redux";
 
 export interface ThemeContextProps {
   theme?: Theme;
@@ -8,14 +10,21 @@ export interface ThemeContextProps {
 
 export const ThemeContext = React.createContext<ThemeContextProps>({});
 
-const defaultPropsValue = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
-
 interface ThemeProviderProps {
 	initialTheme?: Theme
 }
 
 export const ThemeProvider = ({ children, initialTheme }: React.PropsWithChildren<ThemeProviderProps>) => {
-	const [theme, setTheme] = React.useState<Theme>(initialTheme || defaultPropsValue);
+	const {theme: defaultTheme = Theme.LIGHT} = useSelector(getAccountSettings);
+	const [theme, setTheme] = React.useState<Theme>(initialTheme || defaultTheme);
+	const [isThemeInited, setIsThemeInited] = React.useState(false);
+
+	React.useEffect(() => {
+		if (!isThemeInited) {
+			setTheme(defaultTheme);
+			setIsThemeInited(true);
+		}
+	}, [defaultTheme, isThemeInited]);
 
 	const providerValue = React.useMemo(() => {
 		return {

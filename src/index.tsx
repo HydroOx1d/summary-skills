@@ -6,7 +6,7 @@ import "./app/styles/index.scss";
 
 import "@/shared/config/langConfig/langConfig";
 import { StoreProvider } from "@/app/providers/store";
-import { ThemeProvider } from "@/shared/lib/providers/ThemeProvider";
+import { ThemeProvider } from "@/app/providers/theme";
 
 const root = createRoot(document.getElementById("root")!);
 
