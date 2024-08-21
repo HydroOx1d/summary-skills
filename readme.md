@@ -222,3 +222,34 @@ The project utilizes **GitHub Actions** for continuous integration (CI) and cont
 This CI pipeline helps maintain a high standard of code quality and ensures that the deployment process is smooth and reliable.
 
 ---
+
+---
+
+## Feature Flag Toggler
+
+The "ToggleFeature" function is needed for effective implementation of new features.
+
+```js
+const feature = toggleFeature({
+  name: "someFeature",
+  on: () => "New Feature", // it must be an arrow function which returns any type that react can handle
+  off: () => "Old Feature" // it must be an arrow function which returns any type that react can handle
+});
+```
+With this script, you can embed the feature in the application completely or roll it back
+```bash
+npx ts-node .\scripts\removeUnnecessaryFeatureCode.ts someFeature on
+```
+```js
+// before script
+
+const feature = toggleFeature({
+  name: "someFeature",
+  on: () => <NewComponent/>, 
+  off: () => <OldComponent/>
+});
+
+// after script
+
+const feature = <NewComponent/>
+```
