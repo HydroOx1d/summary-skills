@@ -6,6 +6,7 @@ import { ArticleRating } from "@/features/articleRating";
 import { ArtcileRecommendationList } from "@/features/articleRecommendation";
 import { classNames } from "@/shared/lib/classNames/className";
 import { toggleFeature } from "@/shared/lib/features/toggleFeature";
+import { ToggleFeature } from "@/shared/lib/features/ToggleFeature/ToggleFeature";
 import ReducerLoader, { ReducersList } from "@/shared/lib/reducerLoader/ReducerLoader";
 import { Page } from "@/widgets/Page";
 import React from "react";
@@ -41,7 +42,11 @@ const ArticleDetail = () => {
 				<ArtcileDetailHeader/>
 				<ArticleDetails id={articleId} />
 				<ArtcileRecommendationList/>
-				{articleRating}
+				<ToggleFeature 
+					name="isArticleRatingEnabled"
+					off={"Article Rating will be available soon"}
+					on={<ArticleRating articleId={articleId} className={cls.articleRating}/>}
+				/>
 				<ArticleDetailComment articleId={articleId}/>
 			</Page>
 		</ReducerLoader>

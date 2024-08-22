@@ -1,4 +1,4 @@
-import {Node, Project, SyntaxKind} from "ts-morph";
+import {JsxAttribute, Node, Project, StringLiteral, SyntaxKind} from "ts-morph";
 
 const featureName = process.argv[2];
 const switcher = process.argv[3];
@@ -11,20 +11,21 @@ if (!switcher || (switcher !== "on" && switcher !== "off")) {
 	throw new Error("Укажите пожалуйста переключение feature (on или off)");
 }
 
+const toggleFunctionName = "toggleFeature";
+const toggleComponentName = "ToggleFeature";
+
 const project = new Project({});
 
-// project.addSourceFilesAtPaths("src/**/*.ts");
-// project.addSourceFilesAtPaths("src/**/*.tsx");
-
-project.addSourceFilesAtPaths("src/pages/articleDetail/ui/ArticleDetail/ArticleDetail.tsx");
+project.addSourceFilesAtPaths("src/**/*.ts");
+project.addSourceFilesAtPaths("src/**/*.tsx");
 
 const sources = project.getSourceFiles();
 
-function isToggleFeature(node: Node): boolean {
+function isToggleFunction(node: Node): boolean {
 	let isToggleFeature = false;
 
 	node.forEachChild(node => {
-		if (node.getText() === "toggleFeature") {
+		if (node.getText() === toggleFunctionName) {
 			isToggleFeature = true;
 		}
 	});
@@ -32,50 +33,92 @@ function isToggleFeature(node: Node): boolean {
 	return isToggleFeature;
 }
 
+function isToggleComponent(node: Node): boolean {
+	const idetifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
+
+	return idetifier?.getText() == toggleComponentName;
+}
+
+function getNodeByAttributeName(node: Node, attributeName: string) {
+	const attrs = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
+
+	return attrs.find(attr => {
+		return attr.getFirstDescendantByKind(SyntaxKind.Identifier)?.getText() === attributeName;
+	});
+}
+
+function removeParenthesesOfJsxExpression(attribute: JsxAttribute | undefined) {
+	if (!attribute) return;
+
+	const attr = attribute.getFirstDescendantByKind(SyntaxKind.JsxExpression)?.getExpression()?.getText();
+
+	if (attr?.startsWith("(")) {
+		return attr.slice(1, -1);
+	}
+
+	return attr;
+}
+
+function removeQuotes(string: StringLiteral | undefined) {
+	if (!string) return;
+	return string.getText().slice(1, -1);
+}
+
 sources.forEach(source => {
 	source.forEachDescendant(node => {
-		if (node.isKind(SyntaxKind.CallExpression) && isToggleFeature(node)) {
-			const obj = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+		if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
+			return removeFeatureFunction(node);
+		}
 
-			if (!obj) return;
-
-			const name = obj.getProperty("name")?.getFirstDescendantByKind(SyntaxKind.StringLiteral)?.getText().slice(1, -1);
-			
-			if (featureName != name) {
-				return;
-			}
-
-			const on = obj.getProperty("on")?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
-			const off = obj.getProperty("off")?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
-
-			if (switcher == "on") {
-				node.replaceWithText(on?.getText() ?? "");
-			}
-
-			if (switcher == "off") {
-				node.replaceWithText(off?.getText() ?? "");
-			}
+		if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
+			return removeFeatureComponent(node);
 		}
 	});
-	// const callExpressions = source.getDescendantsOfKind(SyntaxKind.CallExpression);
-
-	// callExpressions.forEach(ce => {
-	// 	const nodes = ce.getDescendantsOfKind(SyntaxKind.Identifier);
-
-	// 	nodes.forEach(node => {
-	// 		if (node.getText() == "toggleFeature") {
-	// 			const obj = ce.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
-
-	// 			if (!obj) return;
-
-	// 			const name = obj.getProperty("name")?.getFirstDescendantByKind(SyntaxKind.StringLiteral)?.getText();
-	// 			const on = obj.getProperty("on")?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
-	// 			const off = obj.getProperty("off")?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
-
-	// 			// on?.getText() ?? ""
-	// 		}
-	// 	});
-	// });
 });
+
+function removeFeatureComponent(node: Node) {
+	const attributes = node.getFirstDescendantByKind(SyntaxKind.JsxAttributes);
+
+	if (!attributes) return;
+
+	const name = removeQuotes(getNodeByAttributeName(attributes, "name")?.getFirstDescendantByKind(SyntaxKind.StringLiteral));
+	const onFn = removeParenthesesOfJsxExpression(getNodeByAttributeName(node, "on"));
+	const offFn = removeParenthesesOfJsxExpression(getNodeByAttributeName(attributes, "off"));
+	
+	if (name != featureName) {
+		throw new Error("Feature name is not defined");
+	}
+
+	if (switcher == "on" && onFn) {
+		node.replaceWithText(onFn);
+	}
+
+	if (switcher == "off" && offFn) {
+		node.replaceWithText(offFn);
+	}
+}
+
+function removeFeatureFunction(node: Node) {
+	const obj = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+
+	if (!obj) return;
+
+	const name = removeQuotes(obj.getProperty("name")?.getFirstDescendantByKind(SyntaxKind.StringLiteral));
+			
+	if (featureName != name) {
+		throw new Error("Feature name is not defined");
+	}
+
+	const on = obj.getProperty("on")?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
+	const off = obj.getProperty("off")?.getFirstDescendantByKind(SyntaxKind.ArrowFunction)?.getBody();
+
+	if (switcher == "on") {
+		node.replaceWithText(on?.getText() ?? "");
+	}
+
+	if (switcher == "off") {
+		node.replaceWithText(off?.getText() ?? "");
+	}
+}
 
 project.save();
