@@ -1,9 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import type { User, UserSchema } from "../types/user";
 import { LOCAL_STORAGE_USER_KEY } from "@/shared/constants/localStorage";
 import { setFeatureFlags } from "@/shared/lib/features/setAndGetFeatureFlags";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { initAuthData } from "../services/getUserDataById";
 import { saveAccountSettings } from "../services/saveAccountSettings";
+import type { User, UserSchema } from "../types/user";
 
 const initialState: UserSchema = {
 	authData: undefined
@@ -15,17 +16,9 @@ export const userSlice = createSlice({
 	reducers: {
 		setAuthData(state, action: PayloadAction<User>) {
 			state.authData = action.payload;
-			localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(action.payload));
+			localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(action.payload.id));
 			setFeatureFlags(action.payload.features);
-		},
-		initAuthData(state) {
-			const data = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
-
-			if (data) {
-				const json = JSON.parse(data) as User;
-				state.authData = json;
-				setFeatureFlags(json.features);
-			}
+			state._inited = true;
 		},
 		logout(state) {
 			state.authData = undefined;
@@ -33,11 +26,20 @@ export const userSlice = createSlice({
 		}
 	},
 	extraReducers: (builder) => {
-		builder.addCase(saveAccountSettings.fulfilled, (state, action) => {
-			if (state.authData) {
-				state.authData.accountSettings = action.payload;
-			}
-		});
+		builder
+			.addCase(saveAccountSettings.fulfilled, (state, action) => {
+				if (state.authData) {
+					state.authData.accountSettings = action.payload;
+				}
+			})
+			.addCase(initAuthData.fulfilled, (state, action) => {
+				state.authData = action.payload;
+				setFeatureFlags(action.payload.features);
+				state._inited = true;
+			})
+			.addCase(initAuthData.rejected, (state) => {
+				state._inited = true;
+			});	
 	}
 });
 

@@ -5,7 +5,22 @@ import { getUserIsAdmin, getUserIsManager, getUserRoles } from "./model/selector
 import { UserRoles } from "./model/consts/consts";
 import { getAccountSettings, getAccountSettingsByKey } from "./model/selectors/accountSettings";
 import { saveAccountSettings } from "./model/services/saveAccountSettings";
+import { initAuthData } from "./model/services/getUserDataById";
+import { getUserInited } from "./model/selectors/getUserInited";
 
 export {
-	userActions, userReducer, User, UserSchema, getUserAuthData, getUserIsAdmin, getUserIsManager, getUserRoles, UserRoles, getAccountSettings, getAccountSettingsByKey, saveAccountSettings
+	userActions, 
+	userReducer, 
+	User, 
+	UserSchema, 
+	getUserAuthData, 
+	getUserIsAdmin,
+	getUserIsManager, 
+	getUserRoles,
+	UserRoles,
+	getAccountSettings,
+	getAccountSettingsByKey,
+	saveAccountSettings,
+	initAuthData,
+	getUserInited
 };

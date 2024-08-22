@@ -15,8 +15,15 @@ const userApi = rtkApi.injectEndpoints({
 				method: "PATCH",
 				body: {accountSettings}
 			})
+		}),
+		getUserDataById: build.query<User, string>({
+			query: (userId) => ({
+				url: "/users/" + userId,
+				method: "GET"
+			})
 		})
 	}),
 });
 
 export const changeAccountSettingsMutation = userApi.endpoints.changeAccountSettings.initiate;
+export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;
