@@ -43,7 +43,7 @@
       "accountSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
-        "isArticlePageFirstVisit": true
+        "isArticlePageFirstVisit": false
       },
       "features": {
         "isArticleRatingEnabled": true

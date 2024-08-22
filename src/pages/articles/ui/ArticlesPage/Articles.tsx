@@ -7,6 +7,7 @@ import { articlesReducer } from "../../model/slice/articlesSlice";
 import ArticleInfiniteList from "../ArticleInfiniteList/ArticleInfiniteList";
 import ArticlesPageFilter from "../ArticlesPageFilters/ArticlesPageFilter";
 import cls from "./Articles.module.scss";
+import { ArticlePageGreeter } from "@/features/articlePageGreeter";
 
 const initialReducers: ReducersList = {
 	articles: articlesReducer
@@ -26,6 +27,7 @@ const Article = () => {
 			<Page data-testid="ArticlesPage" className={cls.ArticlesPage}>
 				<ArticlesPageFilter />
 				<ArticleInfiniteList />
+				<ArticlePageGreeter/>
 			</Page>
 		</ReducerLoader>
 	);
