@@ -42,7 +42,8 @@
       ],
       "accountSettings": {
         "theme": "app_light_theme",
-        "isFirstVisit": true
+        "isFirstVisit": true,
+        "isArticlePageFirstVisit": true
       },
       "features": {
         "isArticleRatingEnabled": true
@@ -60,7 +61,8 @@
       ],
       "accountSettings": {
         "theme": "app_light_theme",
-        "isFirstVisit": true
+        "isFirstVisit": true,
+        "isArticlePageFirstVisit": true
       },
       "features": {
         "isArticleRatingEnabled": false

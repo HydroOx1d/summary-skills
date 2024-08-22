@@ -15,16 +15,12 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children, initialTheme }: React.PropsWithChildren<ThemeProviderProps>) => {
-	const {theme: defaultTheme = Theme.LIGHT} = useSelector(getAccountSettings);
-	const [theme, setTheme] = React.useState<Theme>(initialTheme || defaultTheme);
-	const [isThemeInited, setIsThemeInited] = React.useState(false);
+	const {theme: defaultTheme} = useSelector(getAccountSettings);
+	const [theme, setTheme] = React.useState(initialTheme || defaultTheme || Theme.LIGHT);
 
 	React.useEffect(() => {
-		if (!isThemeInited) {
-			setTheme(defaultTheme);
-			setIsThemeInited(true);
-		}
-	}, [defaultTheme, isThemeInited]);
+		setTheme(defaultTheme ?? Theme.LIGHT);
+	}, [defaultTheme]);
 
 	const providerValue = React.useMemo(() => {
 		return {
