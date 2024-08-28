@@ -1,18 +1,22 @@
 @import "./reset";
 @import "./themes/dark";
 @import "./themes/normal";
-@import "./themes/blue";
 @import "./variables/global";
-
-body {
-  font: var(--font-m);
-}
 
 .app {
   background-color: var(--bg-color);
   color: var(--primary-color);
   min-height: 100vh;
   overflow: auto;
+  font: var(--font-m);
+}
+
+.app_redesigned {
+  background-color: var(--bg-color-redesigned);
+  color: var(--main-font-color);
+  min-height: 100vh;
+  overflow: auto;
+  font: var(--font-base);
 }
 
 .main {

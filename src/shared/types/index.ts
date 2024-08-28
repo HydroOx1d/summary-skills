@@ -15,4 +15,5 @@ export interface DataTestId {
 
 export interface FeatureFlags {
 	isArticleRatingEnabled?: boolean;
+	isAppRedesigned?: boolean;
 }

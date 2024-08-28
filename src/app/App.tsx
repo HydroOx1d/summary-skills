@@ -8,6 +8,8 @@ import React, { useEffect } from "react";
 import { AppRouter } from "./providers/router";
 import { useSelector } from "react-redux";
 import { PageLoader } from "@/widgets/PageLoader";
+import { ToggleFeature } from "@/shared/lib/features/ToggleFeature/ToggleFeature";
+import MainLayout from "@/shared/layouts/MainLayout/MainLayout";
 
 export const App = () => {
 	const { theme } = useTheme();
@@ -28,13 +30,27 @@ export const App = () => {
 
 	return (
 		<React.Suspense fallback="">
-			<div className={classNames("app", {}, [theme])}>
-				<Navbar />
-				<main className="main">
-					<Sidebar />
-					<AppRouter />
-				</main>
-			</div>
+			<ToggleFeature
+				name="isAppRedesigned"
+				on={
+					<div className={classNames("app_redesigned", {}, [theme])}>
+						<MainLayout
+							header={<Navbar/>}
+							main={<AppRouter />}
+							sidebar={<Sidebar />}
+						/>
+					</div>
+				}
+				off={
+					<div className={classNames("app", {}, [theme])}>
+						<Navbar />
+						<main className="main">
+							<Sidebar />
+							<AppRouter />
+						</main>
+					</div>
+				}
+			/>
 		</React.Suspense>
 	);
 };

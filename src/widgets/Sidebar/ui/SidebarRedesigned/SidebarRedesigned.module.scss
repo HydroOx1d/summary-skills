@@ -1,0 +1,26 @@
+.SidebarRedesigned {
+  padding: 30px 10px;
+  background-color: var(--main-color-secondary);
+  border-radius: 0 10px 10px 0;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+}
+
+.item {
+  padding-left: 30px;
+}
+
+.btn {
+  margin-top: auto;
+}

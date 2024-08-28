@@ -17,4 +17,23 @@
   --overlay-color: rgba(0 0 0 / 50%);
   --red-light-color: rgb(248 14 14);
   --red-dark-color: rgb(202 21 21);
+
+  // Redesined
+
+  --font-family-main: "Inter", 'Times New Roman', sans-serif;
+  --font-size-xs: 12px;
+  --font-line-xs: 16px;
+  --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
+
+  --font-size-sm: 14px;
+  --font-line-sm: 18px;
+  --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
+
+  --font-size-base: 16px;
+  --font-line-base: 20px;
+  --font-base: var(--font-size-base) / var(--font-line-base) var(--font-family-main);
+
+  --font-size-xl-redesigned: 24px;
+  --font-line-xl-redesigned: 28px;
+  --font-xl-redesigned: var(--font-size-xl-redesigned) / var(--font-line-xl-redesigned) var(--font-family-main);
 }

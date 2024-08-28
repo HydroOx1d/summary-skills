@@ -13,9 +13,6 @@ export const useTheme = () => {
 			newTheme = Theme.DARK;
 			break;
 		case Theme.DARK:
-			newTheme = Theme.BLUE;
-			break;
-		case Theme.BLUE:
 			newTheme = Theme.LIGHT;
 			break;
 		default:
