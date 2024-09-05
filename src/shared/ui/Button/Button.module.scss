@@ -20,6 +20,14 @@
   min-height: 35px;
 }
 
+.clear {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--button-color-secondary);
+}
+
 .app_light_theme {
   &.primary {
     background-color: var(--button-color-secondary);

@@ -19,7 +19,7 @@ const SidebarRedesigned = (props: SidebarRedesignedProps) => {
 
 	return (
 		<VStack className={classNames(cls.SidebarRedesigned, {}, [className])}>
-			<Text className={cls.logo} variant="inverted" size="xl" tag="h2">Skills Fusion</Text>
+			<Text className={cls.logo} size="xl" tag="h2">Skills Fusion</Text>
 			<VStack gap="4" className={cls.items}>
 				{sidebarItems.map(sidebarItem => <SidebarItem item={sidebarItem} key={sidebarItem.path} className={cls.item}/>)}
 			</VStack>

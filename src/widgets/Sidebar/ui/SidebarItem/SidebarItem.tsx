@@ -36,7 +36,7 @@ const SidebarItem = React.memo((props: SidebarItemProps) => {
 				<NavLink key={item.path} to={item.path} className={({isActive}) => classNames(cls.SidebarItemRedesigned, {[cls.active]: isActive}, [className])}>
 					<HStack gap="8" className={cls.item} align="center">
 						<item.Icon width={17} height={17} className={cls.linkIcon}/>
-						<Text className={cls.linkText} tag="span" variant="inverted" >{t(item.text)}</Text>
+						<Text className={cls.linkText} tag="span" >{t(item.text)}</Text>
 					</HStack>
 				</NavLink>
 			}

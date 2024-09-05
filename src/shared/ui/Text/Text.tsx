@@ -2,7 +2,7 @@ import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Text.module.scss";
 
-type TextVariant = "primary" | "accent" | "inverted"
+type TextVariant = "primary" | "accent"
 
 type TextAlign = "left" | "center" | "right"
 
@@ -22,7 +22,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
 const Text = React.memo((props: React.PropsWithChildren<TextProps>) => {
 	const {
 		className,
-		variant = "primary",
+		variant = "",
 		align = "left",
 		size = "base",
 		"data-testid": dataTestId = "Text",

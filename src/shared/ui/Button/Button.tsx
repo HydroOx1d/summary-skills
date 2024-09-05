@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Button.module.scss";
 import { useTheme } from "@/shared/lib/hooks/useTheme";
 
-type ButtonVariant = "primary" | "secondary" | "tertiary"
+type ButtonVariant = "primary" | "secondary" | "tertiary" | "clear"
 
 type SizesButton = "large" | "small"
 
@@ -19,7 +19,7 @@ const Button = React.memo((props: ButtonProps) => {
 		children,
 		variant = "secondary",
 		disabled,
-		size = "small",
+		size = "",
 		...otherProps
 	} = props;
 

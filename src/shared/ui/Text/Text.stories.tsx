@@ -19,17 +19,6 @@ export const Default: Story = {
 	},
 };
 
-export const Inverted: Story = {
-	render: (args) => <Text {...args} />,
-	args: {
-		children: "Text",
-		variant: "inverted"
-	},
-	decorators: [
-		(Story) => <div style={{background: "#000"}}><Story/></div>
-	]
-};
-
 export const Accent: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
