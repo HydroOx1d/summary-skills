@@ -49,10 +49,3 @@ export const Dark: Story = {
 		ThemeDecorator(Theme.DARK)
 	]
 };
-
-export const Blue: Story = {
-	render: (args) => <CommentList {...args} />,
-	decorators: [
-		ThemeDecorator(Theme.BLUE)
-	]
-};

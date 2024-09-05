@@ -3,8 +3,8 @@ import cls from "./CommentList.module.scss";
 import { classNames } from "@/shared/lib/classNames/className";
 import type { IComment } from "../../model/types/comment";
 import CommentCard from "../CommentCard/CommentCard";
-import Text from "@/shared/ui/Text/Text";
-import Skeleton from "@/shared/ui/Skeleton/Skeleton";
+import Text from "@/shared/ui/deprecated/Text/Text";
+import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
 
 interface CommentListProps {
   comments?: IComment[];

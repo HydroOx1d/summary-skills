@@ -79,11 +79,6 @@ export const ViewListDark: Story = {
 	}
 };
 
-export const Blue: Story = {
-	render: (args) => <ArticleList {...args} />,
-	decorators: [ThemeDecorator(Theme.BLUE)],
-};
-
 export const ListSkeleton: Story = {
 	render: (args) => <ArticleList {...args} />,
 	args: {

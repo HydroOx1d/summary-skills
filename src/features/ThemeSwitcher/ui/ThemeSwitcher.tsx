@@ -5,7 +5,7 @@ import { Theme } from "@/shared/constants/theme";
 import { classNames } from "@/shared/lib/classNames/className";
 import { useTheme } from "@/shared/lib/hooks/useTheme";
 import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import React from "react";
 import cls from "./ThemeSwitcher.module.scss";
 

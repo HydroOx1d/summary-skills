@@ -3,11 +3,28 @@ import { BuildOptions } from "./types/config";
 import cssLoaders from "./loaders/cssLoad";
 import { babelLoaders } from "./loaders/babelLoad";
 
-
 const webpackLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
-	const svgLoader = {
+	const svgLoader: webpack.RuleSetRule = {
 		test: /\.svg$/,
-		use: ["@svgr/webpack"],
+		exclude: /node_modules/,
+		use: [
+			{
+				loader: "@svgr/webpack",
+				options: {
+					icon: true,
+					svgoConfig: {
+						plugins: [
+							{
+								name: "convertColors",
+								params: {
+									currentColor: true
+								}
+							}
+						]
+					}
+				}
+			}
+		],
 	};
 
 	const cssLoader = cssLoaders(options.isDev);

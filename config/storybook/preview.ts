@@ -1,10 +1,11 @@
-import type { Preview } from "@storybook/react";
-import "../../src/app/styles/index.scss";
-import {initialize, mswLoader} from "msw-storybook-addon";
-import { Theme } from "@/shared/constants/theme";
-import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
-import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator";
 import { LangDecorator } from "@/shared/config/storybook/LangDecorator";
+import { RouteDecorator } from "@/shared/config/storybook/RouteDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator";
+import type { Preview } from "@storybook/react";
+import { initialize, mswLoader } from "msw-storybook-addon";
+import "../../src/app/styles/index.scss";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { Theme } from "@/shared/constants/theme";
 
 initialize();
 
@@ -16,13 +17,20 @@ const preview: Preview = {
 				color: /(background|color)$/i,
 				date: /Date$/i,
 			},
+		},
+		themes: {
+			default: "light",
+			list: [
+				{ name: "light", class: "app_light_theme", color: "#fff" },
+				{ name: "dark", class: "app_dark_theme", color: "#000" },
+			]
 		}
 	},
 	loaders: [mswLoader],
 	decorators: [
-		ThemeDecorator(Theme.LIGHT),
 		RouteDecorator(),
 		LangDecorator(),
+		StoreDecorator({})
 	],
 };
 

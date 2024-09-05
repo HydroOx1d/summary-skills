@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import {Page} from "@/widgets/Page";
 import { ProfileRating } from "@/features/profileRating";
 import VStack from "@/shared/ui/Stack/VStack/VStack";
-import Text from "@/shared/ui/Text/Text";
+import Text from "@/shared/ui/deprecated/Text/Text";
 
 const Profile = React.memo(() => {
 	const {profileId} = useParams<{profileId: string}>();

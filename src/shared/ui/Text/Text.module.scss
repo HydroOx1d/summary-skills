@@ -1,33 +1,14 @@
-.title {
-  color: var(--primary-color);
-}
-
-.text {
-  color: var(--secondary-color);
-}
 
 .primary {
-  color: var(--primary-color);
+  color: var(--main-font-color);
 }
 
 .inverted {
-  .title {
-    color: var(--primary-inverted-color);
-  }
-
-  .text {
-    color: var(--secondary-inverted-color);
-  }
+  color: var(--main-font-inverted-color);
 }
 
-.error {
-  .title {
-    color: var(--red-light-color);
-  }
-
-  .text {
-    color: var(--red-dark-color);
-  }
+.accent {
+  color: var(--accent-color);
 }
 
 .left {
@@ -42,22 +23,18 @@
   text-align: right;
 }
 
-.size_m {
-  .title {
-    font: var(--font-l);
-  }
-
-  .text {
-    font: var(--font-m);
-  }
+.xs {
+  font: var(--font-xs);
 }
 
-.size_l {
-  .title {
-    font: var(--font-xl);
-  }
+.sm {
+  font: var(--font-sm);
+}
 
-  .text {
-    font: var(--font-l);
-  }
+.base {
+  font: var(--font-base);
+}
+
+.xl {
+  font: var(--font-xl-redesigned);
 }

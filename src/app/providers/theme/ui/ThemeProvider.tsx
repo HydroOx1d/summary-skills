@@ -19,8 +19,10 @@ export const ThemeProvider = ({ children, initialTheme }: React.PropsWithChildre
 	const [theme, setTheme] = React.useState(initialTheme || defaultTheme || Theme.LIGHT);
 
 	React.useEffect(() => {
-		setTheme(defaultTheme ?? Theme.LIGHT);
-	}, [defaultTheme]);
+		if (!initialTheme) {
+			setTheme(defaultTheme ?? Theme.LIGHT);
+		}
+	}, [defaultTheme, initialTheme]);
 
 	const providerValue = React.useMemo(() => {
 		return {

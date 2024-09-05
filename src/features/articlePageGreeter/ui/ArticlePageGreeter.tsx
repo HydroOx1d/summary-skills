@@ -2,8 +2,8 @@
 import { StateSchema } from "@/app/providers/store";
 import { getAccountSettingsByKey, saveAccountSettings } from "@/entity/User";
 import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
-import Modal from "@/shared/ui/Modal/Modal";
-import Text from "@/shared/ui/Text/Text";
+import Modal from "@/shared/ui/deprecated/Modal/Modal";
+import Text from "@/shared/ui/deprecated/Text/Text";
 import React from "react";
 import { useSelector } from "react-redux";
 

@@ -1,89 +1,97 @@
 .Button {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   cursor: pointer;
-  display: flex;
-  padding: 5px 10px;
-  transition: opacity 150ms linear;
+  padding: 2px 30px;
+  transition: all 150ms linear;
+  font: var(--font-xs);
+  font-weight: 600;
+  border-radius: 7px;
+  border: none;
+}
 
-  &:hover {
-    opacity: .8;
+.small {
+  min-height: 30px;
+}
+
+.large {
+  min-height: 35px;
+}
+
+.app_light_theme {
+  &.primary {
+    background-color: var(--button-color-secondary);
+    color: var(--bg-color-redesigned);
+
+    &:hover {
+      background-color: var(--button-color-primary);
+    }
+
+    &:active {
+      background-color: var(--button-color-tertiary);
+    }
   }
+
+  &.secondary {
+    color: var(--button-color-secondary);
+    background-color: var(--bg-color-redesigned);
+
+    &:hover {
+      color: var(--button-color-primary);
+    }
+
+    &:active {
+      color: var(--button-color-tertiary);
+    }
+  }
+
+  &.tertiary {
+    background-color: var(--bg-color-redesigned);
+    border: 1px solid var(--button-color-secondary);
+    color: var(--button-color-secondary);
+
+    &:hover {
+      border-color: var(--button-color-primary);
+      color: var(--button-color-primary);
+    }
+
+    &:active {
+      border-color: var(--button-color-tertiary);
+      color: var(--button-color-tertiary);
+    }
+  } 
 }
 
-.clear,
-.clearInverted {
-  background: none;
-  padding: 0;
-  margin: 0;
-  border: none;
-  outline: none;
-  color: var(--primary-color);
-}
+.app_dark_theme {
+  &.primary {
+    background-color: var(--bg-inverted-color-redesigned);
+    color: var(--button-color-primary);
+  }
+  &.secondary {
+    background-color: var(--bg-inverted-color-redesigned);
+    color: var(--main-color-primary);
 
-.clearInverted {
-  color: var(--primary-inverted-color);
-}
+    &:hover {
+      color: #356e78;
+    }
 
-.outline {
-  background-color: transparent;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-}
+    &:active {
+      color: var(--main-color-primary);
+    }
+  }
+  &.tertiary {
+    background-color: var(--button-color-primary);
+    color: var(--bg-inverted-color-redesigned);
+    border: 1px solid var(--bg-inverted-color-redesigned);
 
-.background {
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  border: none;
-}
+    &:hover {
+      background-color: var(--button-color-secondary);
+    }
 
-.backgroundInverted {
-  color: var(--primary-inverted-color);
-  background-color: var(--bg-inverted-color);
-  border: none;
-}
-
-.square {
-  width: 40px;
-  height: 40px;
-}
-
-.square.size_m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-  font: var(--font-m);
-}
-
-.square.size_l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-  font: var(--font-l);
-}
-
-.square.size_xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
-  font: var(--font-xl);
-}
-
-.size_m {
-  font: var(--font-m);
-}
-
-.size_l {
-  font: var(--font-l);
-}
-
-.size_xl {
-  font: var(--font-xl);
-}
-
-.disabled {
-  opacity: 0.5;
-}
-
-.outline_red {
-  background-color: transparent;
-  border: 1px solid var(--red-light-color);
-  color: var(--red-light-color);
+    &:active {
+      background-color: var(--button-color-tertiary);
+    }
+  }
 }

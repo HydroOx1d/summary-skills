@@ -1,6 +1,6 @@
 import React from "react";
 import cls from "./SidebarDeprecated.module.scss";
-import Button, { ButtonTheme, SizesButton } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme, SizesButton } from "@/shared/ui/deprecated/Button/Button";
 import { classNames } from "@/shared/lib/classNames/className";
 import { SidebarItemType } from "../../model/types/sidebar";
 import SidebarItem from "../SidebarItem/SidebarItem";

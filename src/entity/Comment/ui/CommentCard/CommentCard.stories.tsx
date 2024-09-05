@@ -38,13 +38,6 @@ export const Dark: Story = {
 	]
 };
 
-export const Blue: Story = {
-	render: (args) => <CommentCard {...args} />,
-	decorators: [
-		ThemeDecorator(Theme.BLUE)
-	]
-};
-
 export const WithoutAvatar: Story = {
 	render: (args) => <CommentCard {...args} />,
 	args: {

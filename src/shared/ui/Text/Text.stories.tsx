@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Text, { TextSize, TextTheme } from "./Text";
+import Text from "./Text";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
 import { Theme } from "@/shared/constants/theme";
 
 const meta: Meta<typeof Text> = {
-	title: "shared/Text",
+	title: "shared/TextRedesigned",
 	component: Text,
 };
 
@@ -15,89 +15,99 @@ type Story = StoryObj<typeof Text>;
 export const Default: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		title: "This is a title",
-		text: "And this is a text",
+		children: "Text"
 	},
 };
 
-export const SizeM: Story = {
+export const Inverted: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		title: "This is a title",
-		text: "And this is a text",
-		size: TextSize.M
+		children: "Text",
+		variant: "inverted"
 	},
+	decorators: [
+		(Story) => <div style={{background: "#000"}}><Story/></div>
+	]
 };
 
-export const SizeL: Story = {
+export const Accent: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		title: "This is a title",
-		text: "And this is a text",
-		size: TextSize.L,
+		children: "Text",
+		variant: "accent"
 	},
+	decorators: [
+		ThemeDecorator(Theme.DARK)
+	]
 };
 
-export const Error: Story = {
+export const SizeXS: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		title: "This is a title",
-		text: "And this is a text",
-		theme: TextTheme.ERROR
-	},
-};
-
-export const ErrorDark: Story = {
-	render: (args) => <Text {...args} />,
-	args: {
-		title: "This is a title",
-		text: "And this is a text",
-		theme: TextTheme.ERROR,
-	},
-	decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const OnlyTitle: Story = {
-	render: (args) => <Text {...args} />,
-	args: {
-		title: "Only title"
+		children: "Text",
+		size: "xs"
 	}
 };
 
-export const OnlyText: Story = {
+export const SizeSM: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		text: "Only text",
-	},
+		children: "Text",
+		size: "sm"
+	}
 };
 
-export const DefaultDark: Story = {
+export const SizeBase: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		title: "This is a title",
-		text: "And this is a text",
-	},
-	decorators: [
-		ThemeDecorator(Theme.DARK)
-	]
+		children: "Text",
+		size: "base"
+	}
 };
 
-export const OnlyTitleDark: Story = {
+export const SizeXL: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		title: "Only title",
-	},
-	decorators: [
-		ThemeDecorator(Theme.DARK)
-	]
+		children: "Text",
+		size: "xl"
+	}
 };
 
-export const OnlyTextDark: Story = {
+export const WithH1Tag: Story = {
 	render: (args) => <Text {...args} />,
 	args: {
-		text: "Only text",
-	},
-	decorators: [
-		ThemeDecorator(Theme.DARK)
-	]
+		children: "Text",
+		tag: "h1"
+	}
+};
+
+export const WithH2Tag: Story = {
+	render: (args) => <Text {...args} />,
+	args: {
+		children: "Text",
+		tag: "h2"
+	}
+};
+
+export const WithPTag: Story = {
+	render: (args) => <Text {...args} />,
+	args: {
+		children: "Text",
+		tag: "p"
+	}
+};
+
+export const WithSpanTag: Story = {
+	render: (args) => <Text {...args} />,
+	args: {
+		children: "Text",
+		tag: "span"
+	}
+};
+
+export const WithDefaultTag: Story = {
+	render: (args) => <Text {...args} />,
+	args: {
+		children: "Text",
+	}
 };

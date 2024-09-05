@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "@/shared/ui/Modal/Modal";
+import Modal from "@/shared/ui/deprecated/Modal/Modal";
 import { LoginFormAsyncComponent } from "../LoginForm/LoginForm.async";
-import Loader from "@/shared/ui/Loader/Loader";
+import Loader from "@/shared/ui/deprecated/Loader/Loader";
 
 interface LoginModalProps {
   isOpen: boolean;

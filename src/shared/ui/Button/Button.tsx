@@ -1,26 +1,15 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Button.module.scss";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
-export enum ButtonTheme {
-  CLEAR = "clear",
-	CLEAR_INVERTED = "clearInverted",
-	OUTLINE = "outline",
-	OUTLINE_RED = "outline_red",
-	BACKGROUND = "background",
-	BACKGROUND_INVERTED = "backgroundInverted"
-}
+type ButtonVariant = "primary" | "secondary" | "tertiary"
 
-export enum SizesButton {
-	M = "size_m",
-	L = "size_l",
-	XL = "size_xl"
-}
+type SizesButton = "large" | "small"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ButtonTheme;
-	square?: boolean;
+  variant?: ButtonVariant;
 	size?: SizesButton;
 }
 
@@ -28,16 +17,17 @@ const Button = React.memo((props: ButtonProps) => {
 	const {
 		className,
 		children,
-		theme = "",
-		square,
+		variant = "secondary",
 		disabled,
-		size = SizesButton.M,
+		size = "small",
 		...otherProps
 	} = props;
 
+	const {theme} = useTheme();
+
 	return (
 		<button 
-			className={classNames(cls.Button, {[cls.square]: square, [cls.disabled]: disabled}, [className, cls[theme], cls[size]])}
+			className={classNames(cls.Button, {[cls.disabled]: disabled}, [className, cls[variant], cls[size], cls[theme ?? ""]])}
 			disabled={disabled}
 			{...otherProps}
 		>

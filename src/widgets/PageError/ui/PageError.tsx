@@ -2,7 +2,7 @@ import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import { useTranslation } from "react-i18next";
 import cls from "./PageError.module.scss";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 
 interface PageErrorProps {
   className?: string

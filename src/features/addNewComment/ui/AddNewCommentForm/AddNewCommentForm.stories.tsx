@@ -28,10 +28,3 @@ export const Dark: Story = {
 		ThemeDecorator(Theme.DARK)
 	]
 };
-
-export const Blue: Story = {
-	render: (args) => <AddNewCommentForm {...args} />,
-	decorators: [
-		ThemeDecorator(Theme.BLUE)
-	]
-};

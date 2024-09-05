@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
 import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
 import { SortOrder } from "@/shared/types";
-import Input from "@/shared/ui/Input/Input";
+import Input from "@/shared/ui/deprecated/Input/Input";
 import {
 	getArticlesOrder,
 	getArticlesSearch,

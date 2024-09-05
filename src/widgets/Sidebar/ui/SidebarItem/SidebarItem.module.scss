@@ -1,4 +1,24 @@
+.SidebarItemDeprecated {
+  .linkIcon {
+    fill: var(--secondary-inverted-color);
+  }
+}
 
-.linkIcon {
-  fill: var(--secondary-inverted-color);
+.SidebarItemRedesigned {
+  padding: 10px 0;
+  transition: 150ms;
+  
+  &.active {
+    background-color: var(--main-color-primary);
+    border-radius: 6px;
+  }
+
+  &:hover {
+    background-color: var(--main-color-primary);
+    border-radius: 6px;
+  }
+
+  .item {
+    color: var(--main-font-inverted-color);
+  }
 }

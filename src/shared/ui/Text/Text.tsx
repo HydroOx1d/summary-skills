@@ -2,49 +2,37 @@ import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Text.module.scss";
 
-export enum TextTheme {
-  PRIMARY = "primary",
-  ERROR = "error",
-	INVERTED = "inverted"
-}
+type TextVariant = "primary" | "accent" | "inverted"
 
-export enum TextAlign {
-	LEFT = "left",
-	CENTER = "center",
-	RIGHT = "right"
-}
+type TextAlign = "left" | "center" | "right"
 
-export enum TextSize {
-  M = "size_m",
-  L = "size_l",
-}
+type TextSize = "xs" | "sm" | "base" | "xl"
+
+type TextTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span"
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
-  title?: string;
-  text?: string;
-  theme?: TextTheme;
+  variant?: TextVariant;
 	align?: TextAlign;
 	size?: TextSize;
+	tag?: TextTag;
 	"data-testid"?: string;
 }
 
-const Text = React.memo((props: TextProps) => {
+const Text = React.memo((props: React.PropsWithChildren<TextProps>) => {
 	const {
 		className,
-		title,
-		text,
-		theme = TextTheme.PRIMARY,
-		align = TextAlign.LEFT,
-		size = TextSize.M,
-		"data-testid": dataTestId = "Text"
+		variant = "primary",
+		align = "left",
+		size = "base",
+		"data-testid": dataTestId = "Text",
+		tag: Tag = "p",
+		children,
+		...otherProps
 	} = props;
 
 	return (
-		<div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-			{title && <div className={cls.title} data-testid={`${dataTestId}.Heading`}>{title}</div>}
-			{text && <div className={cls.text} data-testid={`${dataTestId}.Paragraph`}>{text}</div>}
-		</div>
+		<Tag className={classNames(cls.Text, {}, [className, cls[variant], cls[align], cls[size]])} {...otherProps} data-testid={`${dataTestId}`}>{children}</Tag>
 	);
 });
 

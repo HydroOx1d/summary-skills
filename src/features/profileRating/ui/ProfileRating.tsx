@@ -3,7 +3,7 @@ import { RatingCard } from "@/entity/Rating";
 import { useSelector } from "react-redux";
 import { getUserAuthData, User } from "@/entity/User";
 import { useCreateProfileRaingMutation, useGetProfileRatingQuery } from "../api/profileRatingApi";
-import Skeleton from "@/shared/ui/Skeleton/Skeleton";
+import Skeleton from "@/shared/ui/deprecated/Skeleton/Skeleton";
 
 interface ProfileRatingProps {
   className?: string;

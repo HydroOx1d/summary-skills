@@ -1,123 +1,113 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import Button, { ButtonTheme, SizesButton } from "./Button";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
 import { Theme } from "@/shared/constants/theme";
+import type { Meta, StoryObj } from "@storybook/react";
+import Button from "./Button";
+import { setFeatureFlags } from "@/shared/lib/features/setAndGetFeatureFlags";
 
 const meta: Meta<typeof Button> = {
-	title: "shared/Button",
+	title: "shared/ButtonRedesigned",
 	component: Button,
 	args: {
 		children: "Button",
-	},
+	}
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
-	render: (args) => <Button>{args.children}</Button>
-};
+setFeatureFlags({
+	isAppRedesigned: true
+});
 
-export const Clear: Story = {
+export const Primary: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
-		children: "Button Clear",
-		theme: ButtonTheme.CLEAR
-	}
-};
-
-export const ClearInverted: Story = {
-	render: (args) => <Button {...args}>{args.children}</Button>,
-	args: {
-		children: "Button Clear",
-		theme: ButtonTheme.CLEAR_INVERTED,
+		variant: "primary"
 	},
-	decorators: [ThemeDecorator(Theme.DARK)]
+	decorators: [
+		ThemeDecorator(Theme.LIGHT)
+	],
 };
 
-export const Outline: Story = {
+export const PrimaryDark: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
-		theme: ButtonTheme.OUTLINE
-	}
-};
-
-export const OutlineSizeL: Story = {
-	render: (args) => <Button {...args}>{args.children}</Button>,
-	args: {
-		theme: ButtonTheme.OUTLINE,
-		size: SizesButton.L
-	},
-};
-
-export const OutlineSizeXL: Story = {
-	render: (args) => <Button {...args}>{args.children}</Button>,
-	args: {
-		theme: ButtonTheme.OUTLINE,
-		size: SizesButton.XL,
-	},
-};
-
-export const OutlineDark: Story = {
-	render: (args) => <Button {...args}>{args.children}</Button>,
-	args: {
-		theme: ButtonTheme.OUTLINE
+		variant: "primary"
 	},
 	decorators: [
 		ThemeDecorator(Theme.DARK)
-	]
+	],
+	parameters: {
+		themes: {
+			default: "dark"
+		}
+	}
 };
 
-export const Background: Story = {
+export const Secondary: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
-	args: {
-		theme: ButtonTheme.BACKGROUND,
-	},
+	decorators: [
+		ThemeDecorator(Theme.LIGHT)
+	],
 };
 
-export const BackgroundInverted: Story = {
+export const SecondaryDark: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
-	args: {
-		theme: ButtonTheme.BACKGROUND_INVERTED,
-	},
+	decorators: [
+		ThemeDecorator(Theme.DARK)
+	],
+	parameters: {
+		themes: {
+			default: "dark"
+		}
+	}
 };
 
-export const Square: Story = {
+export const Tertiary: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
-		children: ">",
-		theme: ButtonTheme.BACKGROUND_INVERTED,
-		square: true
+		variant: "tertiary"
 	},
+	decorators: [
+		ThemeDecorator(Theme.LIGHT)
+	],
 };
 
-export const SquareSizeM: Story = {
+export const TertiaryDark: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
-		children: ">",
-		theme: ButtonTheme.BACKGROUND_INVERTED,
-		square: true,
-		size: SizesButton.M
+		variant: "tertiary"
 	},
+	decorators: [
+		ThemeDecorator(Theme.DARK)
+	],
+	parameters: {
+		themes: {
+			default: "dark"
+		}
+	}
 };
 
-export const SquareSizeL: Story = {
+export const PrimaryLarge: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
-		children: ">",
-		theme: ButtonTheme.BACKGROUND_INVERTED,
-		square: true,
-		size: SizesButton.L,
-	},
+		size: "large"
+	}
 };
 
-export const SquareSizeXL: Story = {
+export const SecondaryLarge: Story = {
 	render: (args) => <Button {...args}>{args.children}</Button>,
 	args: {
-		children: ">",
-		theme: ButtonTheme.BACKGROUND_INVERTED,
-		square: true,
-		size: SizesButton.XL,
-	},
+		variant: "primary",
+		size: "large"
+	}
+};
+
+export const TertiaryLarge: Story = {
+	render: (args) => <Button {...args}>{args.children}</Button>,
+	args: {
+		variant: "tertiary",
+		size: "large"
+	}
 };

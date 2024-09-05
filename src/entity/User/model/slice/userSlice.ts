@@ -17,7 +17,7 @@ export const userSlice = createSlice({
 		setAuthData(state, action: PayloadAction<User>) {
 			state.authData = action.payload;
 			localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(action.payload.id));
-			setFeatureFlags(action.payload.features);
+			setFeatureFlags(action.payload.features ?? {});
 			state._inited = true;
 		},
 		logout(state) {
@@ -34,7 +34,7 @@ export const userSlice = createSlice({
 			})
 			.addCase(initAuthData.fulfilled, (state, action) => {
 				state.authData = action.payload;
-				setFeatureFlags(action.payload.features);
+				setFeatureFlags(action.payload.features ?? {});
 				state._inited = true;
 			})
 			.addCase(initAuthData.rejected, (state) => {

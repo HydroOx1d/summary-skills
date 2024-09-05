@@ -3,7 +3,7 @@ import { ArticleCommentList, fetchCommentsByArticleId, getArticleComments, getAr
 import React from "react";
 import { useSelector } from "react-redux";
 import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
-import Text from "@/shared/ui/Text/Text";
+import Text from "@/shared/ui/deprecated/Text/Text";
 import cls from "./ArticleDetailComment.module.scss";
 import VStack from "@/shared/ui/Stack/VStack/VStack";
 

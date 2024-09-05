@@ -6,7 +6,19 @@ const config: UserConfig = {
 	plugins: [
 		react(),
 		svgr({
-			include: "**/*.svg"
+			include: "**/*.svg",
+			svgrOptions: {
+				plugins: [
+					"@svgr/plugin-svgo",
+					"@svgr/plugin-jsx"
+				],
+				svgoConfig: {
+					plugins: [
+						// TODO: figure out why it doesn't work
+						"convertColors"
+					]
+				}
+			}
 		})
 	],
 	resolve: {

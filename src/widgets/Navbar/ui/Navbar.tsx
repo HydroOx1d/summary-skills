@@ -6,7 +6,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { classNames } from "@/shared/lib/classNames/className";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import cls from "./Navbar.module.scss";
 import HStack from "@/shared/ui/Stack/HStack/HStack";
 

@@ -7,7 +7,7 @@ export interface User {
   username: string;
   avatar?: string;
   roles?: UserRoles[];
-  features: FeatureFlags;
+  features?: FeatureFlags;
   accountSettings?: AccountSettings
 }
 

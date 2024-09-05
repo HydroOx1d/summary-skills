@@ -1,6 +1,6 @@
 import { getArticleCanEdit } from "@/entity/Article";
 import { getArticlesRoute } from "@/shared/constants/router";
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button";
+import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

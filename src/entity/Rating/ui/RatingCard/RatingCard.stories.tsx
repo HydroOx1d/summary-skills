@@ -30,8 +30,3 @@ export const Dark: Story = {
 	render: (args) => <Rating {...args} />,
 	decorators: [ThemeDecorator(Theme.DARK)]
 };
-
-export const Blue: Story = {
-	render: (args) => <Rating {...args} />,
-	decorators: [ThemeDecorator(Theme.BLUE)]
-};

@@ -25,8 +25,3 @@ export const Dark: Story = {
 	render: (args) => <EditableProfileCard {...args} />,
 	decorators: [ThemeDecorator(Theme.DARK)]
 };
-
-export const Blue: Story = {
-	render: (args) => <EditableProfileCard {...args} />,
-	decorators: [ThemeDecorator(Theme.BLUE)]
-};

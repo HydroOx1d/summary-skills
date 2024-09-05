@@ -1,8 +1,8 @@
 import { getProfleRoute } from "@/shared/constants/router";
 import { classNames } from "@/shared/lib/classNames/className";
-import AppLink from "@/shared/ui/AppLink/AppLink";
-import Avatar from "@/shared/ui/Avatar/Avatar";
-import Text from "@/shared/ui/Text/Text";
+import {AppLink} from "@/shared/ui/deprecated/AppLink/AppLink";
+import Avatar from "@/shared/ui/deprecated/Avatar/Avatar";
+import Text from "@/shared/ui/deprecated/Text/Text";
 import React from "react";
 import type { IComment } from "../../model/types/comment";
 import cls from "./CommentCard.module.scss";
