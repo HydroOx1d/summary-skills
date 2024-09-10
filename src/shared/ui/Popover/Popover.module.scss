@@ -1,4 +1,4 @@
-.Popover {
+.PopoverDeprecated {
   position: relative;
   display: inline-block;
 }
@@ -11,7 +11,7 @@
   width: auto;
 }
 
-.panel {
+.panelDeprecated {
   position: absolute;
   z-index: 10;
   width: auto;
@@ -19,6 +19,28 @@
   flex-direction: column;
   background-color: var(--bg-color);
   color: var(--primary-color);
+  border-radius: 4px;
+}
+
+.Popover {
+  position: relative;
+
+  .primary {
+    background-color: var(--dropdown-color-primary);
+  }
+
+  .clear {
+    background-color: transparent;
+  }
+}
+
+.panel {
+  position: absolute;
+  z-index: 10;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--main-font-color);
   border-radius: 4px;
 }
 

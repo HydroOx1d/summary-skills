@@ -1,3 +1,11 @@
+## Authorization
+Here are login and password for testing app completely
+
+```
+login - test
+password - 123
+```
+
 ## Start project
 
 ```bash

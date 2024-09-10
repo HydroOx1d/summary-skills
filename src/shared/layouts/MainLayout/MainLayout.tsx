@@ -19,10 +19,10 @@ const MainLayout = (props: MainLayoutProps) => {
 
 	return (
 		<div className={classNames(cls.MainLayout, {}, [className])}>
-			<div className={cls.sidebar}>{sidebar}</div>
+			<aside className={cls.sidebar}>{sidebar}</aside>
 			<div className={cls.content}>
-				<div className={cls.header}>{header}</div>
-				<div className={cls.main}>{main}</div>
+				<header className={cls.header}>{header}</header>
+				<main className={cls.main}>{main}</main>
 			</div>
 		</div>
 	);

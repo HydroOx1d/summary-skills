@@ -1,5 +1,19 @@
-.NotificationItem {
+.NotificationItemDeprecated {
   border: 1px solid var(--primary-color);
   border-radius: 4px;
   padding: 5px;
+}
+
+.NotificationItem {
+  background-color: var(--dropdown-color-primary);
+  border-radius: 7px;
+  padding: 12px;
+}
+
+.markIcon {
+  color: var(--accent-color);
+}
+
+.headerText {
+  font-weight: 600;
 }

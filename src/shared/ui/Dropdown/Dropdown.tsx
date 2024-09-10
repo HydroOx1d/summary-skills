@@ -2,8 +2,9 @@ import { Menu } from "@headlessui/react";
 import cls from "./Dropdown.module.scss";
 import { classNames } from "@/shared/lib/classNames/className";
 import { Fragment, ReactNode } from "react";
-import {AppLink} from "../AppLink/AppLink";
+import {AppLink} from "../deprecated/AppLink/AppLink";
 import { DropdownDirection } from "@/shared/types";
+import { toggleFeature } from "@/shared/lib/features/toggleFeature";
 
 export type DropdownItem = {
   disabled?: boolean;
@@ -19,10 +20,6 @@ interface DropdownProps {
 	direction?: DropdownDirection; 
 }
 
-/**
- * @deprecated
- * Устаревший компонент
-*/
 function Dropdown(props: DropdownProps) {
 	const {
 		className,
@@ -38,8 +35,14 @@ function Dropdown(props: DropdownProps) {
 		"top right": cls.top_right,
 	};
 
+	const dropdownClassname = toggleFeature({
+		name: "isAppRedesigned",
+		on: () => cls.Dropdown,
+		off: () => cls.DropdownDeprecated
+	});
+
 	return (
-		<Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
+		<Menu as="div" className={classNames(dropdownClassname, {}, [className])}>
 			<Menu.Button className={cls.btn}>
 				{trigger}
 			</Menu.Button>

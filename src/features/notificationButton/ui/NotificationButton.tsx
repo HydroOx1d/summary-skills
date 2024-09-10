@@ -1,13 +1,16 @@
-import React from "react";
-import { classNames } from "@/shared/lib/classNames/className";
-import cls from "./NotificationButton.module.scss";
-import NotificationIcon from "@/shared/assets/icons/notification-line.svg";
-import Popover from "@/shared/ui/deprecated/Popover/Popover";
 import { NotificationList } from "@/entity/Notification";
-import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
+import NotificationIconDeprecated from "@/shared/assets/icons/notification-line.svg";
+import NotificationIcon from "@/shared/assets/icons/icon-notify.svg";
+import { classNames } from "@/shared/lib/classNames/className";
+import ButtonDeprecated, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import Drawer from "@/shared/ui/deprecated/Drawer/Drawer";
+import Popover from "@/shared/ui/Popover/Popover";
+import React from "react";
 import { useMediaQuery } from "react-responsive";
-import { AnimationProvider } from "@/shared/lib/providers/AnimationProvider";
+import cls from "./NotificationButton.module.scss";
+import { ToggleFeature } from "@/shared/lib/features/ToggleFeature/ToggleFeature";
+import Button from "@/shared/ui/Button/Button";
+import { toggleFeature } from "@/shared/lib/features/toggleFeature";
 
 interface NotificationButtonProps {
   className?: string;
@@ -32,10 +35,26 @@ const NotificationButton = (props: NotificationButtonProps) => {
 	}, []);
 
 	const notificationTrigger = (
-		<Button theme={ButtonTheme.CLEAR} onClick={onDrawerOpenHandle}>
-			<NotificationIcon width={24} height={24} className={cls.notificationIcon}/>
-		</Button>
+		<ToggleFeature
+			name="isAppRedesigned"
+			on={
+				<Button variant="clear" onClick={onDrawerOpenHandle}>
+					<NotificationIcon width={24} height={23} className={cls.notificationIcon}/>
+				</Button>
+			}
+			off={
+				<ButtonDeprecated theme={ButtonTheme.CLEAR} onClick={onDrawerOpenHandle}>
+					<NotificationIconDeprecated width={24} height={24} className={cls.notificationIconDeprecated}/>
+				</ButtonDeprecated>
+			}
+		/>
 	);
+
+	const notificationButtonClassname = toggleFeature({
+		name: "isAppRedesigned",
+		on: () => cls.NotificationButton,
+		off: () => cls.NotificationButtonDeprecated
+	});
 
 	return (
 		<>
@@ -49,9 +68,10 @@ const NotificationButton = (props: NotificationButtonProps) => {
 			)}
 			{isDesktop && (
 				<Popover
-					className={classNames(cls.NotificationButton, {}, [className])}
+					className={classNames(notificationButtonClassname, {}, [className])}
 					trigger={notificationTrigger} 
 					direction="bottom right"
+					panelVariant="clear"
 				>
 					<NotificationList className={cls.notifications}/>
 				</Popover>

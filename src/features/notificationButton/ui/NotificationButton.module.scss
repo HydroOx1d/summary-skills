@@ -1,12 +1,22 @@
 
-.NotificationButton{
+.NotificationButtonDeprecated{
+  display: flex!important;
+  align-items: center;
+  justify-content: center;
+}
+
+.notificationIconDeprecated {
+  fill:  var(--secondary-inverted-color);
+}
+
+.NotificationButton {
   display: flex!important;
   align-items: center;
   justify-content: center;
 }
 
 .notificationIcon {
-  fill:  var(--secondary-inverted-color);
+  color: var(--main-font-color);
 }
 
 .notifications {

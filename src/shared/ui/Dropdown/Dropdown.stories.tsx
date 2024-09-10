@@ -1,6 +1,13 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import Dropdown from "./Dropdown";
-import Button from "../Button/Button";
+import Button from "../deprecated/Button/Button";
+import { setFeatureFlags } from "@/shared/lib/features/setAndGetFeatureFlags";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator";
+import { Theme } from "@/shared/constants/theme";
+
+setFeatureFlags({
+	isAppRedesigned: true
+});
 
 const meta: Meta<typeof Dropdown> = {
 	title: "shared/Dropdown",
@@ -21,7 +28,20 @@ const meta: Meta<typeof Dropdown> = {
 		]
 	},
 	decorators: [
-		(Story) => <div style={{display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh"}}>{<Story/>}</div>
+		(Story) => (
+			<div
+				style={{
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					minHeight: "100vh",
+				}}
+			>
+				<Story/>
+			</div>
+		),
+		ThemeDecorator(Theme.LIGHT)
+
 	]
 };
 

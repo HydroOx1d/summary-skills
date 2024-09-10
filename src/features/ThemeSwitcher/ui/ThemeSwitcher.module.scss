@@ -1,3 +1,7 @@
-.icon {
+.iconDeprecated {
   path {fill: var(--bg-color);}
+}
+
+.icon {
+  color: var(--main-font-color);
 }

@@ -26,6 +26,11 @@
   background-color: transparent;
   border: none;
   color: var(--button-color-secondary);
+  transition: all 150ms linear;
+
+  &:hover {
+    color: #40808a;
+  }
 }
 
 .app_light_theme {

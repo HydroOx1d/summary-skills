@@ -3,23 +3,24 @@ import { PropsWithChildren, ReactNode } from "react";
 import cls from "./Popover.module.scss";
 import { classNames } from "@/shared/lib/classNames/className";
 import { DropdownDirection } from "@/shared/types";
+import { toggleFeature } from "@/shared/lib/features/toggleFeature";
+
+type PopoverPanelVariant = "primary" | "clear"
 
 interface PopoverProps {
   trigger?: ReactNode;
   className?: string;
 	direction?: DropdownDirection;
+	panelVariant?: PopoverPanelVariant
 }
 
-/**
- * @deprecated
- * Устаревший компонент
-*/
 const Popover = (props: PropsWithChildren<PopoverProps>) => {
 	const {
 		className,
 		trigger,
 		children,
-		direction = "bottom left"
+		direction = "bottom left",
+		panelVariant = "primary"
 	} = props;
 
 	const directionCls: Record<DropdownDirection, string> = {
@@ -29,13 +30,25 @@ const Popover = (props: PropsWithChildren<PopoverProps>) => {
 		"top right": cls.top_right,
 	};
 
+	const panelClassname = toggleFeature({
+		name: "isAppRedesigned",
+		on: () => cls.panel,
+		off: () => cls.panelDeprecated,
+	});
+
+	const popoverClassname = toggleFeature({
+		name: "isAppRedesigned",
+		on: () => cls.Popover,
+		off: () => cls.PopoverDeprecated,
+	});
+
 	return (
-		<HPopover className={classNames(cls.Popover, {}, [className])}>
+		<HPopover className={classNames(popoverClassname, {}, [className])}>
 			<HPopover.Button as="div" className={cls.trigger}>
 				{trigger}
 			</HPopover.Button>
 
-			<HPopover.Panel className={classNames(cls.panel, {}, [directionCls[direction]])}>
+			<HPopover.Panel className={classNames(panelClassname, {}, [directionCls[direction], cls[panelVariant]])}>
 				{children}
 			</HPopover.Panel>
 		</HPopover>
