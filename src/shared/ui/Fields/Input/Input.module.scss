@@ -1,0 +1,82 @@
+.InputDeprecated {
+  appearance: none;
+  border: 1px solid var(--primary-color);
+  outline: none;
+  min-height: 35px;
+  font: var(--font-m);
+  background: var(--bg-color);
+  color: var(--primary-color);
+
+  .readonly {
+    opacity: .7;
+    pointer-events: none;
+  }
+}
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.prefix,
+.suffix {
+  width: 18px;
+  height: 18px;
+}
+
+.prefix {
+  margin-right: 4px;
+}
+
+.suffix {
+  margin-left: 4px;
+}
+
+.Input {
+  display: inline-flex;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  min-height: 40px;
+  font: var(--font-sm);
+  padding-left: 4px;
+
+  &::-webkit-calendar-picker-indicator {
+    
+  }
+}
+
+.app_light_theme {
+  background-color: var(--input-color);
+  color: var(--main-font-color);
+
+  &::placeholder {
+    color: var(--secondary-dark-font-color);
+  }
+
+  &:focus {
+    background-color: var(--input-color-active);
+  }
+
+  &.focused {
+    background-color: var(--input-color-active);
+  }
+}
+
+.app_dark_theme {
+  background-color: var(--input-color-tertiary);
+  color: var(--main-font-color);
+
+  &::placeholder {
+    color: var(--secondary-dark-font-color);
+  }
+
+  &:focus {
+    background-color: var(--input-color-active);
+  }
+
+  &.focused {
+    background-color: var(--input-color-active);
+  }
+}
