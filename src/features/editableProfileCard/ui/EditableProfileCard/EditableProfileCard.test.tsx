@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderTestComponent } from "@/shared/lib/tests/renderTestComponent/renderTestComponent";
 import EditableProfileCard from "./EditableProfileCard";
-import { profileReducer } from "../model/slice/profileSlice";
+import { profileReducer } from "../../model/slice/profileSlice";
 import { Profile } from "@/entity/Profile";
 import { Country } from "@/entity/Country";
 import { Currency } from "@/entity/Currency";

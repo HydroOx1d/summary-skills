@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./ProfileCard.module.scss";
 import Text, { TextAlign, TextTheme } from "@/shared/ui/deprecated/Text/Text";
-import Input from "@/shared/ui/deprecated/Input/Input";
+import Input from "@/shared/ui/Fields/Input/Input";
 import type { Profile } from "../../model/types/profileSchema";
 import Loader from "@/shared/ui/deprecated/Loader/Loader";
 import { classNames } from "@/shared/lib/classNames/className";

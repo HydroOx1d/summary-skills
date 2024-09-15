@@ -5,7 +5,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import ReducerLoader from "@/shared/lib/reducerLoader/ReducerLoader";
 import type { ReducersList } from "@/shared/lib/reducerLoader/ReducerLoader";
 import Button, { ButtonTheme, SizesButton } from "@/shared/ui/deprecated/Button/Button";
-import Input from "@/shared/ui/deprecated/Input/Input";
+import Input from "@/shared/ui/Fields/Input/Input";
 import { getNewCommentError, getNewCommentIsLoading, getNewCommentText } from "../../model/selectors/addNewCommentSelectors";
 import { newCommentActions, newCommentReducer } from "../../model/slice/newCommentSlice";
 import cls from "./AddNewCommentForm.module.scss";

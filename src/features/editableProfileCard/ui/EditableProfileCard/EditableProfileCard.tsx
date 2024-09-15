@@ -5,15 +5,15 @@ import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useThunkDispatch } from "@/shared/lib/hooks/useThunkDispatch";
-import { getProfileError } from "../model/selectors/getProfileError/getProfileError";
-import { getProfileForm } from "../model/selectors/getProfileForm/getProfileForm";
-import { getProfileIsLoading } from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { getProfileReadonly } from "../model/selectors/getProfileReadonly/getProfileReadonly";
-import { getProfileValidateError } from "../model/selectors/getProfileValidateError/getProfileValidateError";
-import { fetchProfileData } from "../model/services/fetchProfileData/fetchProfileData";
-import { profileActions, profileReducer } from "../model/slice/profileSlice";
+import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
+import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm";
+import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
+import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly";
+import { getProfileValidateError } from "../../model/selectors/getProfileValidateError/getProfileValidateError";
+import { fetchProfileData } from "../../model/services/fetchProfileData/fetchProfileData";
+import { profileActions, profileReducer } from "../../model/slice/profileSlice";
 import ReducerLoader, { ReducersList } from "@/shared/lib/reducerLoader/ReducerLoader";
-import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
+import ProfilePageHeader from "../ProfilePageHeader/ProfilePageHeader";
 import VStack from "@/shared/ui/Stack/VStack/VStack";
 
 const initialReducers: ReducersList = {
@@ -99,7 +99,7 @@ const EditableProfileCard = (props: EditableProfileCardProps) => {
 	return (
 		<ReducerLoader reducers={initialReducers} removeAfterUnmount>
 			<VStack gap="16">
-				<ProfilePageHeader />
+				{/* <ProfilePageHeader /> */}
 				<ProfileCard
 					data={data}
 					isLoading={isLoading}

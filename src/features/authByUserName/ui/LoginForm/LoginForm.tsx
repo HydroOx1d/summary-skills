@@ -2,7 +2,7 @@ import React from "react";
 import cls from "./LoginForm.module.scss";
 import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import { useTranslation } from "react-i18next";
-import Input from "@/shared/ui/deprecated/Input/Input";
+import Input from "@/shared/ui/Fields/Input/Input";
 import { useDispatch, useSelector } from "react-redux";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";

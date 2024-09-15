@@ -7,7 +7,7 @@ import Text from "@/shared/ui/deprecated/Text/Text";
 import StarRating from "@/shared/ui/deprecated/StarRating/StarRating";
 import VStack from "@/shared/ui/Stack/VStack/VStack";
 import Modal from "@/shared/ui/deprecated/Modal/Modal";
-import Input from "@/shared/ui/deprecated/Input/Input";
+import Input from "@/shared/ui/Fields/Input/Input";
 import Button, { ButtonTheme } from "@/shared/ui/deprecated/Button/Button";
 import HStack from "@/shared/ui/Stack/HStack/HStack";
 import { useMediaQuery } from "react-responsive";

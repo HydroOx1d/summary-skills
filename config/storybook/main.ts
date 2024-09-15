@@ -49,7 +49,24 @@ const config: StorybookConfig = {
 
 		config!.module!.rules.push({
 			test: /\.svg$/,
-			use: ["@svgr/webpack"],
+			use: [
+				{
+					loader: "@svgr/webpack",
+					options: {
+						icon: true,
+						svgoConfig: {
+							plugins: [
+								{
+									name: "convertColors",
+									params: {
+										currentColor: true
+									}
+								}
+							]
+						}
+					}
+				}
+			],
 		});
 
 		config!.plugins!.push(
