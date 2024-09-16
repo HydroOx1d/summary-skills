@@ -43,7 +43,6 @@
   min-width: 100px;
   min-height: 40px;
   border-radius: 6px;
-  background-color: var(--input-color);
 
   &.active {
     background-color: var(--input-color-active);
@@ -51,6 +50,17 @@
   }
 }
 
+.app_light_theme {
+  .button {
+    background-color: var(--input-color);
+  }
+}
+
+.app_dark_theme {
+  .button {
+    background-color: var(--input-color-tertiary);
+  }
+}
 
 .buttonIcon {
   transition: transform 150ms linear;

@@ -1,17 +1,19 @@
-import React from "react";
-import cls from "./ProfileCard.module.scss";
-import Text, { TextAlign, TextTheme } from "@/shared/ui/deprecated/Text/Text";
-import Input from "@/shared/ui/Fields/Input/Input";
-import type { Profile } from "../../model/types/profileSchema";
-import Loader from "@/shared/ui/deprecated/Loader/Loader";
-import { classNames } from "@/shared/lib/classNames/className";
-import { useTranslation } from "react-i18next";
-import Avatar from "@/shared/ui/deprecated/Avatar/Avatar";
-import { Currency, CurrencySelect } from "@/entity/Currency";
 import { Country, CountrySelect } from "@/entity/Country";
-import VStack from "@/shared/ui/Stack/VStack/VStack";
+import { Currency, CurrencySelect } from "@/entity/Currency";
+import { classNames } from "@/shared/lib/classNames/className";
+import { ToggleFeature } from "@/shared/lib/features/ToggleFeature/ToggleFeature";
+import AppImage from "@/shared/ui/AppImage/AppImage";
+import Loader from "@/shared/ui/deprecated/Loader/Loader";
+import TextDeprecated, { TextAlign, TextTheme } from "@/shared/ui/deprecated/Text/Text";
+import Input from "@/shared/ui/Fields/Input/Input";
 import HStack from "@/shared/ui/Stack/HStack/HStack";
+import VStack from "@/shared/ui/Stack/VStack/VStack";
+import Text from "@/shared/ui/Text/Text";
+import React from "react";
 import { ValidateProfileError } from "../../model/consts/profile";
+import type { Profile } from "../../model/types/profileSchema";
+import ProfileCardDeprecated from "../ProfileCardDeprecated/ProfileCardDeprecated";
+import cls from "./ProfileCard.module.scss";
 
 interface ProfileCardProps {
   data?: Profile;
@@ -30,7 +32,6 @@ interface ProfileCardProps {
 }
 
 const ProfileCard = (props: ProfileCardProps) => {
-	const {t} = useTranslation("profile");
 	const {
 		data,
 		error,
@@ -58,7 +59,7 @@ const ProfileCard = (props: ProfileCardProps) => {
 	if (error) {
 		return (
 			<div className={classNames(cls.ProfileCard, {}, [cls.error])}>
-				<Text title="Что-то пошло не так" text="Пожалуйста, обновите страницу" theme={TextTheme.ERROR} align={TextAlign.CENTER}/>
+				<TextDeprecated title="Что-то пошло не так" text="Пожалуйста, обновите страницу" theme={TextTheme.ERROR} align={TextAlign.CENTER}/>
 			</div>
 		);
 	}
@@ -71,72 +72,56 @@ const ProfileCard = (props: ProfileCardProps) => {
 	};
   
 	return (
-		<VStack gap="16" className={cls.ProfileCard}>
-			<HStack justify="center" align="center">
-				<Avatar src={data?.avatar} alt="Avatar" />
-			</HStack>
-			<VStack gap="16">
-				{validateErrors?.length ? validateErrors.map(error => {
-					return (
-						<Text text={errorsMapping[error]} key={error} data-testid="ProfileCard.Error"/>
-					);
-				}) : null}
-				<Input
+		<ToggleFeature
+			name="isAppRedesigned"
+			on={
+				<VStack gap="32" className={cls.ProfileCard}>
+					<HStack gap="16">
+						<div className={classNames(cls.avatar, {}, ["_ibg"])}>
+							<AppImage src={data?.avatar}/>
+						</div>
+						<VStack gap="16" className={cls.info} justify="around">
+							<Text className={cls.title} tag="h4">Личные данные</Text>
+							<HStack gap="16">
+								<Input value={data?.name} placeholder="Имя" onChange={onUpdateProfileName} readonly={readonly} className={cls.input}/>
+								<Input value={data?.surname} placeholder="Фамилия" onChange={onUpdateProfileSurname} readonly={readonly} className={cls.input}/>
+							</HStack>
+							<HStack gap="16">
+								<Input value={data?.age} placeholder="Возраст" onChange={onUpdateProfileAge} readonly={readonly} className={cls.input}/>
+								<Input value={data?.city} placeholder="Город" onChange={onUpdateProfileCity} readonly={readonly} className={cls.input}/>
+							</HStack>
+						</VStack>
+					</HStack>
+					<VStack gap="16">
+						<Text className={cls.title} tag="h4">Настройки пользователя</Text>
+						<HStack gap="16">
+							<Input value={data?.username} placeholder="Имя пользователя" onChange={onUpdateProfileUsername} readonly={readonly} className={cls.input}/>
+							<Input value={data?.avatar} placeholder="Аватар" onChange={onUpdateProfileAvatar} readonly={readonly} className={cls.input}/>
+						</HStack>
+						<HStack gap="16">
+							<CurrencySelect readonly={readonly} value={data?.currency} onChange={onUpdateProfileCurrency}/>
+							<CountrySelect readonly={readonly} value={data?.country} onChange={onUpdateProfileCountry}/>
+						</HStack> 
+					</VStack>
+				</VStack>
+			}
+			off={
+				<ProfileCardDeprecated
+					data={data}
 					readonly={readonly}
-					className={cls.input}
-					value={data?.name}
-					onChange={onUpdateProfileName}
-					placeholder={t("profileFieldName")}
-					data-testid="ProfileCard.NameInput"
+					validateErrors={validateErrors}
+					onUpdateProfileName={onUpdateProfileName}
+					onUpdateProfileSurname={onUpdateProfileSurname}
+					onUpdateProfileAge={onUpdateProfileAge}
+					onUpdateProfileCity={onUpdateProfileCity}
+					onUpdateProfileUsername={onUpdateProfileUsername}
+					onUpdateProfileAvatar={onUpdateProfileAvatar}
+					onUpdateProfileCurrency={onUpdateProfileCurrency}
+					onUpdateProfileCountry={onUpdateProfileCountry}
+					errorsMapping={errorsMapping}
 				/>
-				<Input
-					readonly={readonly}
-					className={cls.input}
-					value={data?.surname}
-					onChange={onUpdateProfileSurname}
-					placeholder={t("profileFieldSurname")}
-					data-testid="ProfileCard.SurnameInput"
-				/>
-				<Input
-					readonly={readonly}
-					className={cls.input}
-					value={data?.age}
-					onChange={onUpdateProfileAge}
-					placeholder={t("profileFieldAge")}
-				/>
-				<Input
-					readonly={readonly}
-					className={cls.input}
-					value={data?.city}
-					onChange={onUpdateProfileCity}
-					placeholder={t("profileFieldCity")}
-				/>
-				<Input
-					readonly={readonly}
-					className={cls.input}
-					value={data?.username}
-					onChange={onUpdateProfileUsername}
-					placeholder={t("profileFieldUsername")}
-				/>
-				<Input
-					readonly={readonly}
-					className={cls.input}
-					value={data?.avatar}
-					onChange={onUpdateProfileAvatar}
-					placeholder={t("profileFieldAvatarLink")}
-				/>
-				<CurrencySelect
-					readonly={readonly}
-					value={data?.currency}
-					onChange={onUpdateProfileCurrency}
-				/>
-				<CountrySelect
-					readonly={readonly}
-					value={data?.country}
-					onChange={onUpdateProfileCountry}
-				/>
-			</VStack>
-		</VStack>
+			}
+		/>
 	);
 };
 

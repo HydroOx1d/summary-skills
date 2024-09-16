@@ -1,5 +1,5 @@
 import React from "react";
-import ListBox from "@/shared/ui/deprecated/ListBox/ListBox";
+import ListBox from "@/shared/ui/ListBox/ListBox";
 import { Country } from "../../model/types/country";
 
 const countryOptions = [

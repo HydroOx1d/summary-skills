@@ -2,7 +2,7 @@ import React from "react";
 import { classNames } from "@/shared/lib/classNames/className";
 import cls from "./Flex.module.scss";
 
-type FlexJustify = "flex-start" | "center" | "flex-end" | "between";
+type FlexJustify = "flex-start" | "center" | "flex-end" | "between" | "around";
 type FlexAlign = "flex-start" | "center" | "flex-end" | "stretch";
 type FlexDirection = "row" | "column";
 type FlexGap = "4" | "8" | "16" | "32"
@@ -12,6 +12,7 @@ const justifyClasses: Record<FlexJustify, string> = {
 	"flex-end": cls.justifyEnd,
 	"between": cls.justifyBetween,
 	"center": cls.justifyCenter,
+	"around": cls.justifyAround
 };
 
 const alignClasses: Record<FlexAlign, string> = {

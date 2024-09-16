@@ -7,6 +7,7 @@ import CaretDown from "../../assets/icons/caret-down.svg";
 import HStack from "../Stack/HStack/HStack";
 import Text from "../Text/Text";
 import cls from "./ListBox.module.scss";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 type ListBoxOption<T extends string> = {
 	value: T;
@@ -31,15 +32,16 @@ function ListBox<T extends string>(props: ListBoxProps<T>) {
 	} = props;
 
 	const onHandleChange = useCallback((value: T) => {
-		console.log(value);
 		onChange?.(value);
 	}, [onChange]);
+
+	const {theme} = useTheme();
 
 	return (
 		<ToggleFeature
 			name="isAppRedesigned"
 			on={
-				<Listbox value={value} onChange={onHandleChange} as="div" className={classNames(cls.ListBox, {[cls.readonly]: readonly}, [className])} disabled={readonly}>
+				<Listbox value={value} onChange={onHandleChange} as="div" className={classNames(cls.ListBox, {[cls.readonly]: readonly}, [className, cls[theme ?? ""]])} disabled={readonly}>
 					<Listbox.Button className={({open}) => classNames(cls.button, {[cls.active]: open})}>
 						{({open, value}) => (
 							<HStack gap="4" align="center" justify="center">

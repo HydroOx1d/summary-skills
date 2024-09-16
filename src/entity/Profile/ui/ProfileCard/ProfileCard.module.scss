@@ -1,8 +1,12 @@
 .ProfileCard {
-  padding: 20px;
-  border: 1px solid var(--primary-color);
-}
+  .avatar {
+    width: 135px;
+    height: 175px;
+    border-radius: 7px;
+    overflow: hidden;
+  }
 
-.loading {
-  min-height: 200px;
+  .title {
+    font-weight: 600;
+  }
 }
