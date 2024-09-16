@@ -17,7 +17,7 @@ interface InputProps extends InputTypes {
 	suffix?: React.ReactNode;
 }
 
-const Input = React.memo((props: InputProps) => {
+const Input = (props: InputProps) => {
 	const {
 		className,
 		value,
@@ -48,6 +48,7 @@ const Input = React.memo((props: InputProps) => {
 			className={classNames(inputClassname, {[cls.readonly]: readonly}, [className, cls[theme ?? ""]])} 
 			value={value} 
 			onChange={onChangeHandler}
+			disabled={readonly}
 			{...otherProps}
 		/>
 	);
@@ -63,8 +64,6 @@ const Input = React.memo((props: InputProps) => {
 	}
 
 	return inputHtml;
-});
+};
 
-Input.displayName = "Input";
-
-export default Input;
+export default React.memo(Input);
