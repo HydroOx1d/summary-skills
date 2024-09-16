@@ -1,0 +1,85 @@
+.ListBoxDeprecated {
+  width: 100%;
+
+  .button_wrap {
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .options {
+    background-color: var(--bg-inverted-color);
+  }
+
+  .option {
+    color: var(--primary-inverted-color);
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+
+  .readonly {
+    opacity: .7;
+  }
+}
+
+.ListBox {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+  all: unset;
+  cursor: pointer;
+  min-width: 100px;
+  min-height: 40px;
+  border-radius: 6px;
+  background-color: var(--input-color);
+
+  &.active {
+    background-color: var(--input-color-active);
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+
+.buttonIcon {
+  transition: transform 150ms linear;
+
+  &.active {
+    transform: rotate(180deg);
+  }
+}
+
+.options {
+  background-color: var(--dropdown-color-primary);
+  border-radius: 0 0 6px 6px;
+  position: absolute;
+  width: 100%;
+}
+
+.option {
+  padding: 4px;
+  min-height: 40px;
+  cursor: pointer;
+  transition: all 150ms linear;
+
+  &:hover {
+    background-color: var(--input-color-active);
+  }
+}
+
+.optionText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
